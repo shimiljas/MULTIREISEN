@@ -11,7 +11,8 @@ import Book from '../container/Home/Book';
 import Booking from '../container/Home/Booking';
 import Account from '../container/Home/Account';
 import FlightSearch from '../container/Home/FlightSearch'
-
+import HotelSearch from '../container/Home/HotelSearch'
+import HotelDetail from '../container/Home/HotelDetail'
 
 
 import { Actions, Router, Stack, Scene, Drawer } from 'react-native-router-flux';
@@ -72,7 +73,7 @@ class RootNavigation extends React.Component {
 
                         <Scene
                             key='login'
-                            initial
+
                             component={LoginScreen}
                             title='Login'
                             hideNavBar={true}
@@ -82,6 +83,22 @@ class RootNavigation extends React.Component {
                             key='register'
                             component={SignupScreen}
                             title='Register'
+                            hideNavBar={true}
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
+                        <Scene
+                            key='HotelDetail'
+                            initial
+                            component={HotelDetail}
+                            title='HotelDetail'
+                            hideNavBar={true}
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
+                        <Scene
+                            key='HotelSearch'
+
+                            component={HotelSearch}
+                            title='HotelSearch'
                             hideNavBar={true}
                             sceneStyle={{ backgroundColor: 'white' }}
                         />

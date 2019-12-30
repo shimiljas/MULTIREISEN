@@ -69,7 +69,7 @@ export default class FlightSearch extends Component {
                     </ImageBackground>
 
                 </View>
-                <View style={{ flex: 7.6, alignItems: 'center', paddingTop: 10 }}>
+                <View style={{ flex: 7.6, alignItems: 'center', paddingTop: 10, }}>
                     <View style={{ width: '100%', height: '100%', alignItems: 'center', }}>
                         <ScrollView showsVerticalScrollIndicator={false}>
                             <ResultCard />

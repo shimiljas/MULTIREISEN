@@ -22,7 +22,7 @@ export default class ResultCard extends Component {
     render() {
         return (
             <View style={styles.rectangle55} >
-                <View style={{ flex: 2, flexDirection: 'row', alignItems: 'center', paddingTop: 10 }}>
+                <View style={{ flex: 2, flexDirection: 'row', alignItems: 'center', paddingTop: 10, marginVertical: 10 }}>
                     <View style={{ flex: 1, paddingLeft: 15 }}>
                         <Image source={Images.airlines} style={styles.ellipse28} resizeMode={'contain'} />
                     </View>
@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
         width: scale(310),
         marginHorizontal: 10,
         borderRadius: 10,
+        marginTop: 30,
         height: verticalScale(250),
         borderRadius: 12,
         borderColor: '#ececec',
