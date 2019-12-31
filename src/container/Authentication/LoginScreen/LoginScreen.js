@@ -12,8 +12,12 @@ import { fonts } from '../../../config/fonts';
 import { normalize } from '../../../utils/Fontnormalize';
 import { Actions } from 'react-native-router-flux'
 
+import HotelFilterModal from '../../../modal/HotelFilterModal'
+import RoomDetailModal from '../../../modal/RoomDetailModal'
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
+import Step from '../../../components/Step'
+import InputDropDown from '../../../components/InputDropDown'
 export default class LoginScreen extends Component {
     render() {
         return (
@@ -60,6 +64,14 @@ export default class LoginScreen extends Component {
                         onPress={() => Actions.register()}
                         style={{ fontFamily: fonts.fontPrimaryLight, fontSize: normalize(14) }}>Register ?</Text>
                 </View>
+                {/* 
+                <InputDropDown
+                    DESTRUCTIVE_INDEX={3}
+                    CANCEL_INDEX={4}
+                    placeholder={'Country'}
+
+                /> */}
+
 
             </ImageBackground >
 

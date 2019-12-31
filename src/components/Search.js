@@ -6,7 +6,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { colors } from '../config/colors';
 import { fonts } from '../config/fonts'
 import { normalize } from '../utils/Fontnormalize'
-const Input = ({
+const Search = ({
     style,
     label,
     autoFocus,
@@ -33,7 +33,11 @@ const Input = ({
 }) => {
     return (
         <View style={styles.inputcontainer}>
-            <View style={{ flex: 9, justifyContent: 'center', }}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
+                {icon}
+            </View>
+
+            <View style={{ flex: 9, justifyContent: 'center', marginLeft: 10 }}>
                 <TextInput
                     style={{
                         fontFamily: fonts.fontPrimaryLight,
@@ -50,23 +54,21 @@ const Input = ({
                     onChangeText={onChangeText}
                 />
             </View>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
-                {icon}
-            </View>
 
 
         </View>
-    );
+    )
+
 }
-export default Input
+
+
+export default Search
 
 const styles = StyleSheet.create({
     inputcontainer: {
         width: '100%',
         height: scale(40),
-        borderBottomWidth: 1,
         marginVertical: 20,
-        borderColor: colors.borderColor,
         flexDirection: 'row'
     }
 })

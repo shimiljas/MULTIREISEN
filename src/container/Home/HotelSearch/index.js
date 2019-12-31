@@ -13,92 +13,70 @@ import { Actions } from 'react-native-router-flux'
 import { colors } from '../../../config/colors';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Touchable from '../../../components/Tochable'
-
-
+import { verticalScale } from '../../../utils/Responsive';
+import Search from '../../../components/Search'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
+import HotelCard from "../../../components/HotelCard"
 export default class SignupScreen extends Component {
     render() {
         return (
 
-            <ImageBackground source={Images.loginpage} style={{ width: '100%', height: '100%', }}>
-                <Touchable
-                    style={{
-                        flex: 1,
-                        width: 50, height: 50,
-                        position: 'absolute',
-                        top: 50,
-                        alignItems: 'center', justifyContent: 'center'
-                    }} onPress={() => Actions.pop()}>
-                    <Ionicons name="md-arrow-back" color={colors.white} size={35} />
-                </Touchable>
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 30 }}>
-                    <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(25), color: 'white' }} >
-                        Hotel Search Result
-                       </Text>
-                </View>
-                <View style={{
-                    width: 350, marginLeft: 17, justifyContent: "center", alignItems: "center",
-                    height: 50, backgroundColor: "white", borderRadius: 40, paddingRight: 20, paddingLeft: 20
-                }}>
-                    <Input
-                        placeholder={"Hotel . City . Country"}
-                        icon={<AntDesign name="search1" color={"black"} size={25} />}
-                    />
-                </View>
-                <View style={{
-                    flex: 2.5, backgroundColor: 'white', minHeight: 100,
-                    marginHorizontal: scale(20), borderRadius: 10, marginTop: 30
-                }}>
-                    <View style={{ flex: 6, }}>
-                        <Image
+            <View style={{ flex: 1, }}>
+                <View style={{ flex: 2.4, }}>
+                    <ImageBackground source={Images.header}
+                        resizeMode={'stretch'}
+                        style={{ width: '100%', height: 180, paddingBottom: 10 }}>
+                        <View style={{
+                            width: '100%', height: 80,
+                            justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
+                            paddingHorizontal: 10
+                        }} >
+                            <Touchable
+                                onPress={() => Actions.pop()}
+                                style={{ flex: 8, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                                <Ionicons name="md-arrow-back" color={colors.white} size={35} />
+                                <Text style={styles.text}>Hotel Search Result</Text>
+                            </Touchable>
+                            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                            </View>
+                            <View style={{ flex: 1, marginRight: scale(30) }}>
+                            </View>
 
-                            style={{ flex: 1, borderRadius: 8 }}
-                            source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ARooStZJvyeIRk4VPOtEhmgxwGwQUQy27OBnEm8N_2EEUBEYRA&s' }}
-                        />
-                    </View>
-                    <View style={{ flex: 4, flexDirection: "row", overflow: 'hidden' }}>
-                        <View style={{ flex: 6, marginLeft: 20, marginBottom: 15, justifyContent: "center" }}>
-                            <Text style={styles.Hdng}>Hitman Ramos</Text>
-                            <Text>India.Calicut</Text>
                         </View>
-                        <View style={{ flex: 4, alignItems: 'flex-start', justifyContent: "center", marginRight: 20 }}>
-                            <ImageBackground source={Images.redbutton} style={styles.rectangle1750} >
-                                <Text style={styles.usdAdult}>313.33 USD/adult</Text>
-                                <Text style={styles.includesFare}> includes: Fare + taxes</Text>
-                            </ImageBackground>
+                        <View style={{
+                            height: verticalScale(35),
+                            backgroundColor: 'transparent',
+                            flexDirection: 'row',
+                            position: 'relative',
+                            bottom: -150,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+
+
+                        }}>
+                            <View style={{
+                                width: 350, marginLeft: 17, justifyContent: "center", alignItems: "center",
+                                height: 50, backgroundColor: "white", borderRadius: 40, paddingRight: 20, paddingLeft: 20
+                            }}>
+                                <Search
+                                    placeholder={"Hotel . City . Country"}
+                                    icon={<AntDesign name="search1" color={"black"} size={25} />}
+                                />
+                            </View>
+
                         </View>
-                    </View>
+                    </ImageBackground>
+
                 </View>
+                <View style={{ flex: 7.6 }}>
+                    <ScrollView style={{ width: '100%', height: "100%" }}>
+                        < HotelCard />
+                        < HotelCard />
+                        < HotelCard />
+                    </ScrollView>
 
-                <View style={{
-                    flex: 2.5, backgroundColor: 'white', minHeight: 100,
-                    marginHorizontal: scale(20), borderRadius: 10, marginTop: 30
-                }}>
-                    <View style={{ flex: 6, }}>
-                        <Image
-
-                            style={{ flex: 1, borderRadius: 8 }}
-                            source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEqj-QBUopWP-hcf_tnbkFlbndHMmDLDYhDNsapv0tNltDwXb-&s' }}
-                        />
-                    </View>
-                    <View style={{ flex: 4, flexDirection: "row", overflow: 'hidden', }}>
-                        <View style={{ flex: 6, marginLeft: 20, marginBottom: 15, justifyContent: "center" }}>
-                            <Text style={styles.Hdng}>Royal Ramos</Text>
-                            <Text>India.Calicut</Text>
-                        </View>
-                        <View style={{ flex: 4, alignItems: 'flex-start', justifyContent: "center", marginRight: 20 }}>
-                            <ImageBackground source={Images.redbutton} style={styles.rectangle1750} >
-                                <Text style={styles.usdAdult}>313.33 USD/adult</Text>
-                                <Text style={styles.includesFare}> includes: Fare + taxes</Text>
-                            </ImageBackground>
-                        </View>
-                    </View>
                 </View>
-
-
-                <View style={{ flex: 2.5, }}>
-                </View>
-            </ImageBackground >
+            </View>
         )
     }
 }
@@ -136,6 +114,40 @@ const styles = StyleSheet.create({
         color: '#fdfdfd',
         fontFamily: 'Poppins',
         fontSize: 8,
+        fontWeight: '400',
+    },
+    multireisen: {
+        color: '#ffffff',
+        fontFamily: fonts.fontPrimaryLight,
+        fontSize: normalize(18),
+        fontWeight: '600',
+    },
+
+    text: {
+        color: '#ffffff',
+        fontFamily: fonts.fontPrimaryBold,
+        fontSize: 20,
+        fontWeight: '700',
+        letterSpacing: 0.17,
+        marginLeft: 20
+
+    },
+    path1227: {
+        width: 150,
+        height: 40,
+        shadowColor: 'rgba(0, 0, 0, 0.08)',
+        shadowOffset: { width: 3, height: 0 },
+        borderRadius: 25,
+        shadowRadius: 16,
+        backgroundColor: '#ffffff',
+        marginHorizontal: 8,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    business: {
+        color: '#313450',
+        fontFamily: fonts.fontPrimaryLight,
+        fontSize: 10,
         fontWeight: '400',
     },
 })
