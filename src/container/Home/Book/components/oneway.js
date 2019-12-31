@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, ImageBackground, Text, StyleSheet } from 'react-native'
+import { View, Image, ImageBackground, Text, StyleSheet, } from 'react-native'
 import Images from '../../../../resources/images'
 import Button from '../../../../components/Button'
 import Input from '../../../../components/Input'
@@ -18,12 +18,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import LargeButton from '../../../../components/LargeButton'
 import Touchable from '../../../../components/Tochable';
 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
+
 
 export default class OneWay extends Component {
     render() {
         return (
             <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center' }}>
                 <View style={styles.rectangle76}>
+
                     <InputIcon
                         placeholder={'Depart from'}
                         icon={<MaterialIcons name="flight-takeoff" size={25} color={'#898a8f'} />} />
@@ -47,7 +50,9 @@ export default class OneWay extends Component {
                     <InputIcon
                         placeholder={'Select your class'}
                         icon={<Entypo name="chevron-down" size={25} color={'#898a8f'} />} />
+
                 </View>
+
             </View>
         )
     }

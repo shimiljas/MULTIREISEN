@@ -13,8 +13,8 @@ import Account from '../container/Home/Account';
 import FlightSearch from '../container/Home/FlightSearch'
 import HotelSearch from '../container/Home/HotelSearch'
 import HotelDetail from '../container/Home/HotelDetail'
-
-
+import HotelChekout from '../container/Home/HotelChekout'
+import HotelCart from '../container/Home/HotelCart'
 import { Actions, Router, Stack, Scene, Drawer } from 'react-native-router-flux';
 import { colors } from '../config/colors';
 import { isIphoneX } from 'react-native-iphone-x-helper';
@@ -75,7 +75,7 @@ class RootNavigation extends React.Component {
 
                         <Scene
                             key='login'
-                            initial
+
                             component={LoginScreen}
                             title='Login'
                             hideNavBar={true}
@@ -89,8 +89,24 @@ class RootNavigation extends React.Component {
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
                         <Scene
-                            key='HotelDetail'
+                            key='HotelChekout'
 
+                            component={HotelChekout}
+                            title='HotelChekout'
+                            hideNavBar={true}
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
+                        <Scene
+                            key='HotelCart'
+
+                            component={HotelCart}
+                            title='HotelCart'
+                            hideNavBar={true}
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
+                        <Scene
+                            key='HotelDetail'
+                            initial
                             component={HotelDetail}
                             title='HotelDetail'
                             hideNavBar={true}
@@ -98,7 +114,6 @@ class RootNavigation extends React.Component {
                         />
                         <Scene
                             key='HotelSearch'
-
                             component={HotelSearch}
                             title='HotelSearch'
                             hideNavBar={true}
