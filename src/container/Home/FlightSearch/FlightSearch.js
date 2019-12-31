@@ -18,11 +18,16 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import LargeButton from '../../../components/LargeButton'
 import Touchable from '../../../components/Tochable';
 import { Actions } from 'react-native-router-flux'
+import ActionButton from 'react-native-action-button';
+
 const data = [
     'Economy', 'Business', 'Non-Stops', 'normal'
 ]
 import ResultCard from './component/ResultCard'
+import FlightFilterModal from '../../../modal/FlightFilterModal'
+
 export default class FlightSearch extends Component {
+    state = { modalOpen: false }
     render() {
         return (
             <View style={{ flex: 1, }}>
@@ -72,16 +77,24 @@ export default class FlightSearch extends Component {
                 <View style={{ flex: 7.6, alignItems: 'center', paddingTop: 10, }}>
                     <View style={{ width: '100%', height: '100%', alignItems: 'center', }}>
                         <ScrollView showsVerticalScrollIndicator={false}>
-                            <ResultCard />
-                            <ResultCard />
-                            <ResultCard />
-                            <ResultCard />
-                            <ResultCard />
-                            <ResultCard />
+                            <ResultCard bookingNow={() => Actions.FlightBookConfirm()} />
+                            <ResultCard bookingNow={() => Actions.FlightBookConfirm()} />
+                            <ResultCard bookingNow={() => Actions.FlightBookConfirm()} />
+                            <ResultCard bookingNow={() => Actions.FlightBookConfirm()} />
+                            <ResultCard bookingNow={() => Actions.FlightBookConfirm()} />
+                            <ResultCard bookingNow={() => Actions.FlightBookConfirm()} />
                         </ScrollView>
                     </View>
                 </View>
-
+                <ActionButton
+                    buttonColor={colors.primaryColor}
+                    onPress={() => { this.setState({ modalOpen: true }) }}
+                />
+                <FlightFilterModal
+                    isOpen={this.state.modalOpen}
+                    onClose={() => this.setState({ modalOpen: false })}
+                    onOpen={() => this.setState({ modalOpen: true })}
+                />
             </View >
         )
     }

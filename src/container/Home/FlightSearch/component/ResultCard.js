@@ -20,6 +20,7 @@ import Touchable from '../../../../components/Tochable';
 
 export default class ResultCard extends Component {
     render() {
+        const { bookingNow } = this.props
         return (
             <View style={styles.rectangle55} >
                 <View style={{ flex: 2, flexDirection: 'row', alignItems: 'center', paddingTop: 10, marginVertical: 10 }}>
@@ -76,11 +77,13 @@ export default class ResultCard extends Component {
                         </ImageBackground>
 
                     </View>
-                    <View style={{ flex: 1, alignItems: 'flex-start' }}>
+                    <Touchable
+                        onPress={bookingNow}
+                        style={{ flex: 1, alignItems: 'flex-start' }}>
                         <ImageBackground source={Images.smallbutton} style={styles.rectangle62} >
                             <Text style={styles.bookingNow} >Booking now</Text>
                         </ImageBackground>
-                    </View>
+                    </Touchable>
                 </View>
             </View>
         )

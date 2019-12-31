@@ -61,7 +61,7 @@ export default class SignupScreen extends Component {
                                 placeholder={"Confirm Password"} />
                         </KeyboardAwareScrollView>
                     </View>
-                    <View style={{ width: '100%', height: 80, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: -100 }}>
+                    <View style={{ width: '100%', height: 80, alignItems: 'center', justifyContent: 'center' }}>
                         <Button size="medium"
                             title="Sign up"
                             onPress={() => Actions.pop()}

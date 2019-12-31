@@ -24,6 +24,8 @@ import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Entypo from 'react-native-vector-icons/Entypo'
 import SideMenu from '../container/Home/SideMenu'
+import FlightBookConfirm from '../container/Home/FlightBookConfirm'
+
 
 
 class TabIcon extends React.Component {
@@ -73,7 +75,7 @@ class RootNavigation extends React.Component {
 
                         <Scene
                             key='login'
-
+                            initial
                             component={LoginScreen}
                             title='Login'
                             hideNavBar={true}
@@ -88,7 +90,7 @@ class RootNavigation extends React.Component {
                         />
                         <Scene
                             key='HotelDetail'
-                            initial
+
                             component={HotelDetail}
                             title='HotelDetail'
                             hideNavBar={true}
@@ -102,6 +104,8 @@ class RootNavigation extends React.Component {
                             hideNavBar={true}
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
+
+
                         <Drawer
                             hideNavBar
                             key="drawerMenu"
@@ -150,6 +154,18 @@ class RootNavigation extends React.Component {
                                         navigationBarStyle={{ backgroundColor: colors.primary }}
                                         component={FlightSearch}
                                     />
+
+                                    <Scene
+
+                                        key="FlightBookConfirm"
+                                        hideNavBar={true}
+                                        title='Search Result'
+                                        titleStyle={{ color: 'white' }}
+                                        navigationBarStyle={{ backgroundColor: colors.primary }}
+                                        component={FlightBookConfirm}
+                                    />
+
+
                                 </Stack>
 
                                 <Scene

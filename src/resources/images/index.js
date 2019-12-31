@@ -20,7 +20,9 @@ const Images = {
     airlines: require('../images/airlines.png'),
     hori_plane: require('../images/hori_plane.png'),
     line: require('../images/line.png'),
-    location: require('../images/location.png')
+    location: require('../images/location.png'),
+    qrcode: require('../images/qrcode.png'),
+    backblur: require('../images/backblur.png')
 }
 
 export default Images

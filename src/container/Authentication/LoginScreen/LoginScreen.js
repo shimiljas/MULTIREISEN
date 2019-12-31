@@ -47,7 +47,7 @@ export default class LoginScreen extends Component {
                     </View>
                     <View style={{
                         width: '100%', height: 80, alignItems: 'center',
-                        justifyContent: 'center', position: 'absolute', bottom: -100
+                        justifyContent: 'center',
                     }}>
                         <Button size="medium"
                             title="Login"
