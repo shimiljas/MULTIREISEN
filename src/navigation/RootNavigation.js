@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 
 import LoginScreen from '../container/Authentication/LoginScreen'
 import SignupScreen from '../container/Authentication/SignupScreen'
-
+import ForgotPassword from '../container/Authentication/ForgotPassword'
 
 import Book from '../container/Home/Book';
 
@@ -88,7 +88,14 @@ class RootNavigation extends React.Component {
                             hideNavBar={true}
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
+                        <Scene
+                            key='ForgotPassword'
+                            component={ForgotPassword}
+                            title='ForgotPassword'
+                            hideNavBar={true}
 
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
 
 
                         <Drawer

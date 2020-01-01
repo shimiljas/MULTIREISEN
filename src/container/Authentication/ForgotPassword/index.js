@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View, Image, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native'
+import { View, Image, StyleSheet, ImageBackground, Text, } from 'react-native'
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
@@ -26,12 +26,12 @@ export default class LoginScreen extends Component {
 
                 <View style={{ flex: 2, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 30 }}>
                     <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(25), color: 'white' }} >
-                        Login
+                        Forogt Password
                        </Text>
                 </View>
                 <View style={{
                     minHeight: 60, justifyContent: "center",
-                    flex: 3.5, backgroundColor: 'white', marginHorizontal: scale(20), borderRadius: 10
+                    flex: 2, backgroundColor: 'white', marginHorizontal: scale(20), borderRadius: 10
                 }}>
                     <View style={{ paddingHorizontal: 15 }}>
                         <KeyboardAwareScrollView >
@@ -40,16 +40,8 @@ export default class LoginScreen extends Component {
                                 placeholder={"Email"} />
 
                         </KeyboardAwareScrollView>
-                        <KeyboardAwareScrollView >
-                            <Input
-                                icon={<Entypo name="key" color={"black"} size={25} />}
-                                placeholder={"Password"} />
-                        </KeyboardAwareScrollView>
-                        <TouchableOpacity style={{ width: '100%', height: 50, alignItems: 'flex-end', justifyContent: 'center' }}
-                            onPress={() => Actions.ForgotPassword()}
-                        >
-                            <Text style={{ fontFamily: fonts.fontPrimaryLight }}>Forogt Password?</Text>
-                        </TouchableOpacity>
+
+
                     </View>
                     <View style={{
                         width: '100%', height: 80, alignItems: 'center',
@@ -64,9 +56,9 @@ export default class LoginScreen extends Component {
                     </View>
                 </View>
                 <View style={{ flex: 4.5, alignItems: 'center', justifyContent: 'center' }}>
-                    <Text
+                    {/* <Text
                         onPress={() => Actions.register()}
-                        style={{ fontFamily: fonts.fontPrimaryLight, fontSize: normalize(14) }}>Register ?</Text>
+                        style={{ fontFamily: fonts.fontPrimaryLight, fontSize: normalize(14) }}>Register ?</Text> */}
                 </View>
                 {/* 
                 <InputDropDown
