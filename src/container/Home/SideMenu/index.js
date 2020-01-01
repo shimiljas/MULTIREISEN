@@ -46,6 +46,10 @@ export default class SideMenu extends Component {
             Actions.HotelSearch()
             return
         }
+        if (title == 'Logout') {
+            Actions.login();
+            return
+        }
     }
     render() {
         return (<View style={{ flex: 1, backgroundColor: '#ffffff' }} >
