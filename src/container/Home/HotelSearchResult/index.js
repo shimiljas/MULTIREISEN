@@ -26,12 +26,12 @@ export default class HotelSearchResult extends Component {
         return (
 
             <View style={{ flex: 1, }}>
-                <View style={{ flex: 2.4, }}>
+                <View style={{ flex: 2.2, }}>
                     <ImageBackground source={Images.header}
                         resizeMode={'stretch'}
                         style={{ width: '100%', height: 180, paddingBottom: 10 }}>
                         <View style={{
-                            width: '100%', height: 80,
+                            width: '100%', height: 60,
                             justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
                             paddingHorizontal: 10
                         }} >
@@ -59,7 +59,7 @@ export default class HotelSearchResult extends Component {
 
                         }}>
                             <View style={{
-                                width: 350, marginLeft: 17, justifyContent: "center", alignItems: "center",
+                                width: 350, justifyContent: "center", alignItems: "center",
                                 height: 50, backgroundColor: "white", borderRadius: 40, paddingRight: 20, paddingLeft: 20
                             }}>
                                 <Search

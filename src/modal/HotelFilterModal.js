@@ -59,18 +59,22 @@ export default class FlightFilterModal extends Component {
                 </Touchable>
 
                 <View style={{
-                    width: '100%', height: '14%', backgroundColor: 'white',
-                    marginHorizontal: 10,
-
-                    padding: 20,
-                    justifyContent: "center", marginVertical: 10, borderRadius: 30
+                    width: '100%', height: '15%', backgroundColor: 'white',
+                    justifyContent: "center", borderRadius: 30
                 }} >
-                    <Text style={{ marginTop: 10, marginLeft: 10, color: colors.borderColor, fontSize: 14, fontFamily: fonts.fontPrimaryLight, marginBottom: 5 }}>Distance</Text>
-                    <Dropdown
-                        label='Favorite Fruit'
-                        data={data}
-                        containerStyle={{ marginHorizontal: 25, marginBottom: 10 }}
-                    />
+                    <View style={{ flex: 2 }}></View>
+                    <View style={{ flex: 2, justifyContent: "center", marginTop: 10 }}>
+                        <Text style={{ marginLeft: 20, color: colors.borderColor, fontSize: 14, fontFamily: fonts.fontPrimaryLight, }}>Distance</Text>
+                    </View>
+                    <View style={{ flex: 17, marginBottom: 13 }}>
+                        <Dropdown
+                            label='Favorite Fruit'
+                            data={data}
+                            containerStyle={{ marginHorizontal: 25, marginBottom: 10 }}
+                        />
+                    </View>
+
+
                 </View>
                 <View style={{
                     width: '100%', height: '18%', backgroundColor: 'white',
@@ -92,9 +96,9 @@ export default class FlightFilterModal extends Component {
                     width: '100%', height: '14%', backgroundColor: 'white',
                     marginHorizontal: 10,
                     padding: 20,
-                    justifyContent: "center", marginVertical: 10, borderRadius: 30
+                    justifyContent: "center", marginVertical: 30, borderRadius: 30
                 }} >
-                    <Text style={{ marginTop: 5, marginLeft: 10, color: colors.borderColor, fontSize: 14, fontFamily: fonts.fontPrimaryLight, marginBottom: 4 }}>Sort By</Text>
+                    <Text style={{ marginTop: 10, marginLeft: 10, color: colors.borderColor, fontSize: 14, fontFamily: fonts.fontPrimaryLight, marginBottom: 4 }}>Sort By</Text>
                     <RangeSlider
                         style={{ width: '100%', height: 60, paddingBottom: 30, }}
                         gravity={'center'}
