@@ -23,9 +23,10 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 
 export default class OneWay extends Component {
     render() {
+        const { roundTrip } = this.props
         return (
-            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center' }}>
-                <View style={styles.rectangle76}>
+            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', marginBottom: 20 }}>
+                <View style={styles.rectangle76_2}>
 
                     <InputIcon
                         placeholder={'Depart from'}
@@ -36,6 +37,14 @@ export default class OneWay extends Component {
                     <InputIcon
                         placeholder={'Departing'}
                         icon={<Ionicons name="ios-calendar" size={25} color={'#898a8f'} />} />
+                    {roundTrip ? <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <InputIcon half
+                            placeholder={'Departing'}
+                            icon={<Entypo name="users" size={20} color={'#898a8f'} />} />
+                        <InputIcon
+                            placeholder={'Returning'}
+                            half icon={<Entypo name="user" size={20} color={'#898a8f'} />} />
+                    </View> : null}
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                         <InputIcon half
                             placeholder={'Adults'}
@@ -56,6 +65,9 @@ export default class OneWay extends Component {
             </View>
         )
     }
+}
+OneWay.defaultProps = {
+    roundTrip: false
 }
 
 const styles = StyleSheet.create({
@@ -81,6 +93,19 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 3, height: 0 },
         shadowRadius: 29,
         borderRadius: 12,
+        backgroundColor: '#ffffff',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    rectangle76_2: {
+        width: scale(300),
+        height: '100%',
+        marginTop: 10,
+        shadowColor: 'rgba(0, 0, 0, 0.07)',
+        shadowOffset: { width: 3, height: 0 },
+        shadowRadius: 29,
+        borderRadius: 12,
+        paddingVertical: 10,
         backgroundColor: '#ffffff',
         alignItems: 'center',
         justifyContent: 'center'

@@ -19,6 +19,7 @@ import LargeButton from '../../../components/LargeButton'
 import Touchable from '../../../components/Tochable';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Actions } from 'react-native-router-flux'
+import TopHeader from '../../../components/TopHeader'
 export default class HotelSearch extends Component {
     state = { selected: '' }
     render() {
@@ -29,26 +30,7 @@ export default class HotelSearch extends Component {
                 <ImageBackground source={Images.header}
                     resizeMode={'stretch'}
                     style={{ flex: 1, width: '100%', height: 150, }}>
-                    <View style={{
-                        width: '100%', height: 80,
-                        justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
-                        paddingHorizontal: 10
-                    }} >
-                        <Touchable
-                            onPress={() => Actions.drawerOpen()}
-                            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                            <SimpleLineIcons name="menu" color={colors.white} size={20} />
-                        </Touchable>
-                        <View style={{ flex: 8, alignItems: 'center', justifyContent: 'center' }}>
-                            <Text style={styles.multireisen}>MULTIREISEN</Text>
-                        </View>
-                        <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'center', marginRight: scale(30) }}>
-                            <View style={{ flexDirection: 'row', }}>
-                                <Text style={styles.flight}>Hotel</Text>
-                                <Entypo name="chevron-down" color={colors.white} size={18} />
-                            </View>
-                        </View>
-                    </View>
+                    <TopHeader title={'Hotel'} />
 
                 </ImageBackground>
             </View>

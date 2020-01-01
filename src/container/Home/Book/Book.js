@@ -1,3 +1,4 @@
+/* eslint-disable  */
 import React, { Component } from 'react';
 import { View, Image, ImageBackground, Text, StyleSheet } from 'react-native'
 import Images from '../../../resources/images'
@@ -20,8 +21,13 @@ import Touchable from '../../../components/Tochable';
 import OneWay from './components/oneway'
 import MultiCity from './components/multicity'
 import { Actions } from 'react-native-router-flux'
+// import ActionSheet from 'react-native-action-sheet';
+import TopHeader from '../../../components/TopHeader';
+const data = [["Python", "Ruby"]];
+
 export default class Book extends Component {
-    state = { selected: '' }
+    state = { selected: '', mode: 'Flight' }
+
     render() {
         const { selected } = this.state
         return (<View style={{ flex: 1, }}>
@@ -30,27 +36,7 @@ export default class Book extends Component {
                 <ImageBackground source={Images.header}
                     resizeMode={'stretch'}
                     style={{ flex: 1, width: '100%', height: 200, paddingBottom: 10 }}>
-                    <View style={{
-                        width: '100%', height: 80,
-                        justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
-                        paddingHorizontal: 10
-                    }} >
-                        <Touchable
-                            onPress={() => Actions.drawerOpen()}
-                            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                            <SimpleLineIcons name="menu" color={colors.white} size={20} />
-                        </Touchable>
-                        <View style={{ flex: 8, alignItems: 'center', justifyContent: 'center' }}>
-                            <Text style={styles.multireisen}>MULTIREISEN</Text>
-                        </View>
-                        <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'center', marginRight: scale(30) }}>
-                            <View style={{ flexDirection: 'row', }}>
-                                <Text style={styles.flight}>Flight</Text>
-                                <Entypo name="chevron-down" color={colors.white} size={18} />
-                            </View>
-                        </View>
-                    </View>
-
+                    <TopHeader title={'Flight'} />
                     <View style={{
                         height: verticalScale(80),
                         backgroundColor: 'transparent',
@@ -70,7 +56,7 @@ export default class Book extends Component {
 
                 </ImageBackground>
             </View>
-            {selected == 'multi' ? < MultiCity /> : <OneWay />}
+            {selected == 'multi' ? < MultiCity /> : <OneWay roundTrip={selected == 'round'} />}
 
             <View style={{ flex: 1, marginBottom: 10, alignItems: 'center' }}>
                 <Touchable

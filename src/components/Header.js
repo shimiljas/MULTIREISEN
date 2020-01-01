@@ -16,6 +16,7 @@ import { Actions } from 'react-native-router-flux'
 import Images from '../resources/images'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
+
 const Header = ({ title }) => {
     return (
         <ImageBackground source={Images.header}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, ImageBackground, Text, StyleSheet } from 'react-native'
+import { View, Image, ScrollView, Text, StyleSheet } from 'react-native'
 import Images from '../../../../resources/images'
 import Button from '../../../../components/Button'
 import Input from '../../../../components/Input'
@@ -18,40 +18,50 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import LargeButton from '../../../../components/LargeButton'
 import Touchable from '../../../../components/Tochable';
 
-
+import { Container, Header, Content, Accordion } from "native-base";
+const dataArray = [
+    { title: "First Element", content: "Lorem ipsum dolor sit amet" },
+    { title: "Second Element", content: "Lorem ipsum dolor sit amet" },
+    { title: "Third Element", content: "Lorem ipsum dolor sit amet" }
+];
+import OneWay from './oneway'
 export default class MultiCity extends Component {
+
+    renderHeader = (item, expanded) => {
+        return (
+            <View style={styles.rectangle76} >
+                <View style={{ flex: 9, justifyContent: 'center', paddingLeft: 15 }}>
+                    <Text style={styles.flight1}>Flight 1</Text>
+                </View>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingRight: 10 }}>
+                    {/* <Image source={Images.back}
+                        style={{
+                            width: 10,
+                            height: 19,
+                        }}
+                    /> */}
+                    <Entypo name={expanded ? "chevron-down" : "chevron-left"} size={30} color={'#6ecaf7'} />
+                </View>
+            </View>
+        )
+    }
+    renderContent = () => {
+        return (<OneWay roundTrip />)
+    }
     render() {
         return (
-            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center' }}>
-                <View style={styles.rectangle76} >
-                    <View style={{ flex: 9, justifyContent: 'center', paddingLeft: 15 }}>
-                        <Text style={styles.flight1}>Flight 1</Text>
+            <View style={{ flex: 6, }}>
+                <View style={{ flex: 1, alignItems: 'center' }}>
+                    <View style={{ width: '95%', padding: 20 }}>
+                        <Accordion dataArray={dataArray} expanded={0}
+                            style={{ borderWidth: 0 }}
+                            renderContent={this.renderContent}
+                            renderHeader={this.renderHeader} />
                     </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingRight: 10 }}>
-                        <Image source={Images.back}
-                            style={{
-                                width: 10,
-                                height: 19,
-                            }}
-                        />
+                    <View style={styles.rectangle1744}>
+                        <Ionicons name="ios-add-circle-outline" color={'#6ecaf7'} size={20} />
+                        <Text style={styles.addA}>Add A Flight</Text>
                     </View>
-                </View>
-                <View style={styles.rectangle76} >
-                    <View style={{ flex: 9, justifyContent: 'center', paddingLeft: 15 }}>
-                        <Text style={styles.flight1}>Flight 2</Text>
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingRight: 10 }}>
-                        <Image source={Images.back}
-                            style={{
-                                width: 10,
-                                height: 19,
-                            }}
-                        />
-                    </View>
-                </View>
-                <View style={styles.rectangle1744}>
-                    <Ionicons name="ios-add-circle-outline" color={'#6ecaf7'} size={20} />
-                    <Text style={styles.addA}>Add A Flight</Text>
                 </View>
             </View>
         )
@@ -60,7 +70,7 @@ export default class MultiCity extends Component {
 
 const styles = StyleSheet.create({
     rectangle76: {
-        width: 332,
+        width: '100%',
         height: 83,
         shadowColor: 'rgba(0, 0, 0, 0.07)',
         shadowOffset: { width: 3, height: 0 },
@@ -82,7 +92,7 @@ const styles = StyleSheet.create({
         lineHeight: 35,
     },
     rectangle1744: {
-        width: 332,
+        width: '84%',
         height: 56,
         shadowColor: 'rgba(0, 0, 0, 0.07)',
         shadowOffset: { width: 3, height: 0 },
