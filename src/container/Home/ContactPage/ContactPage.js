@@ -23,14 +23,14 @@ import InputDropDown from '../../../components/InputDropDown'
 export default class ContactPage extends Component {
     render() {
         return (
-            <View style={{ flex: 1, paddingTop: 50, padding: 20, }}>
+            <ScrollView style={{ flex: 1, paddingTop: 20, padding: 20, }}>
                 <View style={{ flex: 1 }}>
                     <Step />
                 </View>
 
-                <View style={{ flex: 8, backgroundColor: 'white', borderRadius: 10, alignItems: 'center' }}>
-                    <View style={{ width: '100%', height: 35, padding: 10 }}>
-                        <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', fontSize: normalize(10) }}>Contact Information</Text>
+                <View style={{ flex: 8.5, backgroundColor: 'white', borderRadius: 10, alignItems: 'center' }}>
+                    <View style={{ width: '100%', height: 35, padding: 10, marginLeft: 21 }}>
+                        <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', fontSize: normalize(16) }}>Contact Information</Text>
                     </View>
 
                     <InputDropDown placeholder={'Title'} />
@@ -44,18 +44,19 @@ export default class ContactPage extends Component {
                     <InputDropDown placeholder={'Country'} />
                     <InputDropDown placeholder={'City'} />
                     <InputDropDown placeholder={'Adress'} />
-                    <View style={{ width: '100%', height: 50, alignItems: 'flex-start', justifyContent: 'center', paddingLeft: 25, padding: 10 }}>
+                    <View style={{ width: '100%', height: 40, alignItems: 'flex-start', justifyContent: 'center', paddingLeft: 25, padding: 10 }}>
                         <Text style={{ fontFamily: fonts.fontPrimaryLight, fontSize: 10 }}>By booking this appoinment you agree to the T&C</Text>
                     </View>
                 </View>
-                <View style={{ flex: 1, alignItems: 'center', marginTop: 10 }}>
+                <View style={{ flex: 1, alignItems: 'center', marginTop: 30, marginBottom: 40 }}>
                     <Touchable
                         style={{ flex: 1 }}
+
                         onPress={() => Actions.FlightSearchResult()}>
                         <ImageBackground
                             source={Images.submit}
                             resizeMode={'stretch'}
-                            style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                            style={{ width: 350, height: 55, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
                         >
                             <Text style={styles.search}>Proceed To Payment</Text>
 
@@ -63,7 +64,7 @@ export default class ContactPage extends Component {
                     </Touchable>
                 </View>
 
-            </View>)
+            </ScrollView>)
     }
 }
 

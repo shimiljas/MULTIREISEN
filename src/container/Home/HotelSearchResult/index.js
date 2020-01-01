@@ -71,7 +71,7 @@ export default class HotelSearchResult extends Component {
                     </ImageBackground>
 
                 </View>
-                <View style={{ flex: 7.6 }}>
+                <View style={{ flex: 7.6, marginTop: 45 }}>
                     <ScrollView style={{ width: '100%', height: "100%" }}>
                         < HotelCard onPress={() => Actions.HotelDetail()} />
                         < HotelCard />

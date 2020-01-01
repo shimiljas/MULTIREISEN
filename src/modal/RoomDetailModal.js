@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet, ActivityIndicator, ImageBackground } from 'react-native';
+import { View, Text, TextInput, StyleSheet, ActivityIndicator, ImageBackground, ScrollView } from 'react-native';
 import { scale, verticalScale } from '../utils/Responsive'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { colors } from '../config/colors';
@@ -55,10 +55,11 @@ export default class RoomDetailModal extends Component {
                 ref={"modal1"}
                 position={'center'}
                 isOpen={isOpen}
+                swipeToClose={false}
                 onClosed={onClose}
                 onOpened={onOpen}
             >
-                <View style={{ width: '100%', height: 600, backgroundColor: 'white', borderRadius: 15 }}>
+                <ScrollView style={{ width: '100%', height: 600, backgroundColor: 'white', borderRadius: 15 }}>
                     <View style={{ flex: 1, flexDirection: "row", }} >
                         <View style={{ flex: 8, justifyContent: 'center', padding: 13 }}>
                             <Text styles={styles.text}>SINGLE STANDARD NON-REFUNDABDLE</Text>
@@ -84,6 +85,7 @@ export default class RoomDetailModal extends Component {
                     </View>
                     <View style={{ flex: 4, }} >
                         <InfoItem />
+
                         <InfoItem />
                     </View>
                     <View style={{ flex: 1, }} >
@@ -102,10 +104,11 @@ export default class RoomDetailModal extends Component {
                             </Touchable>
                         </View>
                     </View>
-                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
+                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginTop: 10 }} >
                         <Text styles={styles.notes}>By booking appoinment you agree to the T&C</Text>
                     </View>
-                </View>
+                    <View style={{ width: '100%', height: 20 }} />
+                </ScrollView>
             </Modal >
         )
     }

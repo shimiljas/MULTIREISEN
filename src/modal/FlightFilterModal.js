@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet, ActivityIndicator, ImageBackground } from 'react-native';
+import { View, Text, TextInput, StyleSheet, ScrollView, ActivityIndicator, ImageBackground } from 'react-native';
 import { scale, verticalScale } from '../utils/Responsive'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { colors } from '../config/colors';
@@ -58,7 +58,7 @@ export default class FlightFilterModal extends Component {
                 onClosed={onClose}
                 onOpened={onOpen}
             >
-                <KeyboardAwareScrollView style={{ padding: 20, }}>
+                <ScrollView>
 
                     <Touchable
                         onPress={onClose}
@@ -72,7 +72,7 @@ export default class FlightFilterModal extends Component {
                     </Touchable>
 
                     <View style={{
-                        width: '100%', height: '18%', backgroundColor: 'white',
+                        width: '94%', height: '18%', backgroundColor: 'white',
                         marginHorizontal: 10,
                         padding: 20,
                         justifyContent: "center", marginVertical: 10, borderRadius: 30
@@ -83,9 +83,10 @@ export default class FlightFilterModal extends Component {
                     </View>
 
                     <View style={{
-                        width: '100%', height: '18%', backgroundColor: 'white',
+                        width: '94%', height: '18%', backgroundColor: 'white',
                         marginHorizontal: 10,
                         padding: 20,
+
                         justifyContent: "center", marginVertical: 10, borderRadius: 30
                     }} >
                         <Text style={{ marginTop: 10, marginLeft: 10, color: colors.borderColor, fontSize: 14, fontFamily: fonts.fontPrimaryLight, marginBottom: 10 }}>Flight Number</Text>
@@ -96,7 +97,7 @@ export default class FlightFilterModal extends Component {
                         />
                     </View>
                     <View style={{
-                        width: '100%', height: '30%', backgroundColor: 'white',
+                        width: '94%', height: '30%', backgroundColor: 'white',
                         marginHorizontal: 10,
                         padding: 20,
                         justifyContent: "center", marginVertical: 10, borderRadius: 30
@@ -112,7 +113,7 @@ export default class FlightFilterModal extends Component {
                         />
                     </View>
 
-                    <View style={{ width: '103%', height: '10%', marginTop: 10, alignItems: 'center' }}>
+                    <View style={{ width: '88%', height: '10%', marginLeft: 19, marginTop: 10, alignItems: 'center' }}>
                         <Touchable
                             style={{ flex: 1 }}
                             onPress={() => alert("ko")}>
@@ -126,8 +127,7 @@ export default class FlightFilterModal extends Component {
                             </ImageBackground>
                         </Touchable>
                     </View>
-                </KeyboardAwareScrollView>
-
+                </ScrollView>
             </Modal>
         )
     }

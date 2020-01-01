@@ -99,7 +99,7 @@ export default class SignupScreen extends Component {
                         </View>
                     </View>
                 </View>
-                <View style={{ flex: 1, marginBottom: 10, alignItems: 'center' }}>
+                <View style={{ flex: 1, marginBottom: 65, alignItems: 'center' }}>
                     <Touchable
                         style={{ flex: 1 }}
                         onPress={() => Actions.ContactPage()}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, ImageBackground, Text, StyleSheet } from 'react-native'
+import { View, Image, ImageBackground, Text, StyleSheet, ScrollView } from 'react-native'
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
@@ -23,7 +23,7 @@ export default class HotelSearch extends Component {
     state = { selected: '' }
     render() {
         const { selected } = this.state
-        return (<View style={{ flex: 1, }}>
+        return (<ScrollView style={{ flex: 1, }}>
 
             <View style={{ flex: 2, }}>
                 <ImageBackground source={Images.header}
@@ -52,7 +52,7 @@ export default class HotelSearch extends Component {
 
                 </ImageBackground>
             </View>
-            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', marginTop: 40 }}>
                 <View style={styles.rectangle76}>
 
                     <InputIcon
@@ -87,7 +87,7 @@ export default class HotelSearch extends Component {
 
             </View>
 
-            <View style={{ flex: 1, marginBottom: 10, alignItems: 'center' }}>
+            <View style={{ flex: 1, marginBottom: 10, alignItems: 'center', marginTop: 30 }}>
                 <Touchable
                     style={{ flex: 1 }}
                     onPress={() => Actions.HotelSearchResult()}>
@@ -101,7 +101,7 @@ export default class HotelSearch extends Component {
                     </ImageBackground>
                 </Touchable>
             </View>
-        </View>)
+        </ScrollView>)
     }
 }
 
