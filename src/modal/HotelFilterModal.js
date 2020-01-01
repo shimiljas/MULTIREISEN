@@ -39,8 +39,11 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import RangeSlider from 'rn-range-slider';
 
 export default class FlightFilterModal extends Component {
+    state = { query: '', rangeLow: 0, rangeHigh: 100, loading: false }
+
     render() {
         const { isOpen, onClose, onOpen } = this.props
+        const { loading, rangeLow, rangeHigh } = this.state
         return (
             <Modal
             style={{ width: '100%', paddingTop: 20, height: '100%', alignItems: 'center', backgroundColor: 'transparent', justifyContent: 'center', padding: 20 }}
@@ -81,8 +84,54 @@ export default class FlightFilterModal extends Component {
                  />
                  </View>   
               </View>
+
+              <View
+                    style={{
+                        width: '100%',
+                        paddingHorizontal: 15,
+                        justifyContent: 'center',
+                        height: 90,
+                        backgroundColor:'white',
+                        borderRadius: 30,
+                        overflow:'hidden'
+
+                    }}
+                >
+                    <View style={{ flex: 1, justifyContent: 'center', paddingLeft: 30,paddingTop: 10, }}>
+                     <Text style={{color: colors.borderColor, fontSize: 14, fontFamily: fonts.fontPrimaryLight, }}>Distance</Text>
+            
+                     </View>  
+                    <View style={{flex:3,flexDirection: 'row',}}>
+                    <View style={styles.leftcard}>
+                        <View style={styles.card} >
+                            <Text style={styles.text}>{rangeLow}</Text>
+                        </View>
+                    </View>
+                    <View style={{ flex: 7, justifyContent: 'center', }}>
+                        <RangeSlider
+                            style={{ width: '100%', height: 90, paddingBottom: 4 }}
+                            min={0}
+                            max={100}
+                            step={4}
+                            selectionColor='#6ecaf7'
+                            thumbColor={'#6ecaf7'}
+                            blankColor="#000000"
+                            onValueChanged={(low, high, fromUser) => {
+                                this.setState({ rangeLow: low, rangeHigh: high })
+                            }} />
+                    </View>
+                    <View style={styles.leftcard}>
+                        <View style={styles.card}  >
+                            <Text style={styles.text}>{rangeHigh}</Text>
+
+
+                        </View>
+                    </View>
+                    </View>
+
+                </View>
         
-              <View style={{
+              {/* <View style={{
                     width: '100%', 
                     height: '17%', 
                     backgroundColor: 'white',
@@ -108,7 +157,7 @@ export default class FlightFilterModal extends Component {
                                         this.setState({ rangeLow: low, rangeHigh: high })
                      }} />
                 </View>
-             </View>   
+             </View>    */}
      <View style = {{
              width: '100%',
              height: '14%',
@@ -179,5 +228,27 @@ const styles = StyleSheet.create({
         fontFamily: fonts.fontPrimaryBold,
         fontSize: 14,
         fontWeight: '600',
+    },
+    leftcard: {
+        flex: 1.5,
+        backgroundColor:'white',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        paddingBottom: 20,
+        paddingTop: 68
+    },
+    card: {
+        width: 40, height: 40,
+        backgroundColor: colors.white,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5
+    },
+    text: {
+        fontFamily: fonts.fontPrimaryLight,
+        color: colors.black,
+        fontSize: 14,
+        paddingBottom: 5,
+
     }
 })
