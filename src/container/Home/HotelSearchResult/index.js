@@ -75,8 +75,8 @@ export default class HotelSearchResult extends Component {
                 <View style={{ flex: 7.6, marginTop: Platform.OS == 'ios' ? 25 : 45 }}>
                     <ScrollView style={{ width: '100%', height: "100%" }}>
                         < HotelCard onPress={() => Actions.HotelDetail()} />
-                        < HotelCard />
-                        < HotelCard />
+                        < HotelCard onPress={() => Actions.HotelDetail()} />
+                        < HotelCard onPress={() => Actions.HotelDetail()} />
                     </ScrollView>
 
                 </View>

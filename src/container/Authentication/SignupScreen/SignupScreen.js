@@ -14,23 +14,28 @@ import { colors } from '../../../config/colors';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Touchable from '../../../components/Tochable'
 
-
+import BackButton from '../../../components/BackButton'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 export default class SignupScreen extends Component {
     render() {
         return (
             <ImageBackground source={Images.loginpage} style={{ width: '100%', height: '100%', }}>
-                <Touchable
+                {/* <View
                     style={{
                         flex: 1,
-                        width: 50, height: 50,
-                        position: 'absolute',
-                        top: 50,
-                        alignItems: 'center', justifyContent: 'center'
-                    }} onPress={() => Actions.pop()}>
-                    <Ionicons name="md-arrow-back" color={colors.white} size={35} />
-                </Touchable>
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 30 }}>
+                        backgroundColor: 'red',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+
+                        marginLeft: 10
+                    }} >
+                    <Touchable onPressIn={() => Actions.pop()} style={{ flex: 1, width: 50, height: 50 }}>
+                        <Ionicons name="md-arrow-back" color={colors.white} size={35} />
+                    </Touchable>
+                </View> */}
+
+                <BackButton onPress={() => Actions.pop()} />
+                <View style={{ flex: 0.5, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 30 }}>
                     <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(25), color: 'white' }} >
                         Create Account
                        </Text>
@@ -61,7 +66,7 @@ export default class SignupScreen extends Component {
                                 placeholder={"Confirm Password"} />
                         </KeyboardAwareScrollView>
                     </View>
-                    <View style={{ width: '100%', height: 80, alignItems: 'center', justifyContent: 'center' }}>
+                    <View style={{ width: '100%', height: 80, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: -30 }}>
                         <Button size="medium"
                             title="Sign up"
                             onPress={() => Actions.pop()}

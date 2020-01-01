@@ -177,6 +177,7 @@ class RootNavigation extends React.Component {
                                         sceneStyle={{ backgroundColor: 'white' }}
                                     />
                                     <Scene
+                                        hideNavBar={true}
                                         key='HotelCart'
                                         component={HotelCart}
                                         title='HotelCart'

@@ -21,28 +21,12 @@ import { Actions } from 'react-native-router-flux'
 import Step from '../../../components/Step'
 import InputDropDown from '../../../components/InputDropDown'
 import Header from '../../../components/Header'
+import BackButton from '../../../components/BackButton'
 export default class ContactPage extends Component {
     render() {
         return (
             <ScrollView style={{ flex: 1, }}>
-                <View style={{
-                    width: '100%', height: 80,
-                    justifyContent: 'center', flexDirection: 'row',
-                    paddingHorizontal: 10,
-                    marginTop: 25
-                }} >
-                    <Touchable
-                        onPress={() => Actions.pop()}
-                        style={{ flex: 8, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start' }}>
-                        <Ionicons name="md-arrow-back" color={colors.black} size={35} />
-                        <Text style={styles.text}>{'Contact Page'}</Text>
-                    </Touchable>
-                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                    </View>
-                    <View style={{ flex: 1, marginRight: scale(30) }}>
-                    </View>
-
-                </View>
+                <BackButton black onPress={() => Actions.pop()} />
                 <View style={{ flex: 1, paddingHorizontal: 20 }}>
                     <View style={{ flex: 1 }}>
 

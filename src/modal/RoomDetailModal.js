@@ -61,7 +61,7 @@ export default class RoomDetailModal extends Component {
             >
                 <ScrollView style={{ width: '100%', height: 600, backgroundColor: 'white', borderRadius: 15 }}>
                     <View style={{ flex: 1, flexDirection: "row", }} >
-                        <View style={{ flex: 8, justifyContent: 'center', padding: 13 }}>
+                        <View style={{ flex: 8, justifyContent: 'center', padding: 20 }}>
                             <Text styles={styles.text}>SINGLE STANDARD NON-REFUNDABDLE</Text>
                             <Text styles={styles.text}>(ROOM ONLY)</Text>
                         </View>

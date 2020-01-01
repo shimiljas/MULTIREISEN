@@ -14,12 +14,12 @@ import { colors } from '../../../config/colors';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Touchable from '../../../components/Tochable'
 import Step from "../../../components/Step"
-
+import BackButton from '../../../components/BackButton'
 export default class HotelCard extends Component {
     render() {
         return (
             <View style={{ flex: 1, }}>
-
+                <BackButton black onPress={() => Actions.pop()} />
 
                 <View style={{ flex: 1, justifyContent: 'center', marginTop: 40, paddingHorizontal: 10 }}>
                     <Step />
