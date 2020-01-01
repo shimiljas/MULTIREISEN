@@ -82,20 +82,29 @@ export default class FlightFilterModal extends Component {
 
                     </View>
 
-                    <View style={{
-                        width: '94%', height: '18%', backgroundColor: 'white',
-                        marginHorizontal: 10,
-                        padding: 20,
 
-                        justifyContent: "center", marginVertical: 10, borderRadius: 30
-                    }} >
-                        <Text style={{ marginTop: 10, marginLeft: 10, color: colors.borderColor, fontSize: 14, fontFamily: fonts.fontPrimaryLight, marginBottom: 10 }}>Flight Number</Text>
-                        <Dropdown
-                            label='Favorite Fruit'
-                            data={data}
-                            containerStyle={{ marginHorizontal: 25, }}
+                    <View style={{
+                        width: '94%', height: '22%', backgroundColor: 'white',
+                        marginHorizontal: 10,
+                        borderRadius: 30
+                        }} >
+
+                    <View style={{ flex: 1, justifyContent: 'center', paddingLeft: 30, paddingTop: 10 }}>
+                        <Text style={{color: colors.borderColor, fontSize: 14, fontFamily: fonts.fontPrimaryLight, }}>Distance</Text>
+                    
+                    </View>                 
+                    <View  style={{flex:2.5,justifyContent:'center'}}>
+                        <Dropdown          
+                        label='Distance'
+                        data={data}
+                            containerStyle={{ marginHorizontal: 25, marginBottom: 30 }}
                         />
-                    </View>
+                 </View>   
+              </View>
+
+
+
+
                     <View style={{
                         width: '94%', height: '30%', backgroundColor: 'white',
                         marginHorizontal: 10,

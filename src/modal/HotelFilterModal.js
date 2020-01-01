@@ -62,7 +62,7 @@ export default class FlightFilterModal extends Component {
             </Touchable>
 
             <View style={{
-                width: '100%', height: '14%', marginHorizontal: 10, justifyContent: "center",
+                width: '100%', height: '16%', marginHorizontal: 10, justifyContent: "center",
                 backgroundColor: 'white',
                 overflow: 'hidden',
                 marginVertical: 10,

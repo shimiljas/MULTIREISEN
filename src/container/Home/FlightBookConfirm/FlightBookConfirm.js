@@ -74,7 +74,7 @@ export default class FlightBookConfirm extends Component {
 
                         </View>
                         <View style={{
-                            flex: 2, flexDirection: 'row', borderTopWidth: 1, borderColor: 'black', borderStyle: 'dashed'
+                            flex: 2, flexDirection: 'row', borderStyle: 'dashed'
                         }}>
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                                 <View style={{ flexDirection: 'row', }}>
@@ -92,11 +92,10 @@ export default class FlightBookConfirm extends Component {
                                 </View>
                                 <Text style={styles.cal}>CAL</Text>
                                 <Text style={styles.terminal1}>10:15 Am , Thu , 05 Dec</Text>
-
                             </View>
 
                         </View>
-                        <View style={{ flex: 4, flexDirection: 'row', borderTopWidth: 4, borderColor: 'red', borderStyle: 'dashed' }}>
+                        <View style={{ flex: 4, flexDirection: 'row', borderStyle: 'dashed' }}>
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                                 <View style={{ marginTop: 5 }}>
                                     <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
