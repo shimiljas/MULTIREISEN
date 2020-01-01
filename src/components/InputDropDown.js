@@ -75,6 +75,10 @@ class InputDropDown extends Component {
         )
     }
 }
+InputDropDown.defaultProps = {
+    CANCEL_INDEX: 4,
+    DESTRUCTIVE_INDEX: 3
+}
 const styles = StyleSheet.create({
     rectangle90: {
         width: '90%',

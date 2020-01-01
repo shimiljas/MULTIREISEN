@@ -44,7 +44,7 @@ export default class FlightBookConfirm extends Component {
 
                     </View>
                 </ImageBackground>
-                <View style={{ flex: 1, justifyContent: 'center', padding: 25 }}>
+                <View style={{ width: '100%', height: '70%', justifyContent: 'center', padding: 25, }}>
                     <View style={{
                         width: '100%',
                         height: '90%',
@@ -74,50 +74,51 @@ export default class FlightBookConfirm extends Component {
 
                         </View>
                         <View style={{
-                            flex: 2, flexDirection: 'row', borderTopWidth: 1, borderColor: 'black', borderStyle: 'dashed'}}>
-                                <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <View style={{ flexDirection: 'row', }}>
-                             <Image source={Images.location} style={styles.path192} resizeMode={'contain'} />
-                                <Text style={styles.cairo}>Cario</Text>
+                            flex: 2, flexDirection: 'row', borderTopWidth: 1, borderColor: 'black', borderStyle: 'dashed'
+                        }}>
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', }}>
+                                    <Image source={Images.location} style={styles.path192} resizeMode={'contain'} />
+                                    <Text style={styles.cairo}>Cario</Text>
+                                </View>
+                                <Text style={styles.cal}>CAL</Text>
+                                <Text style={styles.terminal1}>10:15 Am , Thu , 05 Dec</Text>
+
                             </View>
-                            <Text style={styles.cal}>CAL</Text>
-                        <Text style={styles.terminal1}>10:15 Am , Thu , 05 Dec</Text>
-                    
-                        </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <View style={{ flexDirection: 'row', }}>
-                         <Image source={Images.location} style={styles.path192} resizeMode={'contain'} />
-                            <Text style={styles.cairo}>Cario</Text>
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', }}>
+                                    <Image source={Images.location} style={styles.path192} resizeMode={'contain'} />
+                                    <Text style={styles.cairo}>Cario</Text>
+                                </View>
+                                <Text style={styles.cal}>CAL</Text>
+                                <Text style={styles.terminal1}>10:15 Am , Thu , 05 Dec</Text>
+
                             </View>
-                        <Text style={styles.cal}>CAL</Text>
-                            <Text style={styles.terminal1}>10:15 Am , Thu , 05 Dec</Text>
-            
+
                         </View>
-                
-                    </View>
-                    <View style={{ flex: 4, flexDirection: 'row', borderTopWidth: 4, borderColor: 'red', borderStyle: 'dashed' }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <View style={{ marginTop: 5 }}>
-                         <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
-                            <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
-                    </View>
-                        <View style={{ marginTop: 5 }}>
-                         <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
-                        <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
-                    </View>
-                        <View style={{ marginTop: 5 }}>
-                                <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
-            <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
-                            </View >
-            
-                        </ View>
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingRight: 15 }}>
-                             <Image source={Images.qrcode} style={{ width: 150, height: 150 }} resizeMode={'contain'} />
-                         </View>
-            
+                        <View style={{ flex: 4, flexDirection: 'row', borderTopWidth: 4, borderColor: 'red', borderStyle: 'dashed' }}>
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                                <View style={{ marginTop: 5 }}>
+                                    <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
+                                    <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
+                                </View>
+                                <View style={{ marginTop: 5 }}>
+                                    <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
+                                    <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
+                                </View>
+                                <View style={{ marginTop: 5 }}>
+                                    <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
+                                    <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
+                                </View >
+
+                            </ View>
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingRight: 15 }}>
+                                <Image source={Images.qrcode} style={{ width: 150, height: 150 }} resizeMode={'contain'} />
+                            </View>
+
+                        </View>
                     </View>
                 </View>
-            </View>
             </View >
         )
     }

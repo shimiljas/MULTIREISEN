@@ -42,18 +42,28 @@ export default class FlightFilterModal extends Component {
         const { isOpen, onClose, onOpen } = this.props
         return (
             <Modal
-                style={{ width: '100%', paddingTop: 20, height: '100%', alignItems: 'center', backgroundColor: 'transparent', justifyContent: 'center', padding: 20 }}
+                style={{
+                    width: '100%',
+
+                    height: '100%',
+                    alignItems: 'center',
+                    backgroundColor: 'transparent',
+                    paddingTop: 30,
+                    justifyContent: "center"
+
+                }}
                 ref={"modal1"}
                 position={'center'}
                 isOpen={isOpen}
                 onClosed={onClose}
                 onOpened={onOpen}
             >
-                <KeyboardAwareScrollView>
+                <KeyboardAwareScrollView style={{ padding: 20, }}>
+
                     <Touchable
                         onPress={onClose}
                         style={{
-                            width: '100%', height: '4%',
+                            width: '100%', height: '8%',
                             alignItems: 'flex-end',
                             justifyContent: 'center'
 
@@ -102,7 +112,7 @@ export default class FlightFilterModal extends Component {
                         />
                     </View>
 
-                    <View style={{ width: '100%', height: '10%', marginTop: 10, alignItems: 'center' }}>
+                    <View style={{ width: '103%', height: '10%', marginTop: 10, alignItems: 'center' }}>
                         <Touchable
                             style={{ flex: 1 }}
                             onPress={() => alert("ko")}>

@@ -10,10 +10,10 @@ import Book from '../container/Home/Book';
 
 import Booking from '../container/Home/Booking';
 import Account from '../container/Home/Account';
-import FlightSearch from '../container/Home/FlightSearch'
-import HotelSearch from '../container/Home/HotelSearch'
+import FlightSearchResult from '../container/Home/FlightSearchResult'
+import HotelSearchResult from '../container/Home/HotelSearchResult'
 import HotelDetail from '../container/Home/HotelDetail'
-import HotelChekout from '../container/Home/HotelChekout'
+import HotelCheckout from '../container/Home/HotelCheckout'
 import HotelCart from '../container/Home/HotelCart'
 import { Actions, Router, Stack, Scene, Drawer } from 'react-native-router-flux';
 import { colors } from '../config/colors';
@@ -25,8 +25,8 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import Entypo from 'react-native-vector-icons/Entypo'
 import SideMenu from '../container/Home/SideMenu'
 import FlightBookConfirm from '../container/Home/FlightBookConfirm'
-
-
+import ContactPage from '../container/Home/ContactPage'
+import HotelSearch from '../container/Home/HotelSearch'
 
 class TabIcon extends React.Component {
     render() {
@@ -75,7 +75,7 @@ class RootNavigation extends React.Component {
 
                         <Scene
                             key='login'
-
+                            initial
                             component={LoginScreen}
                             title='Login'
                             hideNavBar={true}
@@ -88,37 +88,7 @@ class RootNavigation extends React.Component {
                             hideNavBar={true}
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
-                        <Scene
-                            key='HotelChekout'
 
-                            component={HotelChekout}
-                            title='HotelChekout'
-                            hideNavBar={true}
-                            sceneStyle={{ backgroundColor: 'white' }}
-                        />
-                        <Scene
-                            key='HotelCart'
-
-                            component={HotelCart}
-                            title='HotelCart'
-                            hideNavBar={true}
-                            sceneStyle={{ backgroundColor: 'white' }}
-                        />
-                        <Scene
-                            key='HotelDetail'
-                            initial
-                            component={HotelDetail}
-                            title='HotelDetail'
-                            hideNavBar={true}
-                            sceneStyle={{ backgroundColor: 'white' }}
-                        />
-                        <Scene
-                            key='HotelSearch'
-                            component={HotelSearch}
-                            title='HotelSearch'
-                            hideNavBar={true}
-                            sceneStyle={{ backgroundColor: 'white' }}
-                        />
 
 
                         <Drawer
@@ -151,7 +121,6 @@ class RootNavigation extends React.Component {
                             >
                                 <Stack icon={this.iconBook}>
                                     <Scene
-
                                         key='Book'
                                         hideNavBar={true}
                                         title='Book'
@@ -167,11 +136,10 @@ class RootNavigation extends React.Component {
                                         title='Search Result'
                                         titleStyle={{ color: 'white' }}
                                         navigationBarStyle={{ backgroundColor: colors.primary }}
-                                        component={FlightSearch}
+                                        component={FlightSearchResult}
                                     />
 
                                     <Scene
-
                                         key="FlightBookConfirm"
                                         hideNavBar={true}
                                         title='Search Result'
@@ -179,12 +147,54 @@ class RootNavigation extends React.Component {
                                         navigationBarStyle={{ backgroundColor: colors.primary }}
                                         component={FlightBookConfirm}
                                     />
+                                    <Scene
+                                        key="HotelSearch"
+                                        component={HotelSearch}
+                                        title='HotelSearch'
+                                        hideNavBar={true}
+                                        sceneStyle={{ backgroundColor: 'white' }}
+                                    />
+
+                                    <Scene
+                                        key='HotelSearchResult'
+                                        component={HotelSearchResult}
+                                        title='HotelSearchResult'
+                                        hideNavBar={true}
+                                        sceneStyle={{ backgroundColor: 'white' }}
+                                    />
+                                    <Scene
+                                        key='HotelDetail'
+                                        component={HotelDetail}
+                                        title='HotelDetail'
+                                        hideNavBar={true}
+                                        sceneStyle={{ backgroundColor: 'white' }}
+                                    />
+                                    <Scene
+                                        key='HotelCheckout'
+                                        component={HotelCheckout}
+                                        title='HotelCheckout'
+                                        hideNavBar={true}
+                                        sceneStyle={{ backgroundColor: 'white' }}
+                                    />
+                                    <Scene
+                                        key='HotelCart'
+                                        component={HotelCart}
+                                        title='HotelCart'
+                                        hideNavBar={true}
+                                        sceneStyle={{ backgroundColor: 'white' }}
+                                    />
 
 
+                                    <Scene
+                                        key='ContactPage'
+                                        component={ContactPage}
+                                        title='ContactPage'
+                                        hideNavBar={true}
+                                        sceneStyle={{ backgroundColor: 'white' }}
+                                    />
                                 </Stack>
 
                                 <Scene
-
                                     key='Booking'
                                     hideNavBar={true}
                                     icon={this.iconBooking}

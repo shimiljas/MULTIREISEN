@@ -33,7 +33,20 @@ const data = [
         image: Images.logout
     }
 ]
+import Touchable from '../../../components/Tochable'
+import { Actions } from 'react-native-router-flux';
 export default class SideMenu extends Component {
+    onPress = (title) => {
+        if (title === 'Book Flight') {
+            Actions.Book()
+            return
+        }
+
+        if (title === 'Book Hotel') {
+            Actions.HotelSearch()
+            return
+        }
+    }
     render() {
         return (<View style={{ flex: 1, backgroundColor: '#ffffff' }} >
 
@@ -58,14 +71,16 @@ export default class SideMenu extends Component {
             <FlatList
                 data={data}
                 renderItem={({ item }) => (
-                    <View style={{ width: '100%', flexDirection: 'row', height: 60, borderBottomWidth: 0.3, borderColor: 'grey' }}>
+                    <Touchable
+                        onPress={() => this.onPress(item.title)}
+                        style={{ width: '100%', flexDirection: 'row', height: 60, borderBottomWidth: 0.3, borderColor: 'grey' }}>
                         <View style={{ flex: 2, justifyContent: 'center', alignItems: 'flex-end' }}>
                             <Image source={item.image} style={{ width: 25, height: 25 }} resizeMode={'contain'} />
                         </View>
                         <View style={{ flex: 8, justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 15 }}>
                             <Text style={style.bookFlight}>{item.title}</Text>
                         </View>
-                    </View>
+                    </Touchable>
                 )}
             />
 

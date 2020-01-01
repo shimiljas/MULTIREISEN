@@ -37,6 +37,7 @@ import RangeSlider from 'rn-range-slider';
 import Feather from 'react-native-vector-icons/Feather'
 
 import InfoItem from './components/InfoItem'
+import { Actions } from 'react-native-router-flux';
 export default class RoomDetailModal extends Component {
     render() {
         const { isOpen, onClose, onOpen } = this.props
@@ -63,13 +64,15 @@ export default class RoomDetailModal extends Component {
                             <Text styles={styles.text}>SINGLE STANDARD NON-REFUNDABDLE</Text>
                             <Text styles={styles.text}>(ROOM ONLY)</Text>
                         </View>
-                        <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
+                        <Touchable
+                            onPress={onClose}
+                            style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
                             <Entypo
                                 name="cross"
                                 size={35}
                                 color={'black'}
                             />
-                        </View>
+                        </Touchable>
                     </View>
                     <View style={{ flex: 0.5, flexDirection: 'row' }}>
                         <View style={{ flex: 1, }} >
@@ -87,13 +90,13 @@ export default class RoomDetailModal extends Component {
                         <View style={{ width: '100%', height: '10%', marginTop: 10, alignItems: 'center' }}>
                             <Touchable
                                 style={{ flex: 1 }}
-                                onPress={() => alert("ko")}>
+                                onPress={() => Actions.HotelCheckout()}>
                                 <ImageBackground
                                     source={Images.submit}
                                     resizeMode={'stretch'}
                                     style={{ width: 290, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
                                 >
-                                    <Text style={styles.search}>Select the romm</Text>
+                                    <Text style={styles.search}>Select the room</Text>
 
                                 </ImageBackground>
                             </Touchable>

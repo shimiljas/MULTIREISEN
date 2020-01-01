@@ -1,153 +1,140 @@
 import React, { Component } from 'react';
-import { View, Image, ImageBackground, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Image, ImageBackground, Text, StyleSheet } from 'react-native'
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
-import { scale } from '../../../utils/Responsive';
+import { scale, verticalScale } from '../../../utils/Responsive';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
 import { fonts } from '../../../config/fonts';
 import { normalize } from '../../../utils/Fontnormalize';
-import { Actions } from 'react-native-router-flux'
 import { colors } from '../../../config/colors';
+import RoundIcon from '../../../components/RoundIcon'
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
+import InputIcon from '../../../components/InputIcon'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import Touchable from '../../../components/Tochable'
-import { verticalScale } from '../../../utils/Responsive';
-import Search from '../../../components/Search'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
-import HotelCard from "../../../components/HotelCard"
-export default class SignupScreen extends Component {
+import LargeButton from '../../../components/LargeButton'
+import Touchable from '../../../components/Tochable';
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import { Actions } from 'react-native-router-flux'
+export default class HotelSearch extends Component {
+    state = { selected: '' }
     render() {
-        return (
+        const { selected } = this.state
+        return (<View style={{ flex: 1, }}>
 
-            <View style={{ flex: 1, }}>
-                <View style={{ flex: 2.4, }}>
-                    <ImageBackground source={Images.header}
-                        resizeMode={'stretch'}
-                        style={{ width: '100%', height: 180, paddingBottom: 10 }}>
-                        <View style={{
-                            width: '100%', height: 80,
-                            justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
-                            paddingHorizontal: 10
-                        }} >
-                            <Touchable
-                                onPress={() => Actions.pop()}
-                                style={{ flex: 8, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start' }}>
-                                <Ionicons name="md-arrow-back" color={colors.white} size={35} />
-                                <Text style={styles.text}>Hotel Search Result</Text>
-                            </Touchable>
-                            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                            </View>
-                            <View style={{ flex: 1, marginRight: scale(30) }}>
-                            </View>
-
+            <View style={{ flex: 2, }}>
+                <ImageBackground source={Images.header}
+                    resizeMode={'stretch'}
+                    style={{ flex: 1, width: '100%', height: 150, }}>
+                    <View style={{
+                        width: '100%', height: 80,
+                        justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
+                        paddingHorizontal: 10
+                    }} >
+                        <Touchable
+                            onPress={() => Actions.drawerOpen()}
+                            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                            <SimpleLineIcons name="menu" color={colors.white} size={20} />
+                        </Touchable>
+                        <View style={{ flex: 8, alignItems: 'center', justifyContent: 'center' }}>
+                            <Text style={styles.multireisen}>MULTIREISEN</Text>
                         </View>
-                        <View style={{
-                            height: verticalScale(35),
-                            backgroundColor: 'transparent',
-                            flexDirection: 'row',
-                            position: 'relative',
-                            bottom: -150,
-                            alignItems: 'center',
-                            justifyContent: 'center'
-
-
-                        }}>
-                            <View style={{
-                                width: 350, marginLeft: 17, justifyContent: "center", alignItems: "center",
-                                height: 50, backgroundColor: "white", borderRadius: 40, paddingRight: 20, paddingLeft: 20
-                            }}>
-                                <Search
-                                    placeholder={"Hotel . City . Country"}
-                                    icon={<AntDesign name="search1" color={"black"} size={25} />}
-                                />
+                        <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'center', marginRight: scale(30) }}>
+                            <View style={{ flexDirection: 'row', }}>
+                                <Text style={styles.flight}>Hotel</Text>
+                                <Entypo name="chevron-down" color={colors.white} size={18} />
                             </View>
-
                         </View>
-                    </ImageBackground>
+                    </View>
 
-                </View>
-                <View style={{ flex: 7.6 }}>
-                    <ScrollView style={{ width: '100%', height: "100%" }}>
-                        < HotelCard />
-                        < HotelCard />
-                        < HotelCard />
-                    </ScrollView>
-
-                </View>
+                </ImageBackground>
             </View>
-        )
+            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center' }}>
+                <View style={styles.rectangle76}>
+
+                    <InputIcon
+                        placeholder={'Country,City ,Hotel '}
+                        icon={<Entypo name="location-pin" size={25} color={'#898a8f'} />} />
+                    <InputIcon
+                        placeholder={'Passenger Nationality'}
+                        icon={<Entypo name="user" size={20} color={'#898a8f'} />} />
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <InputIcon half
+                            placeholder={'Check in'}
+                            icon={<Entypo name="calendar" size={20} color={'#898a8f'} />} />
+                        <InputIcon
+                            placeholder={'Check in'}
+                            half icon={<Entypo name="calendar" size={20} color={'#898a8f'} />} />
+                    </View>
+                    <InputIcon
+                        placeholder={'Number of Rooms'}
+                        icon={<FontAwesome name="bed" size={25} color={'#898a8f'} />} />
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <InputIcon half
+                            placeholder={'Room Type'}
+                            icon={<FontAwesome name="bed" size={20} color={'#898a8f'} />} />
+                        <InputIcon
+                            placeholder={'Adults'}
+                            half icon={<Entypo name="users" size={20} color={'#898a8f'} />} />
+                    </View>
+
+                </View>
+
+            </View>
+
+            <View style={{ flex: 1, marginBottom: 10, alignItems: 'center' }}>
+                <Touchable
+                    style={{ flex: 1 }}
+                    onPress={() => Actions.HotelSearchResult()}>
+                    <ImageBackground
+                        source={Images.submit}
+                        resizeMode={'stretch'}
+                        style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                    >
+                        <Text style={styles.search}>Search</Text>
+
+                    </ImageBackground>
+                </Touchable>
+            </View>
+        </View>)
     }
 }
 
 const styles = StyleSheet.create({
-    Hdng: {
-        fontSize: 18,
-        fontWeight: "700"
-    },
-    Title: {
-        fontSize: 16,
-        color: "#fff"
-    },
-    rectangle1750: {
-        width: 250,
-        height: 55,
-        marginRight: 10,
-        borderTopLeftRadius: 13,
-        borderTopRightRadius: 0,
-        borderBottomLeftRadius: 13,
-        borderBottomRightRadius: 0,
-        backgroundColor: '#ff484c',
-        justifyContent: 'center',
-        paddingLeft: 10
-
-    },
-    usdAdult: {
-        color: '#ffffff',
-        fontFamily: 'Poppins',
-        fontSize: 16,
-        fontWeight: '600',
-    },
-    includesFare: {
-
-        color: '#fdfdfd',
-        fontFamily: 'Poppins',
-        fontSize: 8,
-        fontWeight: '400',
-    },
     multireisen: {
         color: '#ffffff',
         fontFamily: fonts.fontPrimaryLight,
         fontSize: normalize(18),
         fontWeight: '600',
     },
-
-    text: {
-        color: '#ffffff',
-        fontFamily: fonts.fontPrimaryBold,
-        fontSize: 20,
-        fontWeight: '700',
-        letterSpacing: 0.17,
-        marginLeft: 20
-
+    flight: {
+        width: 45,
+        height: 30,
+        color: '#f6f6f6',
+        fontFamily: fonts.fontPrimaryLight,
+        fontSize: 15,
+        fontWeight: '600',
     },
-    path1227: {
-        width: 150,
-        height: 40,
-        shadowColor: 'rgba(0, 0, 0, 0.08)',
+    rectangle76: {
+        width: scale(300),
+        height: verticalScale(320),
+        shadowColor: 'rgba(0, 0, 0, 0.07)',
         shadowOffset: { width: 3, height: 0 },
-        borderRadius: 25,
-        shadowRadius: 16,
+        shadowRadius: 29,
+        borderRadius: 12,
         backgroundColor: '#ffffff',
-        marginHorizontal: 8,
         alignItems: 'center',
         justifyContent: 'center'
     },
-    business: {
-        color: '#313450',
-        fontFamily: fonts.fontPrimaryLight,
-        fontSize: 10,
-        fontWeight: '400',
-    },
+    search: {
+        color: '#ffffff',
+        fontFamily: fonts.fontPrimaryBold,
+        fontSize: 14,
+        fontWeight: '600',
+    }
 })

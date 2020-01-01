@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, ImageBackground, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Image, FlatList, Text, ScrollView, Dimensions, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native'
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
@@ -15,32 +15,44 @@ import { Actions } from 'react-native-router-flux'
 import { colors } from '../../../config/colors';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Touchable from '../../../components/Tochable'
-
-
+import HotelDetailCard from '../../../components/HotelDetailCard'
+import FacilityCard from './FacilityCard'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
+const { height, width } = Dimensions.get('window')
+const data = [
+    { name: 'Internet access', icon: <Fontisto name="earth" color='blue' size={10} /> },
+    { name: 'WLAN access', icon: <Fontisto name="wifi" color='blue' size={10} /> },
+    { name: 'Room access', icon: <MaterialCommunityIcons name="room-service" color='blue' size={10} /> },
+    { name: "Shower & Bathroom", icon: <FontAwesome name="shower" color='blue' size={10} /> }
+]
+import RoomDetailModal from '../../../modal/RoomDetailModal'
 export default class App extends Component {
+    state = { modalOpen: false }
     render() {
         return (
 
-            <ImageBackground source={Images.loginpage} style={{ width: '100%', height: '100%', }}>
+            <View style={{ width: '100%', height: '100%', }}>
 
-                <Touchable
-                    style={{
-                        flex: 1,
-                        width: 50, height: 50,
-                        position: 'absolute',
-                        top: 50,
-                        alignItems: 'center', justifyContent: 'center'
-                    }} onPress={() => Actions.pop()}>
-                    <Ionicons name="md-arrow-back" color={colors.white} size={35} />
-                </Touchable>
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 30 }}>
-                    <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(25), color: 'white' }} >
-                        Hotel Booking
-                       </Text>
-                </View>
+                <ImageBackground
+                    source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREfO2Gl6nuGFrwxMeGmBz7GEe51heXlCtYoNjcIHzvBZe64kSsMQ&s' }}
+                    style={{ width: '100%', height: '60%' }}
+                    resizeMode={'cover'}
+                >
+                    <Touchable
+                        style={{
+                            flex: 1,
+                            width: 50, height: 50,
+                            alignItems: 'center', justifyContent: 'center'
+                        }} onPress={() => Actions.pop()}>
+                        <Ionicons name="md-arrow-back" color={colors.white} size={35} />
+                    </Touchable>
+                    <View style={{ flex: 2 }}>
 
-                <ScrollView style={{ marginTop: 80 }}>
+                    </View>
+
+                </ImageBackground>
+
+                <ScrollView style={{ height: height, position: 'absolute', top: 150 }}>
                     <View style={{
                         flex: 1, backgroundColor: 'white',
                         marginHorizontal: scale(20), borderRadius: 10, marginTop: 30
@@ -98,137 +110,39 @@ export default class App extends Component {
                                 source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbFwBVCiImgHA88uDcGUycwaRuILBqUOOv9OA0wnzcwEeXcSpI&s' }}
                             />
                         </ScrollView>
+                        <FlatList
+                            data={data}
+                            style={{ flex: 1, paddingHorizontal: 25, marginTop: 20, marginBottom: 10 }}
+                            numColumns={2}
+                            renderItem={({ item }) => <FacilityCard icon={item.icon} text={item.name} />}
+                        />
 
 
-                        <View style={{ width: "100%", height: 20, flexDirection: "row", marginTop: 30 }}>
-                            <View style={{
-                                flex: 1, justifyContent: "center", alignItems: "center",
-                                marginLeft: 10, flexDirection: 'row'
-                            }}>
-                                <Fontisto name="earth" color='blue' size={20} />
-                                <Text style={styles.B}>  internet access</Text>
-                            </View>
 
-                            <View style={{
-                                flex: 1, justifyContent: "center", alignItems: "center",
-                                marginLeft: 10, flexDirection: 'row'
-                            }}>
-                                <Fontisto name="wifi" color='blue' size={20} />
-                                <Text style={styles.B}>  WLAN access</Text>
-                            </View>
-                        </View>
-                        <View style={{ width: "100%", height: 20, flexDirection: "row", marginTop: 10 }}>
-                            <View style={{
-                                flex: 1, justifyContent: "center", alignItems: "center",
-                                marginLeft: 10, flexDirection: 'row'
-                            }}>
-                                <Fontisto name="wifi" color='blue' size={20} />
-                                <Text style={styles.B}>    WLAN access</Text>
-                            </View>
 
-                            <View style={{
-                                flex: 1, justifyContent: "center", alignItems: "center",
-                                marginLeft: 10, flexDirection: 'row'
-                            }}>
-                                <Ionicons name="md-arrow-back" color='blue' size={20} />
-                                <Text style={styles.B}> Room Serivces</Text>
-                            </View>
-                        </View>
-                        <View style={{ width: "100%", height: 20, flexDirection: "row", marginTop: 10 }}>
-                            <View style={{
-                                flex: 1, justifyContent: "center", alignItems: "center",
-                                marginLeft: 10, flexDirection: 'row'
-                            }}>
-                                <MaterialCommunityIcons name="room-service" color='blue' size={20} />
-                                <Text style={styles.B}>    Room access</Text>
-                            </View>
 
-                            <View style={{
-                                flex: 1, justifyContent: "center", alignItems: "center",
-                                marginLeft: 10, flexDirection: 'row'
-                            }}>
-                                <FontAwesome name="shower" color='blue' size={20} />
-                                <Text style={styles.B}> Shower & Bathroom</Text>
-                            </View>
-                        </View>
-                        <View style={{
-                            width: "100%", height: 50, marginLeft: 40,
-                            justifyContent: "center", alignItems: "flex-start"
-                        }}>
+                        <View style={{ marginLeft: 40, }}>
                             <Text style={styles.Hdng}>Rooms</Text>
                         </View>
+                        <View style={{ flex: 1, alignItems: 'center', paddingHorizontal: 20, paddingLeft: 30, paddingBottom: 50 }}>
 
-                        <View style={{
-                            width: 320, height: 120, borderRadius: 12,
-                            borderWidth: 1, margin: 15, justifyContent: "center"
-                        }}>
-                            <View style={{ flex: 1, margin: 15 }}>
-                                <Text style={styles.B}>SINGLE STANDARD NON-REFUNDABLE</Text>
-                                <Text style={styles.B}>(ROOM ONLY)</Text>
-                            </View>
-                            <View style={{ flex: 1, margin: 15 }}>
-                                <Text style={styles.Hdng}>855.55 $</Text>
-                            </View>
-
+                            <HotelDetailCard onPress={() => this.setState({ modalOpen: true })} />
+                            <HotelDetailCard onPress={() => this.setState({ modalOpen: true })} />
+                            <HotelDetailCard onPress={() => this.setState({ modalOpen: true })} />
+                            <HotelDetailCard onPress={() => this.setState({ modalOpen: true })} />
                         </View>
-                        <View style={{ width: "100%", height: 50, alignItems: "center", marginLeft: 70 }}>
-                            <TouchableOpacity style={{
-                                width: 140, height: 45, justifyContent: "center", alignItems: "center",
-                                bottom: 40, backgroundColor: "red", borderRadius: 20
-                            }}>
-                                <Text style={styles.C}>See Details</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={{
-                            width: 320, height: 120, borderRadius: 12,
-                            borderWidth: 1, margin: 15, justifyContent: "center"
-                        }}>
-                            <View style={{ flex: 1, margin: 15 }}>
-                                <Text style={styles.B}>SINGLE STANDARD NON-REFUNDABLE</Text>
-                                <Text style={styles.B}>(ROOM ONLY)</Text>
-                            </View>
-                            <View style={{ flex: 1, margin: 15 }}>
-                                <Text style={styles.Hdng}>855.55 $</Text>
-                            </View>
-
-                        </View>
-                        <View style={{ width: "100%", height: 50, alignItems: "center", marginLeft: 70 }}>
-                            <TouchableOpacity style={{
-                                width: 140, height: 45, justifyContent: "center", alignItems: "center",
-                                bottom: 40, backgroundColor: "red", borderRadius: 20
-                            }}>
-                                <Text style={styles.C}>See Details</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={{
-                            width: 320, height: 120, borderRadius: 12,
-                            borderWidth: 1, margin: 15, justifyContent: "center"
-                        }}>
-                            <View style={{ flex: 1, margin: 15 }}>
-                                <Text style={styles.B}>SINGLE STANDARD NON-REFUNDABLE</Text>
-                                <Text style={styles.B}>(ROOM ONLY)</Text>
-                            </View>
-                            <View style={{ flex: 1, margin: 15 }}>
-                                <Text style={styles.Hdng}>855.55 $</Text>
-                            </View>
-
-                        </View>
-                        <View style={{ width: "100%", height: 50, alignItems: "center", marginLeft: 70 }}>
-                            <TouchableOpacity style={{
-                                width: 140, height: 45, justifyContent: "center", alignItems: "center",
-                                bottom: 40, backgroundColor: "red", borderRadius: 20
-                            }}>
-                                <Text style={styles.C}>See Details</Text>
-                            </TouchableOpacity>
-                        </View>
-
 
                     </View>
+                    <View style={{ width: '100%', height: 500 }} />
                 </ScrollView>
 
+                <RoomDetailModal
+                    isOpen={this.state.modalOpen}
+                    onClose={() => this.setState({ modalOpen: false })}
+                    onOpen={() => this.setState({ modalOpen: true })}
+                />
 
-
-            </ImageBackground >
+            </View >
         )
     }
 }

@@ -14,38 +14,25 @@ import { colors } from '../../../config/colors';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Touchable from '../../../components/Tochable'
 
-
+import Header from '../../../components/Header'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
-export default class SignupScreen extends Component {
+
+export default class HotelCheckout extends Component {
     render() {
         return (
 
-            <ImageBackground source={Images.loginpage} style={{ width: '100%', height: '100%', }}>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                    <View style={{ flex: 2, justifyContent: "center", alignItems: "center" }}>
-                        <Touchable
-                            style={{
-                                flex: 1,
-                                width: 50, height: 50,
-                                position: 'absolute',
-                                top: 50,
-                                alignItems: 'center', justifyContent: 'center'
-                            }} onPress={() => Actions.pop()}>
-                            <AntDesign name="close" color={colors.white} size={35} />
-                        </Touchable>
+            <View style={{
+                width: '100%', height: '100%',
+                alignItems: 'center'
+            }}>
 
-                    </View>
-                    <View style={{ flex: 8, alignItems: 'flex-start', justifyContent: 'center', paddingTop: 70 }}>
-                        <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(25), color: 'white' }} >
-                            Booking Room
-                       </Text>
-                    </View>
-                </View>
-
+                <Header title={'Hotel Booking'} />
 
                 <View style={{
-                    flex: 4.5, backgroundColor: 'white', minHeight: 100,
-                    marginHorizontal: scale(20), borderRadius: 10, marginTop: 30
+                    flex: 8, backgroundColor: 'white', width: '85%', minHeight: 100,
+                    marginHorizontal: scale(20), borderRadius: 10, marginTop: 30,
+                    position: 'absolute',
+                    top: 120
                 }}>
                     <View style={{ width: "100%", height: 30, flexDirection: "row", marginTop: 30 }}>
                         <View style={{ flex: 7, justifyContent: "center", alignItems: "center" }}>
@@ -93,33 +80,36 @@ export default class SignupScreen extends Component {
                             {/* <AntDesign name="delete" color='grey' size={23} /> */}
                         </View>
                     </View>
-                    <View style={{ width: "100%", height: 1, marginTop: 27, backgroundColor: 'black' }}>
+                    <View style={{ width: "100%", height: 0.5, marginTop: 27, borderBottomWidth: 1, borderBottomColor: 'grey', backgroundColor: 'grey' }}>
                     </View>
-                    <View style={{ width: "100%", height: 30, flexDirection: "row", marginTop: 30 }}>
-                        <View style={{ flex: 6, justifyContent: "center", alignItems: "flex-start", marginLeft: 25 }}>
-                            <Text style={styles.Hdng}>Totoal</Text>
+                    <View style={{ width: "100%", height: 80, flexDirection: "row", }}>
+                        <View style={{ flex: 7, justifyContent: "center", alignItems: "flex-start", marginLeft: 30 }}>
+                            <Text style={styles.H}>Total</Text>
                         </View>
-                        <View style={{ flex: 2, justifyContent: "center", alignItems: "center" }}>
+                        <View style={{ flex: 2, justifyContent: "center", alignItems: "flex-start" }}>
                             <Text style={styles.Title}>$ 100</Text>
                         </View>
-                        <View style={{ flex: 2, justifyContent: "center", alignItems: "center" }}>
+                        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
                             {/* <AntDesign name="delete" color='grey' size={23} /> */}
                         </View>
                     </View>
                 </View>
 
 
-                <View style={{ flex: 2.7, justifyContent: "center", alignItems: "center" }}>
-                    <TouchableOpacity style={{
-                        width: 330, height: 60, borderRadius: 35, backgroundColor: 'blue',
-                        justifyContent: "center", alignItems: "center"
-                    }}>
-                        <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(20), color: 'white' }}>
-                            Proceed To Payment
-                    </Text>
-                    </TouchableOpacity>
+                <View style={{ flex: 2.7, justifyContent: "center", alignItems: "center", marginTop: 130 }}>
+                    <Touchable
+                        onPress={() => Actions.HotelCart()}>
+                        <ImageBackground
+                            source={Images.submit}
+                            resizeMode={'stretch'}
+                            style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                        >
+                            <Text style={styles.search}>Proceed To Payment</Text>
+
+                        </ImageBackground>
+                    </Touchable>
                 </View>
-            </ImageBackground >
+            </View >
         )
     }
 }
@@ -141,5 +131,11 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: "bold",
         color: "#fff"
+    },
+    search: {
+        color: '#ffffff',
+        fontFamily: fonts.fontPrimaryBold,
+        fontSize: 14,
+        fontWeight: '600',
     }
 })

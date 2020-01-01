@@ -26,7 +26,7 @@ const data = [
 import ResultCard from './component/ResultCard'
 import FlightFilterModal from '../../../modal/FlightFilterModal'
 
-export default class FlightSearch extends Component {
+export default class FlightSearchResult extends Component {
     state = { modalOpen: false }
     render() {
         return (

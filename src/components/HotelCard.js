@@ -8,13 +8,16 @@ import { fonts } from '../config/fonts'
 import { normalize } from '../utils/Fontnormalize'
 import Images from '../resources/images'
 import Entypo from 'react-native-vector-icons/Entypo'
+import Touchable from './Tochable';
 
-const HotelCard = ({ }) => (
-    <View style={{
-        flex: 1, height: verticalScale(230), backgroundColor: 'white', minHeight: 100,
-        marginHorizontal: scale(20), borderRadius: 10, marginTop: 30,
-        overflow: 'hidden'
-    }}>
+const HotelCard = ({ onPress }) => (
+    <Touchable
+        onPress={onPress}
+        style={{
+            flex: 1, height: verticalScale(230), backgroundColor: 'white', minHeight: 100,
+            marginHorizontal: scale(20), borderRadius: 10, marginTop: 30,
+            overflow: 'hidden'
+        }}>
         <View style={{ flex: 7 }}>
             <Image
 
@@ -38,7 +41,7 @@ const HotelCard = ({ }) => (
                 </ImageBackground>
             </View>
         </View>
-    </View>
+    </Touchable>
 )
 
 const styles = StyleSheet.create({
