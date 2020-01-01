@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, ImageBackground, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Image, ImageBackground, Text, ScrollView, StyleSheet, TouchableOpacity, Platform } from 'react-native'
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
@@ -19,6 +19,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 import HotelCard from "../../../components/HotelCard"
 import ActionButton from 'react-native-action-button';
 import HotelFilterModal from '../../../modal/HotelFilterModal'
+
 export default class HotelSearchResult extends Component {
     state = { modalOpen: false }
     render() {
@@ -71,7 +72,7 @@ export default class HotelSearchResult extends Component {
                     </ImageBackground>
 
                 </View>
-                <View style={{ flex: 7.6 }}>
+                <View style={{ flex: 7.6, marginTop: Platform.OS == 'ios' ? 25 : 45 }}>
                     <ScrollView style={{ width: '100%', height: "100%" }}>
                         < HotelCard onPress={() => Actions.HotelDetail()} />
                         < HotelCard />

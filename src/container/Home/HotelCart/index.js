@@ -15,31 +15,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import Touchable from '../../../components/Tochable'
 import Step from "../../../components/Step"
 
-export default class SignupScreen extends Component {
+export default class HotelCard extends Component {
     render() {
         return (
             <View style={{ flex: 1, }}>
 
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                    <View style={{ flex: 2, justifyContent: "center", alignItems: "center" }}>
-                        <TouchableOpacity
-                            style={{
-                                flex: 1,
-                                width: 50, height: 50,
-                                position: 'absolute',
-                                top: 50,
-                                alignItems: 'center', justifyContent: 'center'
-                            }} onPress={() => Actions.pop()}>
-                            <Ionicons name="md-arrow-back" color={'black'} size={35} />
-                        </TouchableOpacity>
 
-                    </View>
-                    <View style={{ flex: 8, alignItems: 'flex-start', justifyContent: 'center', paddingTop: 70 }}>
-                        <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(25), color: 'black' }} >
-                            Checkout
-                       </Text>
-                    </View>
-                </View>
                 <View style={{ flex: 1, justifyContent: 'center', marginTop: 40, paddingHorizontal: 10 }}>
                     <Step />
                 </View>
@@ -99,7 +80,7 @@ export default class SignupScreen extends Component {
                         </View>
                     </View>
                 </View>
-                <View style={{ flex: 1, marginBottom: 10, alignItems: 'center' }}>
+                <View style={{ flex: 1, marginBottom: 65, alignItems: 'center' }}>
                     <Touchable
                         style={{ flex: 1 }}
                         onPress={() => Actions.ContactPage()}>

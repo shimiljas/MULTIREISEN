@@ -96,7 +96,7 @@ export default class HotelCheckout extends Component {
                 </View>
 
 
-                <View style={{ flex: 2.7, justifyContent: "center", alignItems: "center", marginTop: 130 }}>
+                <View style={{ flex: 2.7, justifyContent: "center", alignItems: "center", marginTop: 230 }}>
                     <Touchable
                         onPress={() => Actions.HotelCart()}>
                         <ImageBackground

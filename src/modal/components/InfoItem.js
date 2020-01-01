@@ -48,7 +48,7 @@ const InfoItem = () => (
                 color={colors.black}
             />
         </View>
-        <View style={{ flex: 8, alignItems: 'flex-start', padding: 15 }} >
+        <View style={{ flex: 8, alignItems: 'flex-start', padding: 15, }} >
             <Text styles={styles.notes}>   Lorem ipsum dolor sit amet, et justo ante tortor tristique aliquet, elit eu quisque leo primis, eros mi diam elit praesent, ac sollicitudin euismod urna nulla pellentesque nunc. Fusce enim turpis egestas dictum lacus adipiscing, tempor morbi congue duis arcu, placerat metus rhoncus cras netus veniam, sed odio.
              Id non vestibulum vel dolor tellus, vehicula curabitur lorem pulvinar rutrum netus. Leo quis vestibulum tempor, iaculis maecenas diam bibendum malesuada
          ligula arcu, nunc dapibus curabitur sit vitae adipiscing</Text>

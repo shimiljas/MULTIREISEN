@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, ImageBackground, Text, StyleSheet, } from 'react-native'
+import { View, Image, ImageBackground, Text, StyleSheet, ScrollView } from 'react-native'
 import Images from '../../../../resources/images'
 import Button from '../../../../components/Button'
 import Input from '../../../../components/Input'
@@ -27,7 +27,6 @@ export default class OneWay extends Component {
         return (
             <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', marginBottom: 20 }}>
                 <View style={styles.rectangle76_2}>
-
                     <InputIcon
                         placeholder={'Depart from'}
                         icon={<MaterialIcons name="flight-takeoff" size={25} color={'#898a8f'} />} />
@@ -63,6 +62,7 @@ export default class OneWay extends Component {
                 </View>
 
             </View>
+
         )
     }
 }
