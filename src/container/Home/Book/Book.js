@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, ImageBackground, Text, StyleSheet } from 'react-native'
+import { View, Image, ImageBackground, Text, StyleSheet, ScrollView } from 'react-native'
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
@@ -24,7 +24,7 @@ export default class Book extends Component {
     state = { selected: '' }
     render() {
         const { selected } = this.state
-        return (<View style={{ flex: 1, }}>
+        return (<ScrollView style={{ flex: 1, }}>
 
             <View style={{ flex: 3, }}>
                 <ImageBackground source={Images.header}
@@ -56,23 +56,25 @@ export default class Book extends Component {
                         backgroundColor: 'transparent',
                         flexDirection: 'row',
                         position: 'relative',
-                        bottom: -130
+                        bottom: -140,
+
 
                     }}>
                         <View style={{ flex: 0.5, }}></View>
                         <View style={{ flex: 8, flexDirection: 'row', justifyContent: 'space-around' }}>
                             <RoundIcon selected={selected == 'oneway'} image={Images.oneway} onPress={() => this.setState({ selected: 'oneway' })} />
                             <RoundIcon selected={selected == 'round'} image={Images.round} onPress={() => this.setState({ selected: 'round' })} />
-                            <RoundIcon s selected={selected == 'multi'} image={Images.multi} onPress={() => this.setState({ selected: 'multi' })} />
+                            <RoundIcon selected={selected == 'multi'} image={Images.multi} onPress={() => this.setState({ selected: 'multi' })} />
                         </View>
                         <View style={{ flex: 0.5, }}></View>
                     </View>
 
                 </ImageBackground>
             </View>
+            <View style={{ marginTop: 40 }}></View>
             {selected == 'multi' ? < MultiCity /> : <OneWay />}
 
-            <View style={{ flex: 1, marginBottom: 10, alignItems: 'center' }}>
+            <View style={{ flex: 1, marginBottom: 10, alignItems: 'center', marginTop: 15 }}>
                 <Touchable
                     style={{ flex: 1 }}
                     onPress={() => Actions.FlightSearchResult()}>
@@ -86,7 +88,7 @@ export default class Book extends Component {
                     </ImageBackground>
                 </Touchable>
             </View>
-        </View>)
+        </ScrollView>)
     }
 }
 
