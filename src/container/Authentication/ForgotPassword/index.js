@@ -18,20 +18,23 @@ import RoomDetailModal from '../../../modal/RoomDetailModal'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 import Step from '../../../components/Step'
 import InputDropDown from '../../../components/InputDropDown'
+import BackButton from '../../../components/BackButton'
+
 export default class LoginScreen extends Component {
     render() {
         return (
 
             <ImageBackground source={Images.loginpage} style={{ width: '100%', height: '100%', }}>
+                <BackButton onPress={() => Actions.pop()} />
 
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 30 }}>
+                <View style={{ flex: 1.3, alignItems: 'center', justifyContent: 'flex-end',marginBottom: 30,}}>
                     <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(25), color: 'white' }} >
                         Forogt Password
                        </Text>
                 </View>
                 <View style={{
                     minHeight: 60, justifyContent: "center",
-                    flex: 2, backgroundColor: 'white', marginHorizontal: scale(20), borderRadius: 10
+                    flex: 1, backgroundColor: 'white', marginHorizontal: scale(20), borderRadius: 10
                 }}>
                     <View style={{ paddingHorizontal: 15 }}>
                         <KeyboardAwareScrollView >
@@ -47,15 +50,15 @@ export default class LoginScreen extends Component {
                         width: '100%', height: 80, alignItems: 'center',
                         justifyContent: 'center',
                         position: 'absolute',
-                        bottom: -40
+                        bottom: -50
                     }}>
                         <Button size="medium"
-                            title="Login"
-                            onPress={() => Actions.drawerMenu()}
+                            title="Submit"
+                            onPress={() => Actions.login()}
                         />
                     </View>
                 </View>
-                <View style={{ flex: 4.5, alignItems: 'center', justifyContent: 'center' }}>
+                <View style={{ flex: 6.5, alignItems: 'center', justifyContent: 'center' }}>
                     {/* <Text
                         onPress={() => Actions.register()}
                         style={{ fontFamily: fonts.fontPrimaryLight, fontSize: normalize(14) }}>Register ?</Text> */}

@@ -13,10 +13,11 @@ import {
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const RoundIcon = ({ image, onPress, selected }) => {
+const RoundIcon = ({ image, onPress, selected ,title}) => {
     return (
         <Touchable style={[styles.eclipse, { borderColor: selected ? '#6ecaf7' : 'white' }]} onPress={onPress}>
             <Image resizeMode={'contain'} source={image} style={styles.image} />
+             <Text style={{fontFamily:fonts.fontPrimaryBold,color:'black',position:'absolute',bottom:-25}}>{title}</Text>
         </Touchable>
     )
 }

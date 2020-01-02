@@ -293,6 +293,8 @@ PODS:
     - React
   - RNCAsyncStorage (1.7.1):
     - React
+  - RNDateTimePicker (2.1.0):
+    - React
   - RNFirebase (5.6.0):
     - Firebase/Core
     - React
@@ -343,6 +345,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - rn-range-slider (from `../node_modules/rn-range-slider`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNFirebase (from `../node_modules/react-native-firebase/ios`)
   - RNOpenAppSettings (from `../node_modules/react-native-app-settings`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
@@ -425,6 +428,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/rn-range-slider"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
+  RNDateTimePicker:
+    :path: "../node_modules/@react-native-community/datetimepicker"
   RNFirebase:
     :path: "../node_modules/react-native-firebase/ios"
   RNOpenAppSettings:
@@ -480,6 +485,7 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   rn-range-slider: 69e44e1ed63195995d5b6a86ac5e09d9ce6dbe38
   RNCAsyncStorage: 8539fc80a0075fcc9c8e2dff84cd22dc5bf1dacf
+  RNDateTimePicker: 68e542a59ff1b73563744145bfc45c2b88a3deea
   RNFirebase: 37daa9a346d070f9f6ee1f3b4aaf4c8e3b1d5d1c
   RNOpenAppSettings: 1169b90a275e9e18c5973e1608949f97d426e7f3
   RNPermissions: 409e55ed060f7e35d4a3dfc3a336f94a5811dec1

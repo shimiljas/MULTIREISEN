@@ -32,7 +32,7 @@ export default class Book extends Component {
         const { selected } = this.state
         return (<ScrollView style={{ flex: 1, }}>
 
-            <View style={{ flex: 3, marginBottom: Platform.OS == 'android' ? 30 : 50 }}>
+            <View style={{ flex: 3, marginBottom: Platform.OS == 'android' ? 30 : 60 }}>
                 <ImageBackground source={Images.header}
                     resizeMode={'stretch'}
                     style={{ flex: 1, width: '100%', height: 200, paddingBottom: 10 }}>
@@ -48,9 +48,9 @@ export default class Book extends Component {
                     }}>
                         <View style={{ flex: 0.5, }}></View>
                         <View style={{ flex: 8, flexDirection: 'row', justifyContent: 'space-around' }}>
-                            <RoundIcon selected={selected == 'oneway'} image={Images.oneway} onPress={() => this.setState({ selected: 'oneway' })} />
-                            <RoundIcon selected={selected == 'round'} image={Images.round} onPress={() => this.setState({ selected: 'round' })} />
-                            <RoundIcon selected={selected == 'multi'} image={Images.multi} onPress={() => this.setState({ selected: 'multi' })} />
+                            <RoundIcon title={'One ay'} selected={selected == 'oneway'} image={Images.oneway} onPress={() => this.setState({ selected: 'oneway' })} />
+                            <RoundIcon title={'Round Trip'}  selected={selected == 'round'} image={Images.round} onPress={() => this.setState({ selected: 'round' })} />
+                            <RoundIcon title={'Mulit City'}  selected={selected == 'multi'} image={Images.multi} onPress={() => this.setState({ selected: 'multi' })} />
                         </View>
                         <View style={{ flex: 0.5, }}></View>
                     </View>
