@@ -26,7 +26,10 @@ export default class ContactPage extends Component {
     render() {
         return (
             <ScrollView style={{ flex: 1, }}>
-                <BackButton black onPress={() => Actions.pop()} />
+                <View style={{ width: "100%", height: 30, marginTop: verticalScale(30), marginVertical: scale(15) }}>
+                    <BackButton black onPress={() => Actions.pop()} />
+
+                </View>
                 <View style={{ flex: 1, paddingHorizontal: 20 }}>
                     <View style={{ flex: 1 }}>
 

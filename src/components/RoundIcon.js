@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View, Text, TextInput, Image, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, Image, StyleSheet, Platform } from 'react-native';
 import { scale, verticalScale } from '../utils/Responsive'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { colors } from '../config/colors';
@@ -8,16 +8,13 @@ import { fonts } from '../config/fonts'
 import { normalize } from '../utils/Fontnormalize'
 import LinearGradient from 'react-native-linear-gradient';
 import Touchable from './Tochable'
-import {
-    widthPercentageToDP as wp,
-    heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
 
-const RoundIcon = ({ image, onPress, selected ,title}) => {
+
+const RoundIcon = ({ image, onPress, selected, title }) => {
     return (
         <Touchable style={[styles.eclipse, { borderColor: selected ? '#6ecaf7' : 'white' }]} onPress={onPress}>
             <Image resizeMode={'contain'} source={image} style={styles.image} />
-             <Text style={{fontFamily:fonts.fontPrimaryBold,color:'black',position:'absolute',bottom:-25}}>{title}</Text>
+            <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', position: 'absolute', bottom:Platform.OS=='android'? verticalScale(-30):verticalScale(-22) }}>{title}</Text>
         </Touchable>
     )
 }

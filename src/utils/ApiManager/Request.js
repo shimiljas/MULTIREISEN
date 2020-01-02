@@ -3,11 +3,13 @@
 import axios from 'axios';
 
 import getUrl from './EndPoints';
+import Config from 'react-native-config';
 import store from '../../store/store';
 import { getAccessToken } from '../Selectors/ProfileSelectors';
 import errors from '../../constants/errors';
 import ErrorHandler from '../ErrorHandler';
 import UserManager from '../UserManager';
+import { encode } from 'base-64';
 
 const parseErrors = (error, reject) => {
   console.log(error, reject);
@@ -64,7 +66,7 @@ const Request = (url, requestOptions, auth = true) => new Promise((resolve, reje
         headers: {
           'Content-Type': 'application/json',
           'x-access-token': accessToken,
-          'Access-Control-Allow-Headers': 'x-access-token',
+          'Authorization': 'Basic ' + encode(Config.API_USERNAME + ':' + Config.API_PASSWORD),
         },
       };
       if (requestOptions.ContentType) {
@@ -72,7 +74,7 @@ const Request = (url, requestOptions, auth = true) => new Promise((resolve, reje
           headers: {
             'Content-Type': requestOptions.ContentType,
             'x-access-token': accessToken,
-            'Access-Control-Allow-Headers': 'x-access-token',
+            'Authorization': 'Basic ' + encode(Config.API_USERNAME + ':' + Config.API_PASSWORD),
           },
         };
       }
@@ -80,6 +82,7 @@ const Request = (url, requestOptions, auth = true) => new Promise((resolve, reje
       defaultOptions = {
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Basic ' + encode(Config.API_USERNAME + ':' +Config.API_PASSWORD),
         },
       };
     }

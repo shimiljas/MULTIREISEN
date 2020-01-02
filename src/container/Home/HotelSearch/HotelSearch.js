@@ -53,6 +53,7 @@ const ROOM_TYPE = [
   ];
   
 import InputSelector from  '../../../components/InputSelector'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 
@@ -135,7 +136,8 @@ export default class HotelSearch extends Component {
     };
     render() {
         const { roomType ,Childern} = this.state
-        return (<ScrollView style={{ flex: 1, }}>
+        return (
+        <KeyboardAwareScrollView style={{ flex: 1, }}>
 
             <View style={{ flex: 2, }}>
                 <ImageBackground source={Images.header}
@@ -232,7 +234,7 @@ export default class HotelSearch extends Component {
                 onCancel={this.hideDatePickerCheckOut}
                 minimumDate={new Date()}
             />
-        </ScrollView>)
+        </KeyboardAwareScrollView>)
     }
 }
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, Image, ImageBackground, Text } from 'react-native'
+import { View, Image, ImageBackground, Text, ScrollView, Dimensions } from 'react-native'
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
-import { scale } from '../../../utils/Responsive';
+import { scale, verticalScale } from '../../../utils/Responsive';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
@@ -16,15 +16,17 @@ import Touchable from '../../../components/Tochable'
 
 import BackButton from '../../../components/BackButton'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
+const { width, height } = Dimensions.get('window')
 export default class SignupScreen extends Component {
     render() {
         return (
-            <ImageBackground source={Images.loginpage} style={{ width: '100%', height: '100%', }}>
-                {/* <View
+            <KeyboardAwareScrollView>
+                <ImageBackground source={Images.loginpage} style={{ width, height, }}>
+                    {/* <View
                     style={{
                         flex: 1,
                         backgroundColor: 'red',
-                        alignItems: 'center',
+                        alignItems: 'center',im
                         justifyContent: 'center',
 
                         marginLeft: 10
@@ -34,48 +36,53 @@ export default class SignupScreen extends Component {
                     </Touchable>
                 </View> */}
 
-                <BackButton onPress={() => Actions.pop()} />
-                <View style={{ flex: 0.5, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 30 }}>
-                    <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(25), color: 'white' }} >
-                        Create Account
+                    <View style={{ width: "100%", height: 30, marginTop: verticalScale(30) }}>
+                        <BackButton onPress={() => Actions.pop()} />
+
+                    </View>
+                    <View style={{ flex: 0.5, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 30 }}>
+                        <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(25), color: 'white' }} >
+                            Create Account
                        </Text>
-                </View>
-                <View style={{
-                    flex: 4.5, backgroundColor: 'white', minHeight: 150, justifyContent: "center",
-                    marginHorizontal: scale(20), borderRadius: 10
-                }}>
-                    <View style={{ paddingHorizontal: 15 }}>
-                        <KeyboardAwareScrollView >
+                    </View>
+                    <View style={{
+                        flex: 4.5, backgroundColor: 'white', minHeight: 150, justifyContent: "center",
+                        marginHorizontal: scale(20), borderRadius: 10
+                    }}>
+                        <View style={{ paddingHorizontal: 15 }}>
+
                             <Input
                                 icon={<AntDesign name="user" color={"black"} size={25} />}
                                 placeholder={"Name"} />
-                        </KeyboardAwareScrollView>
-                        <KeyboardAwareScrollView >
+
                             <Input
                                 icon={<MaterialCommunityIcons name="email" color={"black"} size={25} />}
                                 placeholder={"Email"} />
-                        </KeyboardAwareScrollView>
-                        <KeyboardAwareScrollView >
+
                             <Input
                                 icon={<Entypo name="key" color={"black"} size={25} />}
                                 placeholder={"Password"} />
-                        </KeyboardAwareScrollView>
-                        <KeyboardAwareScrollView >
+
                             <Input
                                 icon={<Entypo name="key" color={"black"} size={25} />}
                                 placeholder={"Confirm Password"} />
-                        </KeyboardAwareScrollView>
+
+                        </View>
+                        <View style={{ width: '100%', height: 80, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: -30 }}>
+                            <Button size="medium"
+                                title="Sign up"
+                                onPress={() => Actions.pop()}
+                            />
+                        </View>
                     </View>
-                    <View style={{ width: '100%', height: 80, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: -30 }}>
-                        <Button size="medium"
-                            title="Sign up"
-                            onPress={() => Actions.pop()}
-                        />
+                    <View style={{ flex: 2.5, }}>
                     </View>
-                </View>
-                <View style={{ flex: 2.5, }}>
-                </View>
-            </ImageBackground >
+
+                </ImageBackground >
+            </KeyboardAwareScrollView>
+
         )
+
+
     }
 }
