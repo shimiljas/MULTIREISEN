@@ -29,7 +29,7 @@ export default class HotelSearch extends Component {
             <View style={{ flex: 2, }}>
                 <ImageBackground source={Images.header}
                     resizeMode={'stretch'}
-                    style={{ flex: 1, width: '100%', height: 150, }}>
+                    style={{ flex: 1, width: '100%', height: 160, }}>
                     <TopHeader title={'Hotel'} />
 
                 </ImageBackground>

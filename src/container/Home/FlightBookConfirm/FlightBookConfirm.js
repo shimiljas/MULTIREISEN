@@ -25,9 +25,9 @@ export default class FlightBookConfirm extends Component {
             <View style={{ flex: 1, }}>
                 <ImageBackground source={Images.header}
                     resizeMode={'stretch'}
-                    style={{ width: '100%', height: 180, paddingBottom: 10 }}>
+                    style={{ width: '100%', height: 160, paddingBottom: 10 }}>
                     <View style={{
-                        width: '100%', height: 80,
+                        width: '100%', height: 40,
                         justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
                         paddingHorizontal: 10
                     }} >

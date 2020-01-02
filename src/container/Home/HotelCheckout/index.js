@@ -3,7 +3,7 @@ import { View, Image, ImageBackground, Text, ScrollView, StyleSheet, TouchableOp
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
-import { scale } from '../../../utils/Responsive';
+import { scale, verticalScale } from '../../../utils/Responsive';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
@@ -30,7 +30,7 @@ export default class HotelCheckout extends Component {
 
                 <View style={{
                     flex: 8, backgroundColor: 'white', width: '85%', minHeight: 100,
-                    marginHorizontal: scale(20), borderRadius: 10, marginTop: 30,
+                    marginHorizontal: (20), borderRadius: 10, marginTop: verticalScale(30),
                     position: 'absolute',
                     top: 120
                 }}>

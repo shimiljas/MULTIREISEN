@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View, Image, StyleSheet, ImageBackground, Text, } from 'react-native'
+import { View, Image, StyleSheet, ImageBackground, Text, ScrollView } from 'react-native'
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
-import { scale } from '../../../utils/Responsive';
+import { scale, verticalScale } from '../../../utils/Responsive';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
@@ -25,11 +25,14 @@ export default class LoginScreen extends Component {
         return (
 
             <ImageBackground source={Images.loginpage} style={{ width: '100%', height: '100%', }}>
-                <BackButton onPress={() => Actions.pop()} />
+                <View style={{ width: "100%", height: 30, marginTop: verticalScale(35), }}>
+                    <BackButton white onPress={() => Actions.pop()} />
 
-                <View style={{ flex: 1.3, alignItems: 'center', justifyContent: 'flex-end',marginBottom: 30,}}>
+                </View>
+
+                <View style={{ flex: 1.3, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 30, }}>
                     <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(25), color: 'white' }} >
-                        Forogt Password
+                        Forget Password
                        </Text>
                 </View>
                 <View style={{
@@ -37,12 +40,12 @@ export default class LoginScreen extends Component {
                     flex: 1, backgroundColor: 'white', marginHorizontal: scale(20), borderRadius: 10
                 }}>
                     <View style={{ paddingHorizontal: 15 }}>
-                        <KeyboardAwareScrollView >
-                            <Input
-                                icon={<MaterialCommunityIcons name="email" color={"black"} size={25} />}
-                                placeholder={"Email"} />
 
-                        </KeyboardAwareScrollView>
+                        <Input
+                            icon={<MaterialCommunityIcons name="email" color={"black"} size={25} />}
+                            placeholder={"Email"} />
+
+
 
 
                     </View>
@@ -50,7 +53,7 @@ export default class LoginScreen extends Component {
                         width: '100%', height: 80, alignItems: 'center',
                         justifyContent: 'center',
                         position: 'absolute',
-                        bottom: -50
+                        bottom: -150
                     }}>
                         <Button size="medium"
                             title="Submit"
