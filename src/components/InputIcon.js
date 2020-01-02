@@ -6,6 +6,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { colors } from '../config/colors';
 import { fonts } from '../config/fonts'
 import { normalize } from '../utils/Fontnormalize'
+import Touchable from './Tochable';
 const InputIcon = ({
     style,
     label,
@@ -30,36 +31,78 @@ const InputIcon = ({
     autoCorrect,
     textColor,
     icon,
+    onPress,
     half
 }) => {
-
-    return (<View style={half ? styles.rectangle93 : styles.rectangle90} >
-        <View style={half ? styles.container1 : styles.container12}>
-            <TextInput
-                style={{
-                    fontFamily: fonts.fontPrimaryLight,
-                    fontSize: normalize(12),
-                    paddingLeft: 10
-                }}
-                value={value}
-                autoFocus={autoFocus}
-                mulitiline={mulitiline}
-                placeholder={placeholder}
-                secureTextEntry={secureTextEntry}
-                placeholderStyle={{
-                    fontFamily: fonts.fontPrimaryLight,
-                    fontSize: normalize(10),
-                }}
-                placeholderTextColor={placeholderTextColor}
-                autoCapitalize={autoCapitalize}
-                keyboardType={keyboardType}
-                onChangeText={onChangeText}
-            />
+    if(editable){
+        return (
+        <View style={half ? styles.rectangle93 : styles.rectangle90} >
+            <View style={half ? styles.container1 : styles.container12}>
+                <TextInput
+                    style={{
+                        fontFamily: fonts.fontPrimaryLight,
+                        fontSize: normalize(12),
+                        paddingLeft: 10
+                    }}
+                    returnKeyType={returnKeyType}
+                    value={value}
+                    autoFocus={autoFocus}
+                    mulitiline={mulitiline}
+                    placeholder={placeholder}
+                    secureTextEntry={secureTextEntry}
+                    placeholderStyle={{
+                        fontFamily: fonts.fontPrimaryLight,
+                        fontSize: normalize(10),
+                    }}
+                    placeholderTextColor={placeholderTextColor}
+                    autoCapitalize={autoCapitalize}
+                    keyboardType={keyboardType}
+                    onChangeText={onChangeText}
+                />
+            </View>
+            <View style={half ? styles.container2 : styles.container21}>
+                {icon}
+            </View>
         </View>
-        <View style={half ? styles.container2 : styles.container21}>
-            {icon}
-        </View>
-    </View>)
+        )
+    }else{
+       return(
+     <Touchable 
+         onPress={onPress}
+         style={half ? styles.rectangle93 : styles.rectangle90} >
+            <View style={half ? styles.container1 : styles.container12}>
+                <TextInput
+                    style={{
+                        fontFamily: fonts.fontPrimaryLight,
+                        fontSize: normalize(12),
+                        paddingLeft: 10
+                    }}
+                    editable={false}
+                    value={value}
+                    autoFocus={autoFocus}
+                    mulitiline={mulitiline}
+                    placeholder={placeholder}
+                    secureTextEntry={secureTextEntry}
+                    placeholderStyle={{
+                        fontFamily: fonts.fontPrimaryLight,
+                        fontSize: normalize(10),
+                    }}
+                    placeholderTextColor={placeholderTextColor}
+                    autoCapitalize={autoCapitalize}
+                    keyboardType={keyboardType}
+                    onChangeText={onChangeText}
+                />
+            </View>
+            <View style={half ? styles.container2 : styles.container21}>
+                {icon}
+            </View>
+        </Touchable>
+        ) 
+    }
+}
+InputIcon.defaultProps={
+    editable:true,
+    onPress:()=>{}
 }
 const styles = StyleSheet.create({
     rectangle90: {

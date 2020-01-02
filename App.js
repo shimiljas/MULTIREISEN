@@ -1,114 +1,178 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
+  Button,
   Text,
-  StatusBar,
+  TextInput,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+//import { Ionicons } from '@expo/vector-icons';
+import Entypo from 'react-native-vector-icons/Entypo'
+import RNPickerSelect, { defaultStyles } from 'react-native-picker-select';
+// import RNPickerSelect, { defaultStyles } from './debug';
+import InputSelector from './src/components/InputSelector'
+const sports = [
+  {
+    label: 'Football',
+    value: 'football',
+  },
+  {
+    label: 'Baseball',
+    value: 'baseball',
+  },
+  {
+    label: 'Hockey',
+    value: 'hockey',
+  },
+];
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.inputRefs = {
+      firstTextInput: null,
+      favSport0: null,
+      favSport1: null,
+      lastTextInput: null,
+      favSport5: null,
+    };
+
+    this.state = {
+      Childern:'',
+      type:'',
+      numbers: [
+        {
+          label: '1',
+          value: 1,
+          color: 'orange',
+        },
+        {
+          label: '2',
+          value: 2,
+          color: 'green',
+        },
+      ],
+      favSport0: undefined,
+      favSport1: undefined,
+      favSport2: undefined,
+      favSport3: undefined,
+      favSport4: 'baseball',
+      previousFavSport5: undefined,
+      favSport5: null,
+      favNumber: undefined,
+    };
+
+    this.InputAccessoryView = this.InputAccessoryView.bind(this);
+  }
+
+  InputAccessoryView() {
+    return (
+      <View style={defaultStyles.modalViewMiddle}>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.setState(
+              {
+                favSport5: this.state.previousFavSport5,
+              },
+              () => {
+                this.inputRefs.favSport5.togglePicker(true);
+              }
+            );
+          }}
+          hitSlop={{ top: 4, right: 4, bottom: 4, left: 4 }}>
+          <View testID="needed_for_touchable">
+            <Text
+              style={[
+                defaultStyles.done,
+                { fontWeight: 'normal', color: 'red' },
+              ]}>
+              Cancel
+            </Text>
           </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+        </TouchableWithoutFeedback>
+        <Text>Name | Prefer</Text>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.inputRefs.favSport5.togglePicker(true);
+          }}
+          hitSlop={{ top: 4, right: 4, bottom: 4, left: 4 }}>
+          <View testID="needed_for_touchable">
+            <Text style={defaultStyles.done}>Done</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+    );
+  }
+
+  render() {
+    const placeholder = {
+      label: 'Select a sport...',
+      value: null,
+      color: '#9EA0A4',
+    };
+     const {Childern,type}=this.state
+    return (
+      <View style={styles.container}>
+         
+          <InputSelector
+            placeHolder={'Adults'}
+            value={Childern}
+            value={type}
+            onValueChange={value=>this.setState({type:value})}
+            half icon={<Entypo name="users" size={20} color={'#898a8f'} />} 
+          />
+
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
+    justifyContent:'center'
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  scrollContainer: {
+    flex: 1,
+    paddingHorizontal: 15,
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  scrollContentContainer: {
+    paddingTop: 40,
+    paddingBottom: 10,
   },
 });
 
-export default App;
+const pickerSelectStyles = StyleSheet.create({
+  inputIOS: {
+    fontSize: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderRadius: 4,
+    color: 'black',
+    borderColor: '#d6d6d6',
+    borderStyle: 'solid',
+    backgroundColor: '#f6f6f6',
+    flexDirection: 'row',
+
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
+  inputAndroid: {
+    fontSize: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderRadius: 4,
+    color: 'black',
+    borderColor: '#d6d6d6',
+    borderStyle: 'solid',
+    backgroundColor: '#f6f6f6',
+    flexDirection: 'row',
+    paddingRight: 30
+  },
+});

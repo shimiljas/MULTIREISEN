@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import { View, Image, ImageBackground, Text, StyleSheet, ScrollView } from 'react-native'
 import Images from '../../../../resources/images'
@@ -19,10 +20,44 @@ import LargeButton from '../../../../components/LargeButton'
 import Touchable from '../../../../components/Tochable';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
-
-
+import _ from 'lodash'
 export default class OneWay extends Component {
+    state={Children:0}
+    even=(quotient)=>{
+        if(quotient==0) return null
+        let card = [];
+        _.times(quotient, () => {
+        card.push(
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <InputIcon half
+                placeholder={'Age'}
+                icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
+            <InputIcon
+                placeholder={'Age'}
+                half icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
+            </View>
+         );
+        });
+        return card
+
+    }
+    renderChildren=()=>{
+        const {Childern}=this.state
+        let quotient=~~(Childern/2)
+        let remainder=Childern%2;
+        return(
+            <View style={{flex:1}}>
+                {this.even(quotient)}
+                   {remainder==1? <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <InputIcon half
+                            placeholder={'Age'}
+                            icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
+                    </View>:null }
+            </View>
+        )
+    }
     render() {
+        const {Childern}=this.state
         const { roundTrip } = this.props
         return (
             <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', marginBottom: 20 }}>
@@ -47,11 +82,15 @@ export default class OneWay extends Component {
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                         <InputIcon half
                             placeholder={'Adults'}
+                            keyboardType={'numeric'}
                             icon={<Entypo name="users" size={20} color={'#898a8f'} />} />
                         <InputIcon
                             placeholder={'Childern'}
+                            value={Childern}
+                            onChangeText={(text)=>this.setState({Childern:text})}
                             half icon={<Entypo name="user" size={20} color={'#898a8f'} />} />
                     </View>
+                    {this.renderChildren()}
                     <InputIcon
                         placeholder={'Payment'}
                         icon={<MaterialIcons name="payment" size={25} color={'#898a8f'} />} />

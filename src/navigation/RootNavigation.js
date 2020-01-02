@@ -2,12 +2,16 @@
 import React, { Componet } from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native';
 
+
+//Auth Stack--------------------------------------<>
 import LoginScreen from '../container/Authentication/LoginScreen'
 import SignupScreen from '../container/Authentication/SignupScreen'
 import ForgotPassword from '../container/Authentication/ForgotPassword'
 
-import Book from '../container/Home/Book';
 
+
+//Home Stack--------------------------------------<>
+import Book from '../container/Home/Book';
 import Booking from '../container/Home/Booking';
 import Account from '../container/Home/Account';
 import FlightSearchResult from '../container/Home/FlightSearchResult'
@@ -15,6 +19,14 @@ import HotelSearchResult from '../container/Home/HotelSearchResult'
 import HotelDetail from '../container/Home/HotelDetail'
 import HotelCheckout from '../container/Home/HotelCheckout'
 import HotelCart from '../container/Home/HotelCart'
+import SideMenu from '../container/Home/SideMenu'
+import FlightBookConfirm from '../container/Home/FlightBookConfirm'
+import ContactPage from '../container/Home/ContactPage'
+import HotelSearch from '../container/Home/HotelSearch'
+import Country from '../container/Home/Country'
+
+
+
 import { Actions, Router, Stack, Scene, Drawer } from 'react-native-router-flux';
 import { colors } from '../config/colors';
 import { isIphoneX } from 'react-native-iphone-x-helper';
@@ -23,35 +35,7 @@ import { scale, verticalScale } from '../utils/Responsive'
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Entypo from 'react-native-vector-icons/Entypo'
-import SideMenu from '../container/Home/SideMenu'
-import FlightBookConfirm from '../container/Home/FlightBookConfirm'
-import ContactPage from '../container/Home/ContactPage'
-import HotelSearch from '../container/Home/HotelSearch'
 
-class TabIcon extends React.Component {
-    render() {
-        const { focused, image, activeimage } = this.props;
-
-        return (
-            <View
-                style={{
-                    flex: 1,
-                    marginVertical: 10,
-                    paddingBottom: isIphoneX() ? 25 : 0
-                }}
-            >
-                {/* <Image
-                    resizeMode={'contain'}
-                    source={focused ? activeimage : image}
-                    style={{
-                        width: 28,
-                        height: 28
-                    }}
-                /> */}
-            </View>
-        );
-    }
-}
 
 class RootNavigation extends React.Component {
     constructor(props) {
@@ -75,7 +59,7 @@ class RootNavigation extends React.Component {
 
                         <Scene
                             key='login'
-                            initial
+                          
                             component={LoginScreen}
                             title='Login'
                             hideNavBar={true}
@@ -97,11 +81,18 @@ class RootNavigation extends React.Component {
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
 
+                        <Scene
+                                key="Country"
+                                title='Country'
+                                component={Country}
+                                sceneStyle={{ backgroundColor: 'white' }}
+                        />      
+
 
                         <Drawer
                             hideNavBar
                             key="drawerMenu"
-
+                            initial
                             contentComponent={SideMenu}
                             drawerWidth={250}
                             drawerPosition="left"
@@ -188,7 +179,6 @@ class RootNavigation extends React.Component {
                                         key='HotelCart'
                                         component={HotelCart}
                                         title='HotelCart'
-                                        hideNavBar={true}
                                         sceneStyle={{ backgroundColor: 'white' }}
                                     />
 
@@ -224,8 +214,10 @@ class RootNavigation extends React.Component {
                                     icon={this.iconProfile}
                                 />
                             </Scene>
-
+                           
                         </Drawer>
+                       
+
                     </Stack>
                 </Router>
             </View>
