@@ -25,11 +25,11 @@ export default class HotelSearchResult extends Component {
     render() {
         return (
 
-            <View style={{ flex: 1, }}>
+            <KeyboardAwareScrollView style={{ flex: 1, }}>
                 <View style={{ flex: 2.2, }}>
                     <ImageBackground source={Images.header}
                         resizeMode={'stretch'}
-                        style={{ width: '100%', height: 180, paddingBottom: 10 }}>
+                        style={{ width: '100%', height: 180, marginRight: 20 }}>
                         <View style={{
                             width: '100%', height: 60,
                             justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
@@ -72,7 +72,7 @@ export default class HotelSearchResult extends Component {
                     </ImageBackground>
 
                 </View>
-                <View style={{ flex: 7.6, marginTop: Platform.OS == 'ios' ? 25 : 45 }}>
+                <View style={{ flex: 7.6, marginTop: Platform.OS == 'ios' ? 25 : 25 }}>
                     <ScrollView style={{ width: '100%', height: "100%" }}>
                         < HotelCard onPress={() => Actions.HotelDetail()} />
                         < HotelCard onPress={() => Actions.HotelDetail()} />
@@ -89,7 +89,7 @@ export default class HotelSearchResult extends Component {
                     onClose={() => this.setState({ modalOpen: false })}
                     onOpen={() => this.setState({ modalOpen: true })}
                 />
-            </View>
+            </KeyboardAwareScrollView>
         )
     }
 }

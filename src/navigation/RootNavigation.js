@@ -23,6 +23,9 @@ import SideMenu from '../container/Home/SideMenu'
 import FlightBookConfirm from '../container/Home/FlightBookConfirm'
 import ContactPage from '../container/Home/ContactPage'
 import HotelSearch from '../container/Home/HotelSearch'
+import ChatScreen from '../container/Home/ChatScreen'
+import BookingScreen from '../container/Home/BookingScreen'
+import UserProfile from '../container/Home/UserProfile'
 import Country from '../container/Home/Country'
 
 
@@ -59,7 +62,7 @@ class RootNavigation extends React.Component {
 
                         <Scene
                             key='login'
-                          
+
                             component={LoginScreen}
                             title='Login'
                             hideNavBar={true}
@@ -73,6 +76,22 @@ class RootNavigation extends React.Component {
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
                         <Scene
+                            key='ChatScreen'
+                            component={ChatScreen}
+                            title='ChatScreen'
+
+                            hideNavBar={true}
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
+                        <Scene
+                            key='BookingScreen'
+                            component={BookingScreen}
+                            title='BookingScreen'
+
+                            hideNavBar={true}
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
+                        <Scene
                             key='ForgotPassword'
                             component={ForgotPassword}
                             title='ForgotPassword'
@@ -82,17 +101,24 @@ class RootNavigation extends React.Component {
                         />
 
                         <Scene
-                                key="Country"
-                                title='Country'
-                                component={Country}
-                                sceneStyle={{ backgroundColor: 'white' }}
-                        />      
+                            key="Country"
+                            title='Country'
+                            component={Country}
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
+                        <Scene
+                            key="UserProfile"
+                            title='UserProfile'
+                            component={UserProfile}
+                            hideNavBar={true}
+
+                        />
 
 
                         <Drawer
                             hideNavBar
                             key="drawerMenu"
-                            initial
+
                             contentComponent={SideMenu}
                             drawerWidth={250}
                             drawerPosition="left"
@@ -214,9 +240,9 @@ class RootNavigation extends React.Component {
                                     icon={this.iconProfile}
                                 />
                             </Scene>
-                           
+
                         </Drawer>
-                       
+
 
                     </Stack>
                 </Router>

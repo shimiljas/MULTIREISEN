@@ -22,37 +22,37 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Actions } from 'react-native-router-flux'
 import TopHeader from '../../../components/TopHeader'
 import _ from 'lodash'
-import RNPickerSelect, {defaultStyles} from 'react-native-picker-select';
+import RNPickerSelect, { defaultStyles } from 'react-native-picker-select';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from 'moment'
 const ROOM_TYPE = [
     {
-      label: 'Single bed',
-      value: 'single',
+        label: 'Single bed',
+        value: 'single',
     },
     {
-      label: 'Double bed',
-      value: 'double',
+        label: 'Double bed',
+        value: 'double',
     },
     {
-      label: 'Twin bed',
-      value: 'twin',
+        label: 'Twin bed',
+        value: 'twin',
     },
     {
-      label: 'Triple bed',
-      value: 'triple',
+        label: 'Triple bed',
+        value: 'triple',
     },
     {
-      label: 'Quad bed',
-      value: 'quad',
+        label: 'Quad bed',
+        value: 'quad',
     },
     {
-      label: 'Twin bed for solo use',
-      value: 'solo',
+        label: 'Twin bed for solo use',
+        value: 'solo',
     },
-  ];
-  
-import InputSelector from  '../../../components/InputSelector'
+];
+
+import InputSelector from '../../../components/InputSelector'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
@@ -60,181 +60,181 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 export default class HotelSearch extends Component {
     constructor(props) {
         super(props);
-        this.state={
-            selected: '',Children:0,
+        this.state = {
+            selected: '', Children: 0,
             previousRoomType: undefined,
-            roomType:'',
-            checkInModal:false,
-            checkOutModal:false,
-            checkIn:'',
-            checkOut:''
+            roomType: '',
+            checkInModal: false,
+            checkOutModal: false,
+            checkIn: '',
+            checkOut: ''
         }
 
 
     }
-    
 
-    even=(quotient)=>{
-        if(quotient==0) return null
+
+    even = (quotient) => {
+        if (quotient == 0) return null
         let card = [];
         _.times(quotient, () => {
-        card.push(
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <InputIcon half
-                placeholder={'Age'}
-                keyboardType={'numeric'}
-                returnKeyType={'done'}
-                icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
-            <InputIcon
-                placeholder={'Age'}
-                keyboardType={'numeric'}
-                returnKeyType={'done'}
-                half icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
-            </View>
-         );
+            card.push(
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <InputIcon half
+                        placeholder={'Age'}
+                        keyboardType={'numeric'}
+                        returnKeyType={'done'}
+                        icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
+                    <InputIcon
+                        placeholder={'Age'}
+                        keyboardType={'numeric'}
+                        returnKeyType={'done'}
+                        half icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
+                </View>
+            );
         });
         return card
 
     }
-    renderChildren=()=>{
-        const {Childern}=this.state
-        let quotient=~~(Childern/2)
-        let remainder=Childern%2;
-        return(
-            <View style={{flex:1}}>
+    renderChildren = () => {
+        const { Childern } = this.state
+        let quotient = ~~(Childern / 2)
+        let remainder = Childern % 2;
+        return (
+            <View style={{ flex: 1 }}>
                 {this.even(quotient)}
-                   {remainder==1? <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <InputIcon half
-                            placeholder={'Age'}
-                            keyboardType={'numeric'}
-                            returnKeyType={'done'}
-                            icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
-                    </View>:null }
+                {remainder == 1 ? <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <InputIcon half
+                        placeholder={'Age'}
+                        keyboardType={'numeric'}
+                        returnKeyType={'done'}
+                        icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
+                </View> : null}
             </View>
         )
     }
 
     hideDatePickerCheckIn = () => {
-         this.setState({checkInModal:false})
+        this.setState({ checkInModal: false })
     };
-    
+
     handleConfirmCheckIn = date => {
-        this.setState({checkIn:moment(date).format('YYYY-MM-DD')})
+        this.setState({ checkIn: moment(date).format('YYYY-MM-DD') })
         //console.log(moment(date).format('YYYY-MM-DD'))
         this.hideDatePickerCheckIn();
-     };
+    };
 
 
-     hideDatePickerCheckOut = () => {
-        this.setState({checkOutModal:false})
-   };
-   
-   handleConfirmCheckOut = date => {
-    this.setState({checkOut:moment(date).format('YYYY-MM-DD')})
-       //console.log(moment(date).format('YYYY-MM-DD'))
-       this.hideDatePickerCheckOut();
+    hideDatePickerCheckOut = () => {
+        this.setState({ checkOutModal: false })
+    };
+
+    handleConfirmCheckOut = date => {
+        this.setState({ checkOut: moment(date).format('YYYY-MM-DD') })
+        //console.log(moment(date).format('YYYY-MM-DD'))
+        this.hideDatePickerCheckOut();
     };
     render() {
-        const { roomType ,Childern} = this.state
+        const { roomType, Childern } = this.state
         return (
-        <KeyboardAwareScrollView style={{ flex: 1, }}>
+            <KeyboardAwareScrollView style={{ flex: 1, }}>
 
-            <View style={{ flex: 2, }}>
-                <ImageBackground source={Images.header}
-                    resizeMode={'stretch'}
-                    style={{ flex: 1, width: '100%', height: 150, }}>
-                    <TopHeader title={'Hotel'} />
-
-                </ImageBackground>
-            </View>
-            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', marginTop: 40 }}>
-                <View style={styles.rectangle76}>
-
-                    <InputIcon
-                        placeholder={'Country,City ,Hotel '}
-                        returnKeyType={'done'} 
-
-                        icon={<Entypo name="location-pin" size={25} color={'#898a8f'} />} />
-                    <InputIcon
-                        placeholder={'Passenger Nationality'}
-                        returnKeyType={'done'}
-                        editable={false}
-                        value={this.props.code}
-                        onPress={()=>Actions.Country()}
-                        icon={<Entypo name="user" size={20} color={'#898a8f'} />} />
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <InputIcon half
-                           onPress={()=>this.setState({checkInModal:true})}
-                            editable={false}
-                            value={this.state.checkIn}
-                            placeholder={'Check In'}
-                            icon={<Entypo name="calendar" size={20} color={'#898a8f'} />} />
-                        <InputIcon
-                             onPress={()=>this.setState({checkOutModal:true})}
-                            placeholder={'Check Out'}
-                            editable={false}
-                            value={this.state.checkOut}
-                            half icon={<Entypo name="calendar" size={20} color={'#898a8f'} />} />
-                    </View>
-                    <InputIcon
-                        placeholder={'Number of Rooms'}
-                        keyboardType={'numeric'}
-                        returnKeyType={'done'}
-                        icon={<FontAwesome name="bed" size={25} color={'#898a8f'} />} />
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <InputSelector
-                            placeHolder={'Room Type'}
-                            value={roomType}
-                            returnKeyType={'done'}
-                            options={ROOM_TYPE}
-                            onValueChange={value=>this.setState({roomType:value})}
-                            half icon={<Entypo name="users" size={20} color={'#898a8f'} />} 
-                        />
-                        <InputIcon
-                            placeholder={'Adults'}
-                            value={Childern}
-                            keyboardType={'numeric'}
-                            returnKeyType={'done'}
-                            onChangeText={(text)=>this.setState({Childern:text})}
-                            half icon={<Entypo name="users" size={20} color={'#898a8f'} />} />
-                    </View>
-                    
-                    {this.renderChildren()}
-                </View>
-
-            </View>
-
-            <View style={{ flex: 1, marginBottom: 10, alignItems: 'center', marginTop: 30 }}>
-                <Touchable
-                    style={{ flex: 1 }}
-                    onPress={() => Actions.HotelSearchResult()}>
-                    <ImageBackground
-                        source={Images.submit}
+                <View style={{ flex: 2, }}>
+                    <ImageBackground source={Images.header}
                         resizeMode={'stretch'}
-                        style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
-                    >
-                        <Text style={styles.search}>Search</Text>
+                        style={{ flex: 1, width: '100%', height: 150, }}>
+                        <TopHeader title={'Hotel'} />
 
                     </ImageBackground>
-                </Touchable>
-            </View>
-            <DateTimePickerModal
-                isVisible={this.state.checkInModal}
-                mode="date"
-                onConfirm={this.handleConfirmCheckIn}
-                onCancel={this.hideDatePickerCheckIn}
-                minimumDate={new Date()}
-            />
-             <DateTimePickerModal
-                isVisible={this.state.checkOutModal}
-                mode="date"
-                onConfirm={this.handleConfirmCheckOut}
-                onCancel={this.hideDatePickerCheckOut}
-                minimumDate={new Date()}
-            />
-        </KeyboardAwareScrollView>)
+                </View>
+                <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', marginTop: 40 }}>
+                    <View style={styles.rectangle76}>
+
+                        <InputIcon
+                            placeholder={'Country,City ,Hotel '}
+                            returnKeyType={'done'}
+
+                            icon={<Entypo name="location-pin" size={25} color={'#898a8f'} />} />
+                        <InputIcon
+                            placeholder={'Passenger Nationality'}
+                            returnKeyType={'done'}
+                            editable={false}
+                            value={this.props.code}
+                            onPress={() => Actions.Country()}
+                            icon={<Entypo name="user" size={20} color={'#898a8f'} />} />
+
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <InputIcon half
+                                onPress={() => this.setState({ checkInModal: true })}
+                                editable={false}
+                                value={this.state.checkIn}
+                                placeholder={'Check In'}
+                                icon={<Entypo name="calendar" size={20} color={'#898a8f'} />} />
+                            <InputIcon
+                                onPress={() => this.setState({ checkOutModal: true })}
+                                placeholder={'Check Out'}
+                                editable={false}
+                                value={this.state.checkOut}
+                                half icon={<Entypo name="calendar" size={20} color={'#898a8f'} />} />
+                        </View>
+                        <InputIcon
+                            placeholder={'Number of Rooms'}
+                            keyboardType={'numeric'}
+                            returnKeyType={'done'}
+                            icon={<FontAwesome name="bed" size={25} color={'#898a8f'} />} />
+
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <InputSelector
+                                placeHolder={'Room Type'}
+                                value={roomType}
+                                returnKeyType={'done'}
+                                options={ROOM_TYPE}
+                                onValueChange={value => this.setState({ roomType: value })}
+                                half icon={<Entypo name="users" size={20} color={'#898a8f'} />}
+                            />
+                            <InputIcon
+                                placeholder={'Adults'}
+                                value={Childern}
+                                keyboardType={'numeric'}
+                                returnKeyType={'done'}
+                                onChangeText={(text) => this.setState({ Childern: text })}
+                                half icon={<Entypo name="users" size={20} color={'#898a8f'} />} />
+                        </View>
+
+                        {this.renderChildren()}
+                    </View>
+
+                </View>
+
+                <View style={{ flex: 1, marginBottom: 10, alignItems: 'center', marginTop: 30 }}>
+                    <Touchable
+                        style={{ flex: 1 }}
+                        onPress={() => Actions.HotelSearchResult()}>
+                        <ImageBackground
+                            source={Images.submit}
+                            resizeMode={'stretch'}
+                            style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                        >
+                            <Text style={styles.search}>Search</Text>
+
+                        </ImageBackground>
+                    </Touchable>
+                </View>
+                <DateTimePickerModal
+                    isVisible={this.state.checkInModal}
+                    mode="date"
+                    onConfirm={this.handleConfirmCheckIn}
+                    onCancel={this.hideDatePickerCheckIn}
+                    minimumDate={new Date()}
+                />
+                <DateTimePickerModal
+                    isVisible={this.state.checkOutModal}
+                    mode="date"
+                    onConfirm={this.handleConfirmCheckOut}
+                    onCancel={this.hideDatePickerCheckOut}
+                    minimumDate={new Date()}
+                />
+            </KeyboardAwareScrollView>)
     }
 }
 
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
     rectangle76: {
         width: scale(300),
         height: '100%',
-        paddingVertical:10,
+        paddingVertical: 10,
         shadowColor: 'rgba(0, 0, 0, 0.07)',
         shadowOffset: { width: 3, height: 0 },
         shadowRadius: 29,
@@ -280,8 +280,8 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         color: 'black',
         paddingRight: 30, // to ensure the text is never behind the icon
-      },
-      inputAndroid: {
+    },
+    inputAndroid: {
         fontSize: 16,
         paddingHorizontal: 10,
         paddingVertical: 8,
@@ -290,5 +290,5 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         color: 'black',
         paddingRight: 30, // to ensure the text is never behind the icon
-      },
+    },
 })
