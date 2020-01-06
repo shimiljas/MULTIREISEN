@@ -24,8 +24,10 @@ import FlightBookConfirm from '../container/Home/FlightBookConfirm'
 import ContactPage from '../container/Home/ContactPage'
 import HotelSearch from '../container/Home/HotelSearch'
 import ChatScreen from '../container/Home/ChatScreen'
-import BookingScreen from '../container/Home/BookingScreen'
 import UserProfile from '../container/Home/UserProfile'
+import HotelSupport from '../container/Home/HotelSupport'
+import TermsCondtions from '../container/Home/TermsCondtions'
+import PaymentConfirmation from '../container/Home/PaymentConfirmation'
 import Country from '../container/Home/Country'
 
 
@@ -83,14 +85,16 @@ class RootNavigation extends React.Component {
                             hideNavBar={true}
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
-                        <Scene
-                            key='BookingScreen'
-                            component={BookingScreen}
-                            title='BookingScreen'
 
+                        <Scene
+                            key='PaymentConfirmation'
+                            component={PaymentConfirmation}
+                            title='PaymentConfirmation'
                             hideNavBar={true}
+
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
+
                         <Scene
                             key='ForgotPassword'
                             component={ForgotPassword}
@@ -100,10 +104,28 @@ class RootNavigation extends React.Component {
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
 
+
+                        <Scene
+                            key='HotelSupport'
+                            component={HotelSupport}
+                            title='HotelSupport'
+                            hideNavBar={true}
+
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
+
                         <Scene
                             key="Country"
                             title='Country'
                             component={Country}
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
+                        <Scene
+                            key="TermsCondtions"
+                            title='TermsCondtions'
+                            hideNavBar={true}
+
+                            component={TermsCondtions}
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
                         <Scene

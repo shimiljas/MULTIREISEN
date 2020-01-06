@@ -98,13 +98,20 @@ export default class Account extends Component {
 
                     </View>
                 </View>
-                <TouchableOpacity style={{
-                    margin: scale(40),
-                    width: 260, height: 40, justifyContent: "center", borderRadius: 25,
-                    alignItems: "center", backgroundColor: 'red'
-                }}>
-                    <Text style={{ fontSize: 15, color: "#fff", fontWeight: "bold" }}>Save Changes</Text>
-                </TouchableOpacity>
+                <View style={{ flex: 1, marginBottom: 55, alignItems: 'center' }}>
+                    <TouchableOpacity
+                        style={{ flex: 1 }}
+                        onPress={() => Actions.ContactPage()}>
+                        <ImageBackground
+                            source={Images.submit}
+                            resizeMode={'stretch'}
+                            style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                        >
+                            <Text style={styles.search}>Save Changes</Text>
+
+                        </ImageBackground>
+                    </TouchableOpacity>
+                </View>
             </View>
 
 
@@ -114,5 +121,10 @@ export default class Account extends Component {
 }
 
 const styles = StyleSheet.create({
-
+    search: {
+        color: '#ffffff',
+        fontFamily: fonts.fontPrimaryBold,
+        fontSize: 14,
+        fontWeight: '600',
+    }
 })

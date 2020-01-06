@@ -4,7 +4,7 @@ import { View, Image, StyleSheet, Dimensions, ImageBackground, Text, TouchableOp
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
-import { scale } from '../../../utils/Responsive';
+import { scale, verticalScale } from '../../../utils/Responsive';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
@@ -26,8 +26,8 @@ export default class LoginScreen extends Component {
                 <ImageBackground source={Images.loginpage} style={{ width, height }}>
 
                     <View style={{ flex: 2, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 30 }}>
-                        <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(25), color: 'white' }} >
-                            Login
+                        <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(30), color: 'white' }} >
+                            Create Account
                        </Text>
                     </View>
                     <View style={{
@@ -64,21 +64,32 @@ export default class LoginScreen extends Component {
                             />
                         </View>
                     </View>
-                    <View style={{ flex: 4.5, alignItems: 'center', justifyContent: 'center' }}>
+                    <View style={{ flex: 3.5, alignItems: 'center', justifyContent: 'center' }}>
                         <Text
                             onPress={() => Actions.register()}
                             style={{ fontFamily: fonts.fontPrimaryLight, fontSize: normalize(14) }}>Register ?</Text>
                     </View>
-                    {/* 
-                <InputDropDown
-                    DESTRUCTIVE_INDEX={3}
-                    CANCEL_INDEX={4}
-                    placeholder={'Country'}
-
-                /> */}
 
 
+                    <View style={{ flex: 1.5, alignItems: 'center', marginBottom: verticalScale(80) }}>
+                        <TouchableOpacity
+                            style={{ flex: 1 }}
+                        >
+                            <View
+                                style={{
+                                    width: 340, backgroundColor: "#0780f9", borderRadius: 10,
+                                    height: 60, alignItems: 'center', justifyContent: 'center'
+                                }}>
+
+                                <Text style={{ fontSize: 17, fontWeight: "bold", color: "#fff", }}>
+                                    Sign in with facebook
+                                </Text>
+
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                 </ImageBackground >
+
             </KeyboardAwareScrollView>
 
 

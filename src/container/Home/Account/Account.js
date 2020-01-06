@@ -83,7 +83,7 @@ export default class Account extends Component {
                     </View>
                 </View>
                 <TouchableOpacity style={{ width: "100%", height: 40, marginTop: verticalScale(20), flexDirection: "row" }}
-                    onPress={() => Actions.BookingScreen()}
+
                 >
                     <View style={{ flex: 2, justifyContent: "center", alignItems: "center" }} >
                         <FontAwesome name="clock-o" color={colors.primaryColor} size={20} />

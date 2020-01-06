@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, ImageBackground, Text, ScrollView, Dimensions } from 'react-native'
+import { View, Image, ImageBackground, Text, ScrollView, Dimensions, TouchableOpacity } from 'react-native'
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
@@ -68,15 +68,32 @@ export default class SignupScreen extends Component {
                                 placeholder={"Confirm Password"} />
 
                         </View>
-                        <View style={{ width: '100%', height: 80, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: -30 }}>
+                        <View style={{ width: '100%', height: 80, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: -40 }}>
                             <Button size="medium"
                                 title="Sign up"
                                 onPress={() => Actions.pop()}
                             />
                         </View>
                     </View>
-                    <View style={{ flex: 2.5, }}>
+                    <View style={{ flex: 1 }}></View>
+                    <View style={{ flex: 1.5, alignItems: 'center', marginBottom: verticalScale(80) }}>
+                        <TouchableOpacity
+                            style={{ flex: 1 }}
+                        >
+                            <View
+                                style={{
+                                    width: 340, backgroundColor: "#0780f9", borderRadius: 10,
+                                    height: 60, alignItems: 'center', justifyContent: 'center'
+                                }}>
+
+                                <Text style={{ fontSize: 17, fontWeight: "bold", color: "#fff", }}>
+                                    Sign up with facebook
+                                </Text>
+
+                            </View>
+                        </TouchableOpacity>
                     </View>
+
 
                 </ImageBackground >
             </KeyboardAwareScrollView>
