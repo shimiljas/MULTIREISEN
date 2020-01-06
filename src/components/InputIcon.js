@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     rectangle90: {
         width: '90%',
         marginHorizontal: 30,
-        height: verticalScale(40),
+        height: verticalScale(44),
         borderRadius: 9,
         marginVertical: 7,
         borderColor: '#d6d6d6',
@@ -141,8 +141,8 @@ const styles = StyleSheet.create({
 
     },
     rectangle93: {
-        width: 150,
-        height: verticalScale(40),
+        width: '42%',
+        height: verticalScale(44),
         borderRadius: 9,
         borderColor: '#d6d6d6',
         borderStyle: 'solid',

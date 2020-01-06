@@ -37,11 +37,12 @@ const Search = ({
                 {icon}
             </View>
 
-            <View style={{ flex: 9, justifyContent: 'center', marginLeft: 10 }}>
+            <View style={{ flex: 9,justifyContent:'center',  marginLeft: 10 }}>
                 <TextInput
                     style={{
-                        fontFamily: fonts.fontPrimaryLight,
-                        fontSize: normalize(16)
+                        // fontFamily: fonts.fontPrimaryLight,
+                        fontSize: normalize(16),
+                        justifyContent:'center',
                     }}
                     value={value}
                     autoFocus={autoFocus}
@@ -67,8 +68,9 @@ export default Search
 const styles = StyleSheet.create({
     inputcontainer: {
         width: '100%',
-        height: scale(40),
+        height: verticalScale(43),
         marginVertical: 20,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems:'center'
     }
 })

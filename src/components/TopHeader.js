@@ -54,8 +54,8 @@ export default class TopHeader extends Component {
         const { title } = this.props
         return (
             <View style={{
-                width: '100%', height: 80,
-                justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
+                width: '100%', height:verticalScale( 50),
+                justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(40),
                 paddingHorizontal: 10
             }} >
                 <Touchable

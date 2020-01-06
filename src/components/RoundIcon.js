@@ -14,7 +14,7 @@ const RoundIcon = ({ image, onPress, selected, title }) => {
     return (
         <Touchable style={[styles.eclipse, { borderColor: selected ? '#6ecaf7' : 'white' }]} onPress={onPress}>
             <Image resizeMode={'contain'} source={image} style={styles.image} />
-            <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', position: 'absolute', bottom:Platform.OS=='android'? verticalScale(-30):verticalScale(-22) }}>{title}</Text>
+            <Text style={{fontSize:normalize(10), fontFamily: fonts.fontPrimaryBold, color: 'black', position: 'absolute', bottom:Platform.OS=='android'? verticalScale(-30):verticalScale(-22) }}>{title}</Text>
         </Touchable>
     )
 }

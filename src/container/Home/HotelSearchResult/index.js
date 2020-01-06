@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import { View, Image, ImageBackground, Text, ScrollView, StyleSheet, TouchableOpacity, Platform } from 'react-native'
 import Images from '../../../resources/images'
@@ -24,23 +25,22 @@ export default class HotelSearchResult extends Component {
     state = { modalOpen: false }
     render() {
         return (
-
-            <View style={{ flex: 1, }}>
+            <View style={{flex:1}}>
+            <KeyboardAwareScrollView style={{ flex: 1, }}>
                 <View style={{ flex: 2.2, }}>
                     <ImageBackground source={Images.header}
-                        resizeMode={'stretch'}
-                        style={{ width: '100%', height: 180, paddingBottom: 10 }}>
+                        resizeMode={'cover'}
+                        style={{ width: '100%', height: verticalScale(130), paddingBottom: 10 }}>
                         <View style={{
                             width: '100%', height: 60,
-                            justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
+                            justifyContent: 'center', flexDirection: 'row', position: 'absolute', top:Platform.OS=='android'? verticalScale(15):verticalScale(30),
                             paddingHorizontal: 10
                         }} >
-                            <Touchable
-                                onPress={() => Actions.pop()}
+                            <View
                                 style={{ flex: 8, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start' }}>
-                                <Ionicons name="md-arrow-back" color={colors.white} size={35} />
+                                <Ionicons name="md-arrow-back" color={colors.white} size={35}   onPress={() => Actions.pop()}/>
                                 <Text style={styles.text}>Hotel Search Result</Text>
-                            </Touchable>
+                            </View>
                             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                             </View>
                             <View style={{ flex: 1, marginRight: scale(30) }}>
@@ -52,7 +52,7 @@ export default class HotelSearchResult extends Component {
                             backgroundColor: 'transparent',
                             flexDirection: 'row',
                             position: 'relative',
-                            bottom: -150,
+                            top: verticalScale(110),
                             alignItems: 'center',
                             justifyContent: 'center'
 
@@ -72,7 +72,7 @@ export default class HotelSearchResult extends Component {
                     </ImageBackground>
 
                 </View>
-                <View style={{ flex: 7.6, marginTop: Platform.OS == 'ios' ? 25 : 45 }}>
+                <View style={{ flex: 7.6, marginTop:verticalScale(25)}}>
                     <ScrollView style={{ width: '100%', height: "100%" }}>
                         < HotelCard onPress={() => Actions.HotelDetail()} />
                         < HotelCard onPress={() => Actions.HotelDetail()} />
@@ -80,7 +80,9 @@ export default class HotelSearchResult extends Component {
                     </ScrollView>
 
                 </View>
-                <ActionButton
+               
+            </KeyboardAwareScrollView>
+            <ActionButton
                     buttonColor={colors.primaryColor}
                     onPress={() => { this.setState({ modalOpen: true }) }}
                 />

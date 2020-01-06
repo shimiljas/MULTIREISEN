@@ -32,17 +32,17 @@ export default class Book extends Component {
         const { selected } = this.state
         return (<ScrollView style={{ flex: 1, }}>
 
-            <View style={{ flex: 3, marginBottom: Platform.OS == 'android' ? 60 : 60 }}>
+            <View style={{ flex: 3, marginBottom: Platform.OS == 'android' ? 80 : 90 }}>
                 <ImageBackground source={Images.header}
-                    resizeMode={'stretch'}
-                    style={{ flex: 1, width: '100%', height: 200, paddingBottom: 10 }}>
+                  resizeMode={ Platform.OS == 'android'?'cover':'stretch'}
+                    style={{ flex: 1, width: '100%', height:verticalScale(130), paddingBottom: 10 }}>
                     <TopHeader title={'Flight'} />
                     <View style={{
-                        height: verticalScale(80),
+                        height: verticalScale(60),
                         backgroundColor: 'transparent',
                         flexDirection: 'row',
                         position: 'relative',
-                        bottom: -140,
+                        top: Platform.OS == 'android' ?  verticalScale(90):verticalScale(90),
 
 
                     }}>
@@ -66,13 +66,14 @@ export default class Book extends Component {
                     <ImageBackground
                         source={Images.submit}
                         resizeMode={'stretch'}
-                        style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                        style={{ width: scale(300), height: verticalScale(50), borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
                     >
                         <Text style={styles.search}>Search</Text>
 
                     </ImageBackground>
                 </Touchable>
             </View>
+            <View style={{width:'100%',height:50 }}/>
         </ScrollView>)
     }
 }

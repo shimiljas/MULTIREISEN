@@ -125,10 +125,11 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         backgroundColor: '#f6f6f6',
         flexDirection: 'row',
+        overflow: 'hidden',
     
     },
     container1: {
-        flex: 8,
+        width:'80%',
         justifyContent: 'center'
     },
     container12: {
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
     
     },
     rectangle93: {
-        width: 150,
+        width: '42%',
         height: verticalScale(40),
         borderRadius: 9,
         borderColor: '#d6d6d6',
@@ -160,6 +161,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginHorizontal: 10,
         marginVertical: 7,
+        overflow: 'hidden',
     },
 });
 
@@ -169,7 +171,8 @@ const pickerSelectStyles = StyleSheet.create({
     borderRadius: 4,
     color: 'black',
     padding:5,
-    backgroundColor: '#f6f6f6',
+    backgroundColor: 'transparent',
+    overflow: 'hidden',
    // to ensure the text is never behind the icon
   },
   inputAndroid: {
@@ -177,7 +180,8 @@ const pickerSelectStyles = StyleSheet.create({
     padding:5,
     borderRadius: 4,
     color: 'black',
-    backgroundColor: '#f6f6f6',
+    backgroundColor: 'transparent',
+    overflow: 'hidden',
  
   },
   

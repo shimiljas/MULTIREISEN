@@ -48,9 +48,7 @@ export default class FlightFilterModal extends Component {
                     height: '100%',
                     alignItems: 'center',
                     backgroundColor: 'transparent',
-                    paddingTop: 30,
-                    justifyContent: "center"
-
+                    justifyContent: "center",
                 }}
                 ref={"modal1"}
                 position={'center'}
@@ -63,7 +61,7 @@ export default class FlightFilterModal extends Component {
                     <Touchable
                         onPress={onClose}
                         style={{
-                            width: '100%', height: '8%',
+                            width: scale(300), height: '8%',
                             alignItems: 'flex-end',
                             justifyContent: 'center'
 
@@ -72,7 +70,7 @@ export default class FlightFilterModal extends Component {
                     </Touchable>
 
                     <View style={{
-                        width: '94%', height: '18%', backgroundColor: 'white',
+                     width: scale(300), height: '16%', backgroundColor: 'white',
                         marginHorizontal: 10,
                         padding: 20,
                         justifyContent: "center", marginVertical: 10, borderRadius: 30
@@ -84,7 +82,7 @@ export default class FlightFilterModal extends Component {
 
 
                     <View style={{
-                        width: '94%', height: '22%', backgroundColor: 'white',
+                       width: scale(300), height: '18%', backgroundColor: 'white',
                         marginHorizontal: 10,
                         borderRadius: 30
                         }} >
@@ -93,7 +91,7 @@ export default class FlightFilterModal extends Component {
                         <Text style={{color: colors.borderColor, fontSize: 14, fontFamily: fonts.fontPrimaryLight, }}>Distance</Text>
                     
                     </View>                 
-                    <View  style={{flex:2.5,justifyContent:'center'}}>
+                    <View  style={{flex:3,justifyContent:'center'}}>
                         <Dropdown          
                         label='Distance'
                         data={data}
@@ -106,7 +104,7 @@ export default class FlightFilterModal extends Component {
 
 
                     <View style={{
-                        width: '94%', height: '30%', backgroundColor: 'white',
+                      width: scale(300),height: '30%', backgroundColor: 'white',
                         marginHorizontal: 10,
                         padding: 20,
                         justifyContent: "center", marginVertical: 10, borderRadius: 30
@@ -121,21 +119,20 @@ export default class FlightFilterModal extends Component {
                             onPress={(value) => { this.setState({ value: value }) }}
                         />
                     </View>
-
-                    <View style={{ width: '88%', height: '10%', marginLeft: 19, marginTop: 10, alignItems: 'center' }}>
-                        <Touchable
-                            style={{ flex: 1 }}
+                    <View style={{ width: '100%', height: '10%', marginTop: 10, alignItems: 'center' }}>
+                    <Touchable
+                        style={{ flex: 1 }}
                             onPress={() => alert("ko")}>
                             <ImageBackground
-                                source={Images.submit}
-                                resizeMode={'stretch'}
-                                style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                            source={Images.submit}
+                                    resizeMode={'stretch'}
+                                style={{  width: scale(300), height: verticalScale(50), borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
                             >
                                 <Text style={styles.search}>Apply</Text>
-
+            
                             </ImageBackground>
                         </Touchable>
-                    </View>
+                       </View>
                 </ScrollView>
             </Modal>
         )

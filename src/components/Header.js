@@ -20,8 +20,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 const Header = ({ title }) => {
     return (
         <ImageBackground source={Images.header}
-            resizeMode={'stretch'}
-            style={{ width: '100%', height: 180, paddingBottom: 10 }}>
+            resizeMode={'cover'}
+            style={{ width: '100%', height: verticalScale(130), paddingBottom: 10 }}>
             <View style={{
                 width: '100%', height: 30,
                 justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),

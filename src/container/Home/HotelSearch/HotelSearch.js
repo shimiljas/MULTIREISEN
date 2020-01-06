@@ -139,15 +139,15 @@ export default class HotelSearch extends Component {
         return (
         <KeyboardAwareScrollView style={{ flex: 1, }}>
 
-            <View style={{ flex: 2, }}>
+            <View style={{ flex: 2 }}>
                 <ImageBackground source={Images.header}
-                    resizeMode={'stretch'}
-                    style={{ flex: 1, width: '100%', height: 150, }}>
+                    resizeMode={'cover'}
+                    style={{ flex: 1, width: '100%', height:verticalScale(130),marginBottom:30 }}>
                     <TopHeader title={'Hotel'} />
 
                 </ImageBackground>
             </View>
-            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', marginTop: 40 }}>
+            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', marginTop:verticalScale(10) }}>
                 <View style={styles.rectangle76}>
 
                     <InputIcon
@@ -213,7 +213,7 @@ export default class HotelSearch extends Component {
                     <ImageBackground
                         source={Images.submit}
                         resizeMode={'stretch'}
-                        style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                        style={{  width: scale(300), height: verticalScale(50),  borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
                     >
                         <Text style={styles.search}>Search</Text>
 
@@ -234,6 +234,7 @@ export default class HotelSearch extends Component {
                 onCancel={this.hideDatePickerCheckOut}
                 minimumDate={new Date()}
             />
+            <View style={{width:'100%',height:50}}/>
         </KeyboardAwareScrollView>)
     }
 }

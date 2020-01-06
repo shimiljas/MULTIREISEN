@@ -33,11 +33,11 @@ export default class FlightSearchResult extends Component {
             <View style={{ flex: 1, }}>
                 <View style={{ flex: 2.4, }}>
                     <ImageBackground source={Images.header}
-                        resizeMode={'stretch'}
-                        style={{ width: '100%', height: 180, paddingBottom: 10 }}>
+                        resizeMode={'cover'}
+                        style={{ width: '100%',  height: verticalScale(130), paddingBottom: 10 }}>
                         <View style={{
                             width: '100%', height: 80,
-                            justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
+                            justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(20),
                             paddingHorizontal: 10
                         }} >
                             <Touchable
@@ -53,17 +53,16 @@ export default class FlightSearchResult extends Component {
 
                         </View>
                         <View style={{
-                            height: verticalScale(35),
+                            height: verticalScale(60),
                             backgroundColor: 'transparent',
                             flexDirection: 'row',
                             position: 'relative',
-                            bottom: -150,
+                            top: verticalScale(110),
 
 
                         }}>
                             <ScrollView
                                 horizontal
-
 
                                 showsHorizontalScrollIndicator={false}
                             >

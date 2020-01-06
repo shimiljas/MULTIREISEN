@@ -24,11 +24,11 @@ export default class FlightBookConfirm extends Component {
         return (
             <View style={{ flex: 1, }}>
                 <ImageBackground source={Images.header}
-                    resizeMode={'stretch'}
-                    style={{ width: '100%', height: 160, paddingBottom: 10 }}>
+                    resizeMode={'cover'}
+                    style={{ width: '100%', height: verticalScale(90), paddingBottom: 10 }}>
                     <View style={{
                         width: '100%', height: 40,
-                        justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(50),
+                        justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: verticalScale(35),
                         paddingHorizontal: 10
                     }} >
                         <Touchable
@@ -44,10 +44,10 @@ export default class FlightBookConfirm extends Component {
 
                     </View>
                 </ImageBackground>
-                <View style={{ width: '100%', height: '70%', justifyContent: 'center', padding: 25, }}>
+                {/* <ScrollView style={{ width: '100%', height: '100%',  paddingHorizontal: 25, }}> */}
                     <View style={{
-                        width: '100%',
-                        height: '90%',
+                       flex:1,
+                       marginHorizontal:20,
                         borderRadius: 10,
                         borderColor: '#ececec',
                         borderStyle: 'solid',
@@ -117,7 +117,7 @@ export default class FlightBookConfirm extends Component {
 
                         </View>
                     </View>
-                </View>
+                {/* </ScrollView> */}
             </View >
         )
     }

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { Componet } from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 
 
 //Auth Stack--------------------------------------<>
@@ -35,6 +35,7 @@ import { scale, verticalScale } from '../utils/Responsive'
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Entypo from 'react-native-vector-icons/Entypo'
+import Images from '../resources/images';
 
 
 class RootNavigation extends React.Component {
@@ -100,7 +101,6 @@ class RootNavigation extends React.Component {
                             <Scene
                                 key='mainScenes'
                                 hideNavBar={true}
-
                                 activeTintColor={colors.activeTint}
                                 navigationBarStyle={{ backgroundColor: colors.primary }}
                                 leftButtonIconStyle={{ tintColor: 'white' }}
@@ -128,13 +128,14 @@ class RootNavigation extends React.Component {
 
                                     >
                                     </Scene>
-                                    <Scene
-                                        key='FlightSearchResult'
-                                        hideNavBar={true}
-                                        title='Search Result'
-                                        titleStyle={{ color: 'white' }}
-                                        navigationBarStyle={{ backgroundColor: colors.primary }}
-                                        component={FlightSearchResult}
+
+                                     <Scene
+                                          key='FlightSearchResult'
+                                          hideNavBar={true}
+                                          title='Search Result'
+                                          titleStyle={{ color: 'white' }}
+                                          navigationBarStyle={{ backgroundColor: colors.primary }}
+                                          component={FlightSearchResult}
                                     />
 
                                     <Scene
@@ -159,6 +160,11 @@ class RootNavigation extends React.Component {
                                         title='HotelSearchResult'
                                         hideNavBar={true}
                                         sceneStyle={{ backgroundColor: 'white' }}
+                                        navigationBarBackgroundImage={{
+                                            uri: Images.header, // reference to resource
+                                            width: Dimensions.get('window').width, // make sure the image stretches all the way
+                                            height: 64, // height of the navbar
+                                        }}
                                     />
                                     <Scene
                                         key='HotelDetail'

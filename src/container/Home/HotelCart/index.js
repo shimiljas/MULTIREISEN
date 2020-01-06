@@ -29,7 +29,7 @@ export default class HotelCard extends Component {
                 </View>
                 <View style={{ flex: 7, justifyContent: 'flex-start', }}>
                     <View style={{
-                        height: 340, width: 'auto', backgroundColor: 'white',
+                        height: 340, width: '100%', backgroundColor: 'white',
                         marginHorizontal: scale(20), borderRadius: 10,
                     }}>
                         <View style={{ width: "100%", height: 30, flexDirection: "row", marginTop: 30 }}>

@@ -177,7 +177,7 @@ export default class FlightFilterModal extends Component {
         <Rating
             type='star'
             ratingCount={5}
-            imageSize={45}
+            imageSize={verticalScale(30)}
             ratingColor={'yellow'}
             onFinishRating={(text) => console.log(text)}
         />
@@ -185,7 +185,7 @@ export default class FlightFilterModal extends Component {
     </View>
     
     <View style={{
-        width: '100%', height: '18%', backgroundColor: 'white',
+        width: '100%', height: verticalScale(140), backgroundColor: 'white',
         marginHorizontal: 10,
         padding: 20,
         justifyContent: "center", marginVertical: 10, borderRadius: 30
@@ -203,20 +203,20 @@ export default class FlightFilterModal extends Component {
 
         
             <View style={{ width: '100%', height: '10%', marginTop: 10, alignItems: 'center' }}>
-    <Touchable
-        style={{ flex: 1 }}
+              <Touchable
+                   style={{ flex: 1 }}
                     onPress={() => alert("ko")}>
                     <ImageBackground
                     source={Images.submit}
                              resizeMode={'stretch'}
-                         style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                         style={{  width: scale(300), height: verticalScale(50), borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
                     >
                         <Text style={styles.search}>Apply</Text>
      
                     </ImageBackground>
                 </Touchable>
             </View>
-        </Modal>
+          </Modal>
                     
             )
          }
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center',
         paddingBottom: 20,
-        paddingTop: 68
+        paddingTop: 60
     },
     card: {
         width: 40, height: 40,
