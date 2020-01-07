@@ -25,73 +25,73 @@ export default class HotelSearchResult extends Component {
     state = { modalOpen: false }
     render() {
         return (
-            <View style={{flex:1}}>
-            <KeyboardAwareScrollView style={{ flex: 1, }}>
-                <View style={{ flex: 2.2, }}>
-                    <ImageBackground source={Images.header}
-                        resizeMode={'cover'}
-                        style={{ width: '100%', height: verticalScale(130), paddingBottom: 10 }}>
-                        <View style={{
-                            width: '100%', height: 60,
-                            justifyContent: 'center', flexDirection: 'row', position: 'absolute', top:Platform.OS=='android'? verticalScale(15):verticalScale(30),
-                            paddingHorizontal: 10
-                        }} >
-                            <View
-                                style={{ flex: 8, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start' }}>
-                                <Ionicons name="md-arrow-back" color={colors.white} size={35}   onPress={() => Actions.pop()}/>
-                                <Text style={styles.text}>Hotel Search Result</Text>
-                            </View>
-                            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                            </View>
-                            <View style={{ flex: 1, marginRight: scale(30) }}>
-                            </View>
-
-                        </View>
-                        <View style={{
-                            height: verticalScale(35),
-                            backgroundColor: 'transparent',
-                            flexDirection: 'row',
-                            position: 'relative',
-                            top: verticalScale(110),
-                            alignItems: 'center',
-                            justifyContent: 'center'
-
-
-                        }}>
+            <View style={{ flex: 1 }}>
+                <KeyboardAwareScrollView style={{ flex: 1, }}>
+                    <View style={{ flex: 2.2, }}>
+                        <ImageBackground source={Images.header}
+                            resizeMode={'cover'}
+                            style={{ width: '100%', height: verticalScale(130), paddingBottom: 10 }}>
                             <View style={{
-                                width: 350, justifyContent: "center", alignItems: "center",
-                                height: 50, backgroundColor: "white", borderRadius: 40, paddingRight: 20, paddingLeft: 20
-                            }}>
-                                <Search
-                                    placeholder={"Hotel . City . Country"}
-                                    icon={<AntDesign name="search1" color={"black"} size={25} />}
-                                />
+                                width: '100%', height: 60,
+                                justifyContent: 'center', flexDirection: 'row', position: 'absolute', top: Platform.OS == 'android' ? verticalScale(15) : verticalScale(30),
+                                paddingHorizontal: 10
+                            }} >
+                                <View
+                                    style={{ flex: 8, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                                    <Ionicons name="md-arrow-back" color={colors.white} size={35} onPress={() => Actions.pop()} />
+                                    <Text style={styles.text}>Hotel Search Result</Text>
+                                </View>
+                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                                </View>
+                                <View style={{ flex: 1, marginRight: scale(30) }}>
+                                </View>
+
                             </View>
+                            <View style={{
+                                height: verticalScale(35),
+                                backgroundColor: 'transparent',
+                                flexDirection: 'row',
+                                position: 'relative',
+                                top: verticalScale(110),
+                                alignItems: 'center',
+                                justifyContent: 'center'
 
-                        </View>
-                    </ImageBackground>
 
-                </View>
-                <View style={{ flex: 7.6, marginTop:verticalScale(25)}}>
-                    <ScrollView style={{ width: '100%', height: "100%" }}>
-                        < HotelCard onPress={() => Actions.HotelDetail()} />
-                        < HotelCard onPress={() => Actions.HotelDetail()} />
-                        < HotelCard onPress={() => Actions.HotelDetail()} />
-                    </ScrollView>
+                            }}>
+                                <View style={{
+                                    width: 350, justifyContent: "center", alignItems: "center",
+                                    height: 50, backgroundColor: "white", borderRadius: 40, paddingRight: 20, paddingLeft: 20
+                                }}>
+                                    <Search
+                                        placeholder={"Hotel . City . Country"}
+                                        icon={<AntDesign name="search1" color={"black"} size={25} />}
+                                    />
+                                </View>
 
-                </View>
-               
-            </KeyboardAwareScrollView>
-            <ActionButton
-                    buttonColor={colors.primaryColor}
-                    onPress={() => { this.setState({ modalOpen: true }) }}
-                />
-                <HotelFilterModal
-                    isOpen={this.state.modalOpen}
-                    onClose={() => this.setState({ modalOpen: false })}
-                    onOpen={() => this.setState({ modalOpen: true })}
-                />
-            </View>
+                            </View>
+                        </ImageBackground>
+
+                    </View>
+                    <View style={{ flex: 7.6, marginTop: verticalScale(25) }}>
+                        <ScrollView style={{ width: '100%', height: "100%" }}>
+                            < HotelCard onPress={() => Actions.HotelDetail()} />
+                            < HotelCard onPress={() => Actions.HotelDetail()} />
+                            < HotelCard onPress={() => Actions.HotelDetail()} />
+                        </ScrollView>
+
+                    </View>
+                    <ActionButton
+                        buttonColor={colors.primaryColor}
+                        onPress={() => { this.setState({ modalOpen: true }) }}
+                    />
+                    <HotelFilterModal
+                        isOpen={this.state.modalOpen}
+                        onClose={() => this.setState({ modalOpen: false })}
+                        onOpen={() => this.setState({ modalOpen: true })}
+                    />
+
+                </KeyboardAwareScrollView>
+            </View >
         )
     }
 }
