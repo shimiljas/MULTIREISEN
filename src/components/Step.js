@@ -7,7 +7,7 @@ import { colors } from '../config/colors';
 import { fonts } from '../config/fonts'
 import { normalize } from '../utils/Fontnormalize'
 import StepIndicator from 'react-native-step-indicator';
-const labels = ["Cart", "Delivery Address", "Order Summary", "Payment Method", "Track"];
+const labels = ["Cart", "Delivery Address", "Order Summary", "Payment Method"];
 const customStyles = {
     stepIndicatorSize: 25,
     currentStepIndicatorSize: 30,
@@ -31,12 +31,13 @@ const customStyles = {
     labelSize: 13,
     currentStepLabelColor: colors.primaryColor,
 }
-const Step = ({ }) => (
+const Step = ({ currentPosition }) => (
     <View style={{ width: '100%', height: 60 }}>
         <StepIndicator
             customStyles={customStyles}
-            currentPosition={1}
+            currentPosition={currentPosition}
             labels={labels}
+            stepCount={4}
             labelColor={'transparent'}
             renderLabel={() => null}
         />

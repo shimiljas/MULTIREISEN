@@ -17,7 +17,7 @@ import { colors } from '../../../config/colors';
 
 const AccountItem = ({ name, icon }) => {
     return (
-        <View style={{ width: "90%", height: 80, flexDirection: "row", backgroundColor: 'white', marginHorizontal: 20 }}>
+        <TouchableOpacity style={{ width: "90%", height: 80, flexDirection: "row", backgroundColor: 'white', marginHorizontal: 20 }}>
             <View style={{ flex: 2, justifyContent: "center", alignItems: "center" }} >
                 {icon}
             </View>
@@ -27,7 +27,7 @@ const AccountItem = ({ name, icon }) => {
             <View style={{ flex: 2, justifyContent: "center", alignItems: "center" }} >
                 <AntDesign name="right" color='black' size={20} />
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 

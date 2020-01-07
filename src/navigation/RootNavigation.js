@@ -39,7 +39,7 @@ import { normalize } from '../utils/Fontnormalize'
 import { scale, verticalScale } from '../utils/Responsive'
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import Entypo from 'react-native-vector-icons/Entypo'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Images from '../resources/images';
 
 
@@ -52,7 +52,7 @@ class RootNavigation extends React.Component {
         <Icon color={focused ? colors.activeTint : '#898a8f'} name='user-o' size={25} />
     )
     iconBooking = ({ focused }) => (
-        <Entypo color={focused ? colors.activeTint : '#898a8f'} name='box' size={25} />
+        <MaterialCommunityIcons color={focused ? colors.activeTint : '#898a8f'} name='chat' size={25} />
     )
     iconBook = ({ focused }) => (
         <Icon color={focused ? colors.activeTint : '#898a8f'} name='bookmark-o' size={25} />
@@ -79,9 +79,9 @@ class RootNavigation extends React.Component {
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
                         <Scene
-                            key='ChatScreen'
-                            component={ChatScreen}
-                            title='ChatScreen'
+                            key='Booking'
+                            component={Booking}
+                            title='Booking'
 
                             hideNavBar={true}
                             sceneStyle={{ backgroundColor: 'white' }}
@@ -136,7 +136,14 @@ class RootNavigation extends React.Component {
                             hideNavBar={true}
 
                         />
-
+                        <Scene
+                            key="FlightBookConfirm"
+                            hideNavBar={true}
+                            title='Search Result'
+                            titleStyle={{ color: 'white' }}
+                            navigationBarStyle={{ backgroundColor: colors.primary }}
+                            component={FlightBookConfirm}
+                        />
 
                         <Drawer
                             hideNavBar
@@ -177,23 +184,16 @@ class RootNavigation extends React.Component {
                                     >
                                     </Scene>
 
-                                     <Scene
-                                          key='FlightSearchResult'
-                                          hideNavBar={true}
-                                          title='Search Result'
-                                          titleStyle={{ color: 'white' }}
-                                          navigationBarStyle={{ backgroundColor: colors.primary }}
-                                          component={FlightSearchResult}
-                                    />
-
                                     <Scene
-                                        key="FlightBookConfirm"
+                                        key='FlightSearchResult'
                                         hideNavBar={true}
                                         title='Search Result'
                                         titleStyle={{ color: 'white' }}
                                         navigationBarStyle={{ backgroundColor: colors.primary }}
-                                        component={FlightBookConfirm}
+                                        component={FlightSearchResult}
                                     />
+
+
                                     <Scene
                                         key="HotelSearch"
                                         component={HotelSearch}
@@ -247,13 +247,13 @@ class RootNavigation extends React.Component {
                                 </Stack>
 
                                 <Scene
-                                    key='Booking'
+                                    key='ChatScreen'
                                     hideNavBar={true}
                                     icon={this.iconBooking}
-                                    title='Booking'
+                                    title='Chat'
                                     titleStyle={{ color: 'white' }}
                                     navigationBarStyle={{ backgroundColor: colors.primary }}
-                                    component={Booking}
+                                    component={ChatScreen}
 
                                 />
 

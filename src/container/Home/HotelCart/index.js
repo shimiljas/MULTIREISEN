@@ -83,14 +83,14 @@ export default class HotelCard extends Component {
                         </View>
                     </View>
                 </View>
-                <View style={{ flex: 1, marginBottom: 65, alignItems: 'center' }}>
+                <View style={{ flex: 1, marginBottom: 10, alignItems: 'center' }}>
                     <Touchable
                         style={{ flex: 1 }}
                         onPress={() => Actions.ContactPage()}>
                         <ImageBackground
                             source={Images.submit}
                             resizeMode={'stretch'}
-                            style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                            style={{ width: scale(300), height: verticalScale(50), borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
                         >
                             <Text style={styles.search}>Search</Text>
 

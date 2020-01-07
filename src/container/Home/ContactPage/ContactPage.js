@@ -64,7 +64,7 @@ export default class ContactPage extends Component {
                             <ImageBackground
                                 source={Images.submit}
                                 resizeMode={'stretch'}
-                                style={{ width: 350, height: 55, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                                style={{ width: scale(300), height: verticalScale(50), borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
                             >
                                 <Text style={styles.search}>Proceed To Payment</Text>
 

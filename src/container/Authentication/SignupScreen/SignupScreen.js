@@ -68,6 +68,8 @@ export default class SignupScreen extends Component {
                                 placeholder={"Confirm Password"} />
 
                         </View>
+
+
                         <View style={{ width: '100%', height: 80, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: -40 }}>
                             <Button size="medium"
                                 title="Sign up"
@@ -82,8 +84,8 @@ export default class SignupScreen extends Component {
                         >
                             <View
                                 style={{
-                                    width: 340, backgroundColor: "#0780f9", borderRadius: 10,
-                                    height: 60, alignItems: 'center', justifyContent: 'center'
+                                    width: scale(300), height: verticalScale(50), backgroundColor: "#0780f9", borderRadius: 10,
+                                    alignItems: 'center', justifyContent: 'center'
                                 }}>
 
                                 <Text style={{ fontSize: 17, fontWeight: "bold", color: "#fff", }}>

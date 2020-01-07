@@ -32,7 +32,7 @@ export default class Booking extends Component {
                 <ScrollView style={{ width: "100%", position: 'absolute', top: 130, paddingHorizontal: 10 }}>
                     <TouchableOpacity style={{
 
-                        width: "100%", height: 320, backgroundColor: "white", borderRadius: 20, justifyContent: "center",
+                        width: "100%", height: 300, backgroundColor: "white", borderRadius: 20, justifyContent: "center",
                         marginTop: verticalScale(20)
                     }}
                         onPress={() => Actions.PaymentConfirmation()}>
@@ -70,12 +70,12 @@ export default class Booking extends Component {
                             </View>
                         </View>
                         <View style={{ width: 300, height: 30, alignItems: "flex-end", marginTop: 30, }}>
-                            <Text style={{ fontSize: 15 }}>03.45 AM</Text>
+                            <Text style={{ fontSize: 15, fontWeight: "bold" }}>03.45 AM</Text>
                         </View>
                     </TouchableOpacity>
                     <View style={{
                         marginBottom: scale(30),
-                        width: "100%", height: 320, backgroundColor: "white", borderRadius: 20, justifyContent: "center",
+                        width: "100%", height: 300, backgroundColor: "white", borderRadius: 20, justifyContent: "center",
                         marginTop: verticalScale(20)
                     }}>
 
@@ -111,7 +111,7 @@ export default class Booking extends Component {
                             </View>
                         </View>
                         <View style={{ width: 300, height: 30, alignItems: "flex-end", marginTop: verticalScale(30), }}>
-                            <Text style={{ fontSize: 15, }}>03.45 AM</Text>
+                            <Text style={{ fontSize: 15, fontWeight: "bold" }}>03.45 AM</Text>
                         </View>
                     </View>
                 </ScrollView >

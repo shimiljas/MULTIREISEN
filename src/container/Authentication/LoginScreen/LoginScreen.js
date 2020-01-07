@@ -11,6 +11,7 @@ import {
     LayoutAnimation,
     UIManager,
     KeyboardAvoidingView,
+    Platform,
 } from 'react-native'
 import Images from '../../../resources/images'
 import LargButton from '../../../components/Button'
@@ -100,7 +101,7 @@ export default class LoginScreen extends Component {
                     </View>
                     <View style={{
                         minHeight: 60,
-                        flex: tab === 'login' ? 2.8 : 7.5, backgroundColor: 'white', marginHorizontal: scale(20), borderRadius: 10,
+                        flex: tab === 'login' ? 6.8 : 16.5, backgroundColor: 'white', marginHorizontal: scale(20), borderRadius: 10,
                         marginBottom: 30,
 
 
@@ -127,7 +128,7 @@ export default class LoginScreen extends Component {
                                 >
                                     <Text style={{ fontFamily: fonts.fontPrimaryLight }}>Forogt Password?</Text>
                                 </TouchableOpacity>
-                                <View style={{ width: '100%', marginTop: 50, height: 180, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: -130 }}>
+                                <View style={{ width: '100%', marginTop: 50, height: 180, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: -140 }}>
                                     <LargButton size="medium"
                                         title="Login"
                                         onPress={() => Actions.drawerMenu()}
@@ -157,7 +158,7 @@ export default class LoginScreen extends Component {
                                         icon={<Entypo name="key" color={"black"} size={25} />}
                                         placeholder={"Confirm Password"} />
                                 </View>
-                                <View style={{ width: '100%', marginTop: 50, height: 180, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: -90 }}>
+                                <View style={{ width: '100%', marginTop: Platform.OS == 'android' ? 60 : 50, height: 180, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: - 110 }}>
                                     <LargButton size="medium"
                                         title="Sign up"
                                         onPress={() => Actions.pop()}
@@ -175,8 +176,8 @@ export default class LoginScreen extends Component {
                         >
                             <View
                                 style={{
-                                    width: 340, backgroundColor: "#0780f9", borderRadius: 10,
-                                    height: 60, alignItems: 'center', justifyContent: 'center'
+                                    width: scale(300), height: verticalScale(50), backgroundColor: "#0780f9", borderRadius: 10,
+                                    alignItems: 'center', justifyContent: 'center'
                                 }}>
 
                                 <Text style={{ fontSize: 17, fontWeight: "bold", color: "#fff", }}>

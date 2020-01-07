@@ -46,6 +46,15 @@ export default class SideMenu extends Component {
             Actions.HotelSearch()
             return
         }
+        if (title === 'Booking') {
+            Actions.Booking()
+            return
+        }
+        if (title === 'Terms & Condition') {
+            Actions.TermsCondtions()
+            return
+        }
+
         if (title == 'Logout') {
             Actions.login();
             return

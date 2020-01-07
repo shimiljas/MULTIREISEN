@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
         height: 53,
     },
     rectangle62: {
-        width: 161,
-        height: 40,
+        width: scale(151),
+        height: verticalScale(40),
         borderTopLeftRadius: 0,
         borderTopRightRadius: 13,
         borderBottomLeftRadius: 0,

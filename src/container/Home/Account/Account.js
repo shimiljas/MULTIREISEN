@@ -14,6 +14,7 @@ import { Actions } from 'react-native-router-flux'
 import { fonts } from '../../../config/fonts';
 import { normalize } from '../../../utils/Fontnormalize';
 import { colors } from '../../../config/colors';
+import * as Progress from 'react-native-progress';
 import AccountItem from './AccountItem'
 let data = [
     {
@@ -32,9 +33,12 @@ let data = [
         name: 'Terms & Condition',
         icon: <MaterialCommunityIcons name="file-document" color={colors.primaryColor} size={25} />
     },
+
     {
+
         name: 'Chat',
-        icon: <MaterialCommunityIcons name="chat" color={colors.primaryColor} size={25} />
+        icon: <MaterialCommunityIcons name="chat" color={colors.primaryColor} size={25}
+        />
     },
     {
         name: 'Logout',
@@ -71,7 +75,9 @@ export default class Account extends Component {
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff" }}>Saad ibraheem</Text>
                         <Text style={{ fontSize: 15, color: "#fff" }}>-55 855 65 55 </Text>
                     </View>
-                    <View style={{ width: 290, height: 1, marginTop: 20, backgroundColor: 'white', marginLeft: verticalScale(30) }}></View>
+                    <View style={{ flex: .5, alignItems: "center", justifyContent: "center" }}>
+                        <Progress.Bar progress={0.3} width={200} color="white" />
+                    </View>
                     <TouchableOpacity style={{
                         width: 250, height: 40, borderRadius: 20, borderWidth: 1, justifyContent: "center",
                         alignItems: "center",
@@ -90,8 +96,6 @@ export default class Account extends Component {
                 style={{ padding: 10 }}
                 renderItem={({ item }) => <AccountItem name={item.name} icon={item.icon} />}
             />
-
-
         </ScrollView>
         )
     }

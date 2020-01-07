@@ -14,28 +14,30 @@ import { Actions } from 'react-native-router-flux'
 import { fonts } from '../../../config/fonts';
 import { normalize } from '../../../utils/Fontnormalize';
 import { colors } from '../../../config/colors';
+import BackButton from '../../../components/BackButton'
 
 
 
 export default class TermsCondtions extends Component {
     render() {
-        return (<ScrollView style={{ flex: 1, }}>
+        return (<View style={{ flex: 1, }}>
             <ImageBackground source={Images.header}
                 resizeMode={'stretch'}
                 style={{ width: "100%", height: 200, }}>
-                <TouchableOpacity
-                    style={{ flex: 1, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start' }}>
-                    <Text style={styles.text}>Terms & Conditions</Text>
-                </TouchableOpacity>
+                <View style={{ flex: 1, marginTop: verticalScale(30) }}>
+                    <BackButton title={'Terms & Conditions'}
+                        textStyle={{ color: 'white', fontSize: 20, fontWeight: "bold" }} white onPress={() => Actions.pop()} />
+                </View>
+
             </ImageBackground>
             <ScrollView style={{
-                width: 350, alignItems: "center",
-                height: 650, backgroundColor: 'white', borderRadius: 15
+                position: 'absolute', top: 150, marginHorizontal: 20,
+                flex: 1, backgroundColor: 'white', borderRadius: 15
             }}
             >
 
-                <TouchableOpacity style={{ flex: 1, marginBottom: 20, justifyContent: "center", alignItems: "center", marginVertical: 20, marginHorizontal: 25 }}
-                    onPress={() => Actions.HotelSupport()}
+                <View style={{ flex: 1, marginBottom: 20, justifyContent: "center", alignItems: "center", marginVertical: 20, marginHorizontal: 25 }}
+
                 >
                     <Text style={styles.Text}>
                         Lorem ipsum dolor sit amet, diam congue arcu etiam, nunc amet vitae bibendum est,
@@ -47,7 +49,17 @@ export default class TermsCondtions extends Component {
                          sint quis nam, dolor nonummy lorem et in, venenatis amet velit ultrices varius. Massa orci
                          venenatis. Enim aliquam dui vitae eget arcu eget, varius lacinia sollicitudin magnis aenean ut
                          vestibulum, neque sed nulla quis massa, mus tortor pellentesque leo donec vivamus, id mollis
-                          quisque in mus at. Pellentesque eu. Ullamcorper
+                          quisque in mus at. Pellentesque eu.
+                          Lorem ipsum dolor sit amet, diam congue arcu etiam, nunc amet vitae bibendum est,
+                        pretium cum amet ut parturient a, faucibus pellentesque hac est, posuere et consectetuer.
+                         At aliquam tortor tempor faucibus eget, at quis orci at, nec placerat laoreet elit ornare
+                         placerat. Adipiscing consequat per, ut non nunc sit, a sagittis sociis malesuada proin posuere.
+                         Elementum in, mauris arcu, dapibus curabitur metus ac nascetur quo, facilisis lacinia
+                         sollicitudin ut id arcu nec, corrupti a nam. Sit pellentesque lacus molestiae eget amet,
+                         sint quis nam, dolor nonummy lorem et in, venenatis amet velit ultrices varius. Massa orci
+                         venenatis. Enim aliquam dui vitae eget arcu eget, varius lacinia sollicitudin magnis aenean ut
+                         vestibulum, neque sed nulla quis massa, mus tortor pellentesque leo donec vivamus, id mollis
+                          quisque in mus at. PellentesUllamcorper
                         est sed massa vitae dapibus platea, aliquam augue libero lectus at etiam.
                         Natoque sollicitudin urna quam nonummy. Pulvinar blandit natoque sit dignissim, ac elit semper
                          eu justo. Ligula nullam tortor eros senectus facilisis nullam, laoreet mattis sit massa,
@@ -56,13 +68,14 @@ export default class TermsCondtions extends Component {
                            conubia, enim metus metus ligula. Urna sed turpis vehicula sed mi, tempor vitae convallis
                            dolor ut sed sodales. Sed iaculis wisi ridiculus, mi sed tellus lorem, purus dolor. Praesent
                             eleifend aliquam eu ac exercitation posuere, metus sapien fusce, sollicitudin dui morbi.
+
 </Text>
-                </TouchableOpacity>
+                </View>
 
             </ScrollView>
 
 
-        </ScrollView >
+        </View >
         )
     }
 }
