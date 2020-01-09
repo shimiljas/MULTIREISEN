@@ -19,7 +19,7 @@ import { colors } from '../../../config/colors';
 export default class Booking extends Component {
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, alignItems: "center" }}>
 
                 <ImageBackground source={Images.header}
                     resizeMode={'stretch'}
@@ -38,7 +38,8 @@ export default class Booking extends Component {
                 <ScrollView style={{ width: "100%", position: 'absolute', top: 100, paddingHorizontal: 10 }}>
                     <TouchableOpacity style={{
 
-                        width: "100%", height: 300, backgroundColor: "white", borderRadius: 20, justifyContent: "center",
+                        width: "90%", height: verticalScale(270), marginLeft: scale(15),
+                        backgroundColor: "white", borderRadius: 20, justifyContent: "center",
                         marginTop: verticalScale(20)
                     }}
                         onPress={() => Actions.PaymentConfirmation()}>
@@ -81,7 +82,7 @@ export default class Booking extends Component {
                     </TouchableOpacity>
                     <View style={{
                         marginBottom: scale(30),
-                        width: "100%", height: 300, backgroundColor: "white", borderRadius: 20, justifyContent: "center",
+                        width: "90%", height: verticalScale(270), marginLeft: scale(15), backgroundColor: "white", borderRadius: 20, justifyContent: "center",
                         marginTop: verticalScale(20)
                     }}>
 

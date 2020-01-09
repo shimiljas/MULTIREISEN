@@ -32,7 +32,7 @@ export default class TermsCondtions extends Component {
 
             </ImageBackground>
             <ScrollView style={{
-                position: 'absolute', top: 140, marginHorizontal: 20, height: verticalScale(490),
+                position: 'absolute', top: 140, marginHorizontal: 20, height: verticalScale(530),
                 backgroundColor: 'white', borderRadius: 15, width: "90%",
             }}
             >

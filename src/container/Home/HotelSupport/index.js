@@ -14,18 +14,23 @@ import { Actions } from 'react-native-router-flux'
 import { fonts } from '../../../config/fonts';
 import { normalize } from '../../../utils/Fontnormalize';
 import { colors } from '../../../config/colors';
+import BackButton from '../../../components/BackButton'
 
-export default class BookingScreen extends Component {
+
+export default class HotelSupport extends Component {
     render() {
         return (<ScrollView style={{ flex: 1, }}>
             <ImageBackground source={Images.header}
                 resizeMode={'stretch'}
                 style={{ width: "100%", height: 200, }}>
-
-
+                <TouchableOpacity
+                    style={{ flex: 1, marginTop: verticalScale(30), }}>
+                    <BackButton
+                        textStyle={{ color: 'white', fontSize: 20, fontWeight: "bold", }} white onPress={() => Actions.pop()} />
+                </TouchableOpacity>
                 <TouchableOpacity style={{
-                    position: 'absolute', top: verticalScale(105),
-                    width: 350, height: 320, backgroundColor: "white", borderRadius: 20, justifyContent: "center",
+                    position: 'absolute', top: verticalScale(85),
+                    width: "90%", height: verticalScale(350), backgroundColor: "white", borderRadius: 20, justifyContent: "center",
                     marginLeft: verticalScale(20), marginTop: verticalScale(20)
                 }}
                 >
@@ -68,7 +73,7 @@ export default class BookingScreen extends Component {
                     </View>
                     <View style={{ flex: 1, flexDirection: "row" }}>
                         <View style={{ flex: 1, justifyContent: "center", alignItems: "flex-start", marginLeft: 20 }}>
-                            <Text style={{ fontSize: 14, fontWeight: "bold", color: 'green' }}>OPEN TODAY</Text>
+                            <Text style={{ fontSize: 14, color: 'red', fontWeight: "bold" }}>CLOSED TODAY</Text>
                         </View>
 
                         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>

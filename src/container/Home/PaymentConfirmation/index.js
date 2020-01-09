@@ -25,7 +25,7 @@ export default class HotelCard extends Component {
                 <View style={{ flex: 1, marginTop: 40, paddingHorizontal: 10 }}>
                     <Step currentPosition={3} />
                 </View>
-                <View style={{ flex: 1, backgroundColor: 'white', marginBottom: 10, borderRadius: 15, marginHorizontal: 15 }}>
+                <View style={{ flex: 1, width: "90%", marginLeft: 18, backgroundColor: 'white', marginBottom: 10, borderRadius: 15, marginHorizontal: 15 }}>
                     <View style={{ width: "100%", height: 100, alignItems: "center", justifyContent: "center" }}>
                         <Text style={{ fontSize: 26, }}>$425.00</Text>
                     </View>
@@ -95,7 +95,7 @@ export default class HotelCard extends Component {
                             <ImageBackground
                                 source={Images.submit}
                                 resizeMode={'stretch'}
-                                style={{ width: scale(300), height: verticalScale(50), borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                                style={{ width: scale(300), height: verticalScale(45), borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
                             >
                                 <Text style={styles.search}>Finish !</Text>
                             </ImageBackground>

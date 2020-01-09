@@ -45,78 +45,78 @@ export default class FlightBookConfirm extends Component {
                     </View>
                 </ImageBackground>
                 {/* <ScrollView style={{ width: '100%', height: '100%',  paddingHorizontal: 25, }}> */}
-                    <View style={{
-                       flex:1,
-                       marginHorizontal:20,
-                        borderRadius: 10,
-                        borderColor: '#ececec',
-                        borderStyle: 'solid',
-                        borderWidth: 1,
-                        backgroundColor: '#ffffff',
-                        marginVertical: 10,
-                        overflow: 'hidden'
-                    }}>
-                        <View style={{ flex: 1, backgroundColor: '#FF5E62', justifyContent: 'center', paddingLeft: 10 }}>
-                            <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(15), color: 'white' }}>EGYPT FLIGHT</Text>
-                        </View>
-                        <View style={{ flex: 2, flexDirection: 'row' }}>
-                            <View style={{ flex: 1, justifyContent: 'center', paddingLeft: 20 }}>
-
-                                <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', textAlign: 'left' }}>Passenger</Text>
-                                <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(14), textAlign: 'left' }}>Saeed Ibrahim</Text>
-                            </View>
-                            <View style={{ flex: 1, justifyContent: 'center', paddingLeft: 20 }}>
-
-                                <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', textAlign: 'left' }}>Flight</Text>
-                                <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(14), textAlign: 'left' }}>AU9865</Text>
-                                <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(14), textAlign: 'left' }}>A class -VIP</Text>
-                            </View>
-
-                        </View>
-                        <View style={{
-                            flex: 2, flexDirection: 'row', borderStyle: 'dashed'
-                        }}>
-                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                                <View style={{ flexDirection: 'row', }}>
-                                    <Image source={Images.location} style={styles.path192} resizeMode={'contain'} />
-                                    <Text style={styles.cairo}>Cario</Text>
-                                </View>
-                                <Text style={styles.cal}>CAL</Text>
-                                <Text style={styles.terminal1}>10:15 Am , Thu , 05 Dec</Text>
-
-                            </View>
-                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                                <View style={{ flexDirection: 'row', }}>
-                                    <Image source={Images.location} style={styles.path192} resizeMode={'contain'} />
-                                    <Text style={styles.cairo}>Cario</Text>
-                                </View>
-                                <Text style={styles.cal}>CAL</Text>
-                                <Text style={styles.terminal1}>10:15 Am , Thu , 05 Dec</Text>
-                            </View>
-
-                        </View>
-                        <View style={{ flex: 4, flexDirection: 'row', borderStyle: 'dashed' }}>
-                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                                <View style={{ marginTop: 5 }}>
-                                    <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
-                                    <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
-                                </View>
-                                <View style={{ marginTop: 5 }}>
-                                    <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
-                                    <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
-                                </View>
-                                <View style={{ marginTop: 5 }}>
-                                    <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
-                                    <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
-                                </View >
-
-                            </ View>
-                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingRight: 15 }}>
-                                <Image source={Images.qrcode} style={{ width: 150, height: 150 }} resizeMode={'contain'} />
-                            </View>
-
-                        </View>
+                <View style={{
+                    flex: 1,
+                    marginHorizontal: 20,
+                    borderRadius: 10,
+                    borderColor: '#ececec',
+                    borderStyle: 'solid',
+                    borderWidth: 1,
+                    backgroundColor: '#ffffff',
+                    marginVertical: 10,
+                    overflow: 'hidden'
+                }}>
+                    <View style={{ flex: 1, backgroundColor: '#FF5E62', justifyContent: 'center', paddingLeft: 10 }}>
+                        <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(15), color: 'white' }}>EGYPT FLIGHT</Text>
                     </View>
+                    <View style={{ flex: 2, flexDirection: 'row' }}>
+                        <View style={{ flex: 1, justifyContent: 'center', paddingLeft: 20 }}>
+
+                            <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', textAlign: 'left' }}>Passenger</Text>
+                            <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(14), textAlign: 'left' }}>Saeed Ibrahim</Text>
+                        </View>
+                        <View style={{ flex: 1, justifyContent: 'center', paddingLeft: 20 }}>
+
+                            <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', textAlign: 'left' }}>Flight</Text>
+                            <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(14), textAlign: 'left' }}>AU9865</Text>
+                            <Text style={{ fontFamily: fonts.fontPrimaryBold, fontSize: normalize(14), textAlign: 'left' }}>A class -VIP</Text>
+                        </View>
+
+                    </View>
+                    <View style={{
+                        flex: 2, flexDirection: 'row', borderStyle: 'dashed'
+                    }}>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <View style={{ flexDirection: 'row', }}>
+                                <Image source={Images.location} style={styles.path192} resizeMode={'contain'} />
+                                <Text style={styles.cairo}>Cario</Text>
+                            </View>
+                            <Text style={styles.cal}>CAL</Text>
+                            <Text style={styles.terminal1}>10:15 Am , Thu , 05 Dec</Text>
+
+                        </View>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <View style={{ flexDirection: 'row', }}>
+                                <Image source={Images.location} style={styles.path192} resizeMode={'contain'} />
+                                <Text style={styles.cairo}>Cario</Text>
+                            </View>
+                            <Text style={styles.cal}>CAL</Text>
+                            <Text style={styles.terminal1}>10:15 Am , Thu , 05 Dec</Text>
+                        </View>
+
+                    </View>
+                    <View style={{ flex: 4, flexDirection: 'row', borderStyle: 'dashed' }}>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <View style={{ marginTop: 5 }}>
+                                <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
+                                <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
+                            </View>
+                            <View style={{ marginTop: 5 }}>
+                                <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
+                                <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
+                            </View>
+                            <View style={{ marginTop: 5 }}>
+                                <Text style={{ fontFamily: fonts.fontPrimaryLight, color: '#636363', }}>Terminal</Text>
+                                <Text style={{ fontFamily: fonts.fontPrimaryBold, color: 'black', }}>7A</Text>
+                            </View >
+
+                        </ View>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingRight: 15 }}>
+                            <Image source={Images.qrcode} style={{ width: 150, height: 150 }} resizeMode={'contain'} />
+                        </View>
+
+                    </View>
+                </View>
                 {/* </ScrollView> */}
             </View >
         )

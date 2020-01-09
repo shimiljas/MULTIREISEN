@@ -14,6 +14,8 @@ import { Actions } from 'react-native-router-flux'
 import { fonts } from '../../../config/fonts';
 import { normalize } from '../../../utils/Fontnormalize';
 import { colors } from '../../../config/colors';
+import BackButton from '../../../components/BackButton'
+
 
 export default class Account extends Component {
     render() {
@@ -22,11 +24,11 @@ export default class Account extends Component {
                 resizeMode={'stretch'}
                 style={{ width: "100%", height: 200, }}>
                 <TouchableOpacity
-
-                    style={{ flex: 1, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start' }}>
-
-                    <Text style={styles.text}>Chat</Text>
+                    style={{ flex: 1, marginTop: verticalScale(30), }}>
+                    <BackButton title={'Chat'}
+                        textStyle={{ color: 'white', fontSize: 20, fontWeight: "bold", }} white onPress={() => Actions.pop()} />
                 </TouchableOpacity>
+
             </ImageBackground>
             <ScrollView style={{ width: '100%', position: 'absolute', top: 130 }}>
                 <View style={{ flex: 1, alignItems: 'center' }}>
@@ -44,14 +46,18 @@ export default class Account extends Component {
                             <View style={{ flex: 3, justifyContent: "center", alignItems: "center" }}>
                                 <Text style={{ fontSize: 14 }}>09:30 AM</Text>
                             </View>
-                            <View style={{ flex: 3, justifyContent: "center", alignItems: "center" }}>
+                            <TouchableOpacity style={{ flex: 3, justifyContent: "center", alignItems: "center" }
+                            }
+                            onPress={() => Actions.HotelSupport()} 
+                            >
                                 <View style={{
                                     width: 40, height: 40, borderWidth: .5, borderRadius: 20,
                                     justifyContent: "center", alignItems: "center"
-                                }}>
+                                }}
+                                >
                                     <MaterialIcons name="chat-bubble-outline" color='grey' size={20} />
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </View>

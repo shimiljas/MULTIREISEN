@@ -34,15 +34,15 @@ export default class Book extends Component {
 
             <View style={{ flex: 3, marginBottom: Platform.OS == 'android' ? 80 : 90 }}>
                 <ImageBackground source={Images.header}
-                  resizeMode={ Platform.OS == 'android'?'cover':'stretch'}
-                    style={{ flex: 1, width: '100%', height:verticalScale(130), paddingBottom: 10 }}>
+                    resizeMode={Platform.OS == 'android' ? 'cover' : 'stretch'}
+                    style={{ flex: 1, width: '100%', height: verticalScale(130), paddingBottom: 10 }}>
                     <TopHeader title={'Flight'} />
                     <View style={{
                         height: verticalScale(60),
                         backgroundColor: 'transparent',
                         flexDirection: 'row',
                         position: 'relative',
-                        top: Platform.OS == 'android' ?  verticalScale(90):verticalScale(90),
+                        top: Platform.OS == 'android' ? verticalScale(90) : verticalScale(90),
 
 
                     }}>
@@ -73,7 +73,7 @@ export default class Book extends Component {
                     </ImageBackground>
                 </Touchable>
             </View>
-            <View style={{width:'100%',height:50 }}/>
+            <View style={{ width: '100%', height: 50 }} />
         </ScrollView>)
     }
 }
