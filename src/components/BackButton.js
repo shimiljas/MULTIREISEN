@@ -19,19 +19,25 @@ class BackButton extends Component {
         const { black } = this.props
         return (
             <View style={[styles.container, this.props.containerStyle]}>
-                <TouchableHighlight
-                    hitSlop={{ top: 20, bottom: 10, left: 10, right: 10 }}
-                    underlayColor={'transparent'}
-                    style={[styles.button, this.props.buttonStyle]} onPress={this.props.onPress}
-                >
-                    <Ionicons name="md-arrow-back" color={black ? colors.black : colors.white} size={35} />
-                </TouchableHighlight>
-                {
-                    this.props.title !== "" &&
-                    <Text style={[styles.textStyle, this.props.textStyle]}>
-                        {this.props.title}
-                    </Text>
-                }
+                <View style={{ flex: .5 }}>
+                    <TouchableHighlight
+                        hitSlop={{ top: 20, bottom: 10, left: 10, right: 10 }}
+                        underlayColor={'transparent'}
+                        style={[styles.button, this.props.buttonStyle]} onPress={this.props.onPress}
+                    >
+                        <Ionicons name="md-arrow-back" color={black ? colors.black : colors.white} size={35} />
+                    </TouchableHighlight>
+                </View>
+                <View style={{ flex: 9, justifyContent: "flex-start" }}>
+
+                    {
+                        this.props.title !== "" &&
+                        <Text style={[styles.textStyle, this.props.textStyle]}>
+                            {this.props.title}
+                        </Text>
+                    }
+                </View>
+                <View style={{ flex: .5 }}></View>
             </View>
         );
     }
@@ -54,7 +60,7 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         alignSelf: "center",
-        marginLeft: Constants.DEVICE_WIDTH / 100 * 22,
+
         backgroundColor: 'transparent',
         color: colors.White,
 

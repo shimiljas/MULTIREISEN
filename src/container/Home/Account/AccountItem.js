@@ -15,9 +15,15 @@ import { fonts } from '../../../config/fonts';
 import { normalize } from '../../../utils/Fontnormalize';
 import { colors } from '../../../config/colors';
 
-const AccountItem = ({ name, icon }) => {
+const AccountItem = ({ name, icon, onPress }) => {
     return (
-        <TouchableOpacity style={{ width: "90%", height: 80, flexDirection: "row", backgroundColor: 'white', marginHorizontal: 20 }}>
+
+        <TouchableOpacity
+            onPress={onPress}
+            style={{
+                width: "90%", height: 80, flexDirection: "row",
+                backgroundColor: 'white', marginHorizontal: 20
+            }}>
             <View style={{ flex: 2, justifyContent: "center", alignItems: "center" }} >
                 {icon}
             </View>
@@ -28,6 +34,7 @@ const AccountItem = ({ name, icon }) => {
                 <AntDesign name="right" color='black' size={20} />
             </View>
         </TouchableOpacity>
+
     )
 }
 

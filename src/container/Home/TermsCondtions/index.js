@@ -23,16 +23,17 @@ export default class TermsCondtions extends Component {
         return (<View style={{ flex: 1, }}>
             <ImageBackground source={Images.header}
                 resizeMode={'stretch'}
-                style={{ width: "100%", height: 200, }}>
-                <View style={{ flex: 1, marginTop: verticalScale(30) }}>
+                style={{ width: "100%", height: verticalScale(200), }}>
+                <View style={{ flex: 1, marginTop: verticalScale(30), }}>
+
                     <BackButton title={'Terms & Conditions'}
-                        textStyle={{ color: 'white', fontSize: 20, fontWeight: "bold" }} white onPress={() => Actions.pop()} />
+                        textStyle={{ color: 'white', fontSize: 20, fontWeight: "bold", }} white onPress={() => Actions.pop()} />
                 </View>
 
             </ImageBackground>
             <ScrollView style={{
-                position: 'absolute', top: 150, marginHorizontal: 20,
-                flex: 1, backgroundColor: 'white', borderRadius: 15
+                position: 'absolute', top: 140, marginHorizontal: 20, height: verticalScale(490),
+                backgroundColor: 'white', borderRadius: 15, width: "90%",
             }}
             >
 

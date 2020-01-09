@@ -3,6 +3,8 @@ import { View, Image, ImageBackground, TextInput, Text, ScrollView, StyleSheet, 
 import Images from '../../../resources/images'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
+import BackButton from '../../../components/BackButton'
+
 import { scale, verticalScale } from '../../../utils/Responsive';
 import Feather from 'react-native-vector-icons/Feather'
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
@@ -17,14 +19,19 @@ import { colors } from '../../../config/colors';
 
 export default class Account extends Component {
     render() {
-        return (<ScrollView style={{ flex: 1, }}>
+
+        return (<View style={{ flex: 1, alignItems: "center", }}>
             <ImageBackground source={Images.header}
                 resizeMode={'stretch'}
                 style={{ width: "100%", height: 200, }}>
+                <View style={{ width: "100%", height: 10, marginTop: verticalScale(10) }}>
+                    <BackButton black onPress={() => Actions.pop()} />
+                </View>
+
             </ImageBackground>
-            <View style={{
-                width: 350, height: 550, marginTop: 65, backgroundColor: "white", borderRadius: 20,
-                marginLeft: verticalScale(20), marginBottom: 22
+            <ScrollView style={{
+                position: "absolute", top: 130,
+                width: 330, height: verticalScale(480), backgroundColor: "white", borderRadius: 20,
             }}>
                 <View style={{ width: "100%", height: 50, justifyContent: "center", alignItems: "center" }}>
                     <Image
@@ -98,24 +105,25 @@ export default class Account extends Component {
 
                     </View>
                 </View>
-                <View style={{ flex: 1, marginBottom: 55, alignItems: 'center' }}>
+                <View style={{ flex: 1, marginTop: verticalScale(30), alignItems: 'center', marginBottom: 30 }}>
                     <TouchableOpacity
                         style={{ flex: 1 }}
                         onPress={() => Actions.ContactPage()}>
                         <ImageBackground
                             source={Images.submit}
                             resizeMode={'stretch'}
-                            style={{ width: 350, height: 60, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                            style={{ width: scale(300), height: verticalScale(50), borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
                         >
                             <Text style={styles.search}>Save Changes</Text>
 
                         </ImageBackground>
                     </TouchableOpacity>
                 </View>
-            </View>
+            </ScrollView >
+        </View>
 
 
-        </ScrollView >
+
         )
     }
 }

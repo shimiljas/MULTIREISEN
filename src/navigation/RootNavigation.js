@@ -64,14 +64,6 @@ class RootNavigation extends React.Component {
                     <Stack key='root'>
 
                         <Scene
-                            initial
-                            key="HotelSearch"
-                            component={HotelSearch}
-                            title='HotelSearch'
-                            hideNavBar={true}
-                            sceneStyle={{ backgroundColor: 'white' }}
-                        />
-                        <Scene
                             key='login'
                             component={LoginScreen}
                             title='Login'
@@ -79,6 +71,7 @@ class RootNavigation extends React.Component {
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
                         <Scene
+
                             key='register'
                             component={SignupScreen}
                             title='Register'
@@ -128,6 +121,8 @@ class RootNavigation extends React.Component {
                             key="CityList"
                             title='CityList'
                             component={CityList}
+                            hideNavBar={true}
+
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
                         <Scene
@@ -141,11 +136,13 @@ class RootNavigation extends React.Component {
                             key="UserProfile"
                             title='UserProfile'
                             component={UserProfile}
+
                             hideNavBar={true}
 
                         />
                         <Scene
                             key="FlightBookConfirm"
+
                             hideNavBar={true}
                             title='Search Result'
                             titleStyle={{ color: 'white' }}
@@ -199,6 +196,14 @@ class RootNavigation extends React.Component {
                                     />
 
 
+                                    <Scene
+
+                                        key="HotelSearch"
+                                        component={HotelSearch}
+                                        title='HotelSearch'
+                                        hideNavBar={true}
+                                        sceneStyle={{ backgroundColor: 'white' }}
+                                    />
 
                                     <Scene
                                         key='HotelSearchResult'

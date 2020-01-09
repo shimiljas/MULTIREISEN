@@ -11,6 +11,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import { Actions } from 'react-native-router-flux'
+import BackButton from '../../../components/BackButton'
 import { fonts } from '../../../config/fonts';
 import { normalize } from '../../../utils/Fontnormalize';
 import { colors } from '../../../config/colors';
@@ -19,17 +20,22 @@ export default class Booking extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
+
                 <ImageBackground source={Images.header}
                     resizeMode={'stretch'}
                     style={{ width: "100%", height: 200, }}>
-                    <TouchableOpacity
-                        style={{ flex: 1, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                    <View style={{
+                        width: "100%", height: 100, alignItems: "center",
+                        marginTop: verticalScale(10), flexDirection: "row"
+                    }}>
+                        <BackButton white onPress={() => Actions.pop()} />
                         <Text style={styles.text}>Booking</Text>
-                    </TouchableOpacity>
+                    </View>
+
                 </ImageBackground>
 
 
-                <ScrollView style={{ width: "100%", position: 'absolute', top: 130, paddingHorizontal: 10 }}>
+                <ScrollView style={{ width: "100%", position: 'absolute', top: 100, paddingHorizontal: 10 }}>
                     <TouchableOpacity style={{
 
                         width: "100%", height: 300, backgroundColor: "white", borderRadius: 20, justifyContent: "center",

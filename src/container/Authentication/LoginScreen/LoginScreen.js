@@ -170,7 +170,7 @@ export default class LoginScreen extends Component {
                         </ScrollableTabView>
                     </View>
 
-                    <View style={{ flex: 1.8, alignItems: 'center', justifyContent: 'center', paddingTop: 50 }}>
+                    <View style={{ flex: 1.8, alignItems: 'center', justifyContent: 'center', paddingTop: 20, marginBottom: 30 }}>
                         <TouchableOpacity
                             style={{ flex: 1 }}
                         >

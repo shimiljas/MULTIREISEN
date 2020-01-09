@@ -78,23 +78,7 @@ export default class SignupScreen extends Component {
                         </View>
                     </View>
                     <View style={{ flex: 1 }}></View>
-                    <View style={{ flex: 1.5, alignItems: 'center', marginBottom: verticalScale(80) }}>
-                        <TouchableOpacity
-                            style={{ flex: 1 }}
-                        >
-                            <View
-                                style={{
-                                    width: scale(300), height: verticalScale(50), backgroundColor: "#0780f9", borderRadius: 10,
-                                    alignItems: 'center', justifyContent: 'center'
-                                }}>
 
-                                <Text style={{ fontSize: 17, fontWeight: "bold", color: "#fff", }}>
-                                    Sign up with facebook
-                                </Text>
-
-                            </View>
-                        </TouchableOpacity>
-                    </View>
 
 
                 </ImageBackground >

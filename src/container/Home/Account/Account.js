@@ -27,7 +27,8 @@ let data = [
     },
     {
         name: 'Booking',
-        icon: <FontAwesome name="clock-o" color={colors.primaryColor} size={20} />
+        icon: <FontAwesome name="clock-o" color={colors.primaryColor} size={20}
+        />
     },
     {
         name: 'Terms & Condition',
@@ -46,13 +47,47 @@ let data = [
     },
 
 ]
-export default class Account extends Component {
+
+export default class SideMenu extends Component {
+    onPress = (title) => {
+        if (title === 'Book Flight') {
+            Actions.Book()
+            return
+        }
+
+        if (title === 'Book Hotel') {
+            Actions.HotelSearch()
+            return
+        }
+        if (title === 'Booking') {
+            Actions.Booking()
+            return
+        }
+        if (title === 'Chat') {
+            Actions.ChatScreen()
+            return
+        }
+        if (title === 'Terms & Condition') {
+            Actions.TermsCondtions()
+            return
+        }
+
+        if (title == 'Logout') {
+            Actions.login();
+            return
+        }
+    }
+
     render() {
         return (<ScrollView style={{ flex: 1, }}>
             <View style={{ flex: 1, alignItems: 'center' }}>
                 <ImageBackground source={Images.header}
                     resizeMode={'cover'}
-                    style={{ width: scale(300), height: verticalScale(250), marginTop: verticalScale(40), borderRadius: 30 }}>
+                    style={{
+                        borderRadius: 15,
+                        width: scale(300), height: verticalScale(250),
+                        marginTop: verticalScale(25), overflow: 'hidden'
+                    }}>
 
                     <View style={{ width: "100%", height: 80, flexDirection: "row" }}>
                         <View style={{ flex: 2, justifyContent: "center", alignItems: "center" }}>
@@ -93,8 +128,8 @@ export default class Account extends Component {
             </View>
             <FlatList
                 data={data}
-                style={{ padding: 10 }}
-                renderItem={({ item }) => <AccountItem name={item.name} icon={item.icon} />}
+                style={{ padding: 10, }}
+                renderItem={({ item }) => <AccountItem name={item.name} icon={item.icon} onPress={() => this.onPress(item.name)} />}
             />
         </ScrollView>
         )
