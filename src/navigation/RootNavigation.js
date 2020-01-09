@@ -29,7 +29,7 @@ import HotelSupport from '../container/Home/HotelSupport'
 import TermsCondtions from '../container/Home/TermsCondtions'
 import PaymentConfirmation from '../container/Home/PaymentConfirmation'
 import Country from '../container/Home/Country'
-
+import CityList from '../container/Home/CityList'
 
 
 import { Actions, Router, Stack, Scene, Drawer } from 'react-native-router-flux';
@@ -64,8 +64,15 @@ class RootNavigation extends React.Component {
                     <Stack key='root'>
 
                         <Scene
+                            initial
+                            key="HotelSearch"
+                            component={HotelSearch}
+                            title='HotelSearch'
+                            hideNavBar={true}
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
+                        <Scene
                             key='login'
-
                             component={LoginScreen}
                             title='Login'
                             hideNavBar={true}
@@ -82,7 +89,6 @@ class RootNavigation extends React.Component {
                             key='Booking'
                             component={Booking}
                             title='Booking'
-
                             hideNavBar={true}
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
@@ -92,7 +98,6 @@ class RootNavigation extends React.Component {
                             component={PaymentConfirmation}
                             title='PaymentConfirmation'
                             hideNavBar={true}
-
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
 
@@ -101,7 +106,6 @@ class RootNavigation extends React.Component {
                             component={ForgotPassword}
                             title='ForgotPassword'
                             hideNavBar={true}
-
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
 
@@ -111,7 +115,6 @@ class RootNavigation extends React.Component {
                             component={HotelSupport}
                             title='HotelSupport'
                             hideNavBar={true}
-
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
 
@@ -122,10 +125,15 @@ class RootNavigation extends React.Component {
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
                         <Scene
+                            key="CityList"
+                            title='CityList'
+                            component={CityList}
+                            sceneStyle={{ backgroundColor: 'white' }}
+                        />
+                        <Scene
                             key="TermsCondtions"
                             title='TermsCondtions'
                             hideNavBar={true}
-
                             component={TermsCondtions}
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
@@ -148,7 +156,6 @@ class RootNavigation extends React.Component {
                         <Drawer
                             hideNavBar
                             key="drawerMenu"
-
                             contentComponent={SideMenu}
                             drawerWidth={250}
                             drawerPosition="left"
@@ -181,9 +188,7 @@ class RootNavigation extends React.Component {
                                         navigationBarStyle={{ backgroundColor: colors.primary }}
                                         component={Book}
 
-                                    >
-                                    </Scene>
-
+                                    />
                                     <Scene
                                         key='FlightSearchResult'
                                         hideNavBar={true}
@@ -194,13 +199,6 @@ class RootNavigation extends React.Component {
                                     />
 
 
-                                    <Scene
-                                        key="HotelSearch"
-                                        component={HotelSearch}
-                                        title='HotelSearch'
-                                        hideNavBar={true}
-                                        sceneStyle={{ backgroundColor: 'white' }}
-                                    />
 
                                     <Scene
                                         key='HotelSearchResult'

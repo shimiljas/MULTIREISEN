@@ -72,7 +72,7 @@ export default class ResultCard extends Component {
                 </View>
                 <View style={{ flex: 3, flexDirection: 'row', alignItems: 'center' }}>
                     <View style={{ flex: 1 }}>
-                        <ImageBackground source={Images.yellowbutton} style={styles.rectangle62} >
+                        <ImageBackground source={Images.yellowbutton} style={styles.rectangle62} resizeMode={'contain'} >
                             <Text style={styles.recomended} >Recomended</Text>
                         </ImageBackground>
 
@@ -80,7 +80,7 @@ export default class ResultCard extends Component {
                     <Touchable
                         onPress={bookingNow}
                         style={{ flex: 1, alignItems: 'flex-start' }}>
-                        <ImageBackground source={Images.smallbutton} style={styles.rectangle62} >
+                        <ImageBackground source={Images.smallbutton} style={styles.rectangle62} resizeMode={'contain'} >
                             <Text style={styles.bookingNow} >Booking now</Text>
                         </ImageBackground>
                     </Touchable>
@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
         height: 53,
     },
     rectangle62: {
-        width: scale(151),
-        height: verticalScale(40),
+        width: scale(131),
+        height: verticalScale(35),
         borderTopLeftRadius: 0,
         borderTopRightRadius: 13,
         borderBottomLeftRadius: 0,

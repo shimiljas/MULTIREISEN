@@ -74,95 +74,95 @@ export default class InputSelector extends React.Component {
     };
   }
   render() {
-   
-    const {onPress,half,icon,placeHolder,onValueChange,value,options}=this.props
+
+    const { onPress, half, icon, placeHolder, onValueChange, value, options } = this.props
     const placeholder = {
-        label: placeHolder,
-        value: null,
-        color: '#9EA0A4',
-      };
+      label: placeHolder,
+      value: null,
+      color: '#9EA0A4',
+    };
     return (
 
-      <View 
-         style={half ? styles.rectangle93 : styles.rectangle90} >
-            <View style={half ? styles.container1 : styles.container12}>
-                <RNPickerSelect
-                    placeholder={placeholder}
-                    items={options}
-                    onValueChange={onValueChange}
-                    onUpArrow={() => {
-                    this.inputRefs.firstTextInput.focus();
-                    }}
-                    onDownArrow={() => {
-                    this.inputRefs.favSport1.togglePicker();
-                    }}
-                    style={pickerSelectStyles}
-                    value={value}
-                    ref={el => {
-                    this.inputRefs.favSport0 = el;
-                    }}
-                />
-            </View>
-            <View style={half ? styles.container2 : styles.container21}>
-                {icon}
-            </View>
+      <View
+        style={half ? styles.rectangle93 : styles.rectangle90} >
+        <View style={half ? styles.container1 : styles.container12}>
+          <RNPickerSelect
+            placeholder={placeholder}
+            items={options}
+            onValueChange={onValueChange}
+            onUpArrow={() => {
+              this.inputRefs.firstTextInput.focus();
+            }}
+            onDownArrow={() => {
+              this.inputRefs.favSport1.togglePicker();
+            }}
+            style={pickerSelectStyles}
+            value={value}
+            ref={el => {
+              this.inputRefs.favSport0 = el;
+            }}
+          />
         </View>
+        <View style={half ? styles.container2 : styles.container21}>
+          {icon}
+        </View>
+      </View>
 
-     
+
     );
   }
 }
 
 const styles = StyleSheet.create({
-    rectangle90: {
-        width: '90%',
-        marginHorizontal: 30,
-        height: verticalScale(40),
-        borderRadius: 9,
-        marginVertical: 7,
-        borderColor: '#d6d6d6',
-        borderStyle: 'solid',
-        borderWidth: 1,
-        backgroundColor: '#f6f6f6',
-        flexDirection: 'row',
-        overflow: 'hidden',
-    
-    },
-    container1: {
-        width:'80%',
-        justifyContent: 'center'
-    },
-    container12: {
-        flex: 9,
-        justifyContent: 'center'
-    },
-    container2: {
-        flex: 2,
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingRight: 5
-    
-    },
-    container21: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingRight: 5
-    
-    },
-    rectangle93: {
-        width: '42%',
-        height: verticalScale(40),
-        borderRadius: 9,
-        borderColor: '#d6d6d6',
-        borderStyle: 'solid',
-        borderWidth: 1,
-        backgroundColor: '#f6f6f6',
-        flexDirection: 'row',
-        marginHorizontal: 10,
-        marginVertical: 7,
-        overflow: 'hidden',
-    },
+  rectangle90: {
+    width: '90%',
+    marginHorizontal: 30,
+    height: verticalScale(40),
+    borderRadius: 9,
+    marginVertical: 7,
+    borderColor: '#d6d6d6',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    backgroundColor: '#f6f6f6',
+    flexDirection: 'row',
+    overflow: 'hidden',
+
+  },
+  container1: {
+    width: '80%',
+    justifyContent: 'center'
+  },
+  container12: {
+    flex: 9,
+    justifyContent: 'center'
+  },
+  container2: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingRight: 5
+
+  },
+  container21: {
+    flex: 1.3,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingRight: 5
+
+  },
+  rectangle93: {
+    width: '42%',
+    height: verticalScale(40),
+    borderRadius: 9,
+    borderColor: '#d6d6d6',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    backgroundColor: '#f6f6f6',
+    flexDirection: 'row',
+    marginHorizontal: 10,
+    marginVertical: 7,
+    overflow: 'hidden',
+  },
 });
 
 const pickerSelectStyles = StyleSheet.create({
@@ -170,19 +170,19 @@ const pickerSelectStyles = StyleSheet.create({
     fontSize: 16,
     borderRadius: 4,
     color: 'black',
-    padding:5,
+    padding: 5,
     backgroundColor: 'transparent',
     overflow: 'hidden',
-   // to ensure the text is never behind the icon
+    // to ensure the text is never behind the icon
   },
   inputAndroid: {
     fontSize: 16,
-    padding:5,
+    padding: 5,
     borderRadius: 4,
     color: 'black',
     backgroundColor: 'transparent',
     overflow: 'hidden',
- 
+
   },
-  
+
 });

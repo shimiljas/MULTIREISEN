@@ -24,6 +24,7 @@ import TopHeader from '../../../components/TopHeader'
 import _ from 'lodash'
 import RNPickerSelect, { defaultStyles } from 'react-native-picker-select';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+//import Entypo from 'react-native-vector-icons/Entypo'
 import moment from 'moment'
 const ROOM_TYPE = [
     {
@@ -61,35 +62,49 @@ export default class HotelSearch extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selected: '', Children: 0,
+            selected: '', Children: 2,
             previousRoomType: undefined,
             roomType: '',
+            adults: '',
             checkInModal: false,
             checkOutModal: false,
             checkIn: '',
-            checkOut: ''
+            Childern: '',
+            checkOut: '',
+            childrenAge: []
         }
 
 
+    }
+    numbserInputChange = (i, text) => {
+        console.log(i, text)
+        const { childrenAge } = this.state
+
+        childrenAge.push({ i: text })
+        this.setState({ childrenAge })
     }
 
 
     even = (quotient) => {
         if (quotient == 0) return null
         let card = [];
-        _.times(quotient, () => {
+        _.times(quotient, (i) => {
+            let rand1 = Math.floor(Math.random() * 11)
+            let rand2 = rand1 + 1
             card.push(
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                     <InputIcon half
                         placeholder={'Age'}
                         keyboardType={'numeric'}
                         returnKeyType={'done'}
-                        icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
+                        onChangeText={text => this.numbserInputChange(rand1, text)}
+                        icon={<Entypo name="user" size={20} color={'#898a8f'} />} />
                     <InputIcon
                         placeholder={'Age'}
                         keyboardType={'numeric'}
                         returnKeyType={'done'}
-                        half icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
+                        onChangeText={text => this.numbserInputChange(rand2, text)}
+                        half icon={<Entypo name="user" size={20} color={'#898a8f'} />} />
                 </View>
             );
         });
@@ -101,14 +116,15 @@ export default class HotelSearch extends Component {
         let quotient = ~~(Childern / 2)
         let remainder = Childern % 2;
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, }}>
                 {this.even(quotient)}
-                {remainder == 1 ? <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <InputIcon half
+                {remainder == 1 ? <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <InputIcon
+                        half
                         placeholder={'Age'}
                         keyboardType={'numeric'}
                         returnKeyType={'done'}
-                        icon={<AntDesign name="eye" size={20} color={'#898a8f'} />} />
+                        icon={<Entypo name="user" size={20} color={'#898a8f'} />} />
                 </View> : null}
             </View>
         )
@@ -134,27 +150,37 @@ export default class HotelSearch extends Component {
         //console.log(moment(date).format('YYYY-MM-DD'))
         this.hideDatePickerCheckOut();
     };
+    submit = () => {
+        console.log(this.state)
+        // Actions.HotelSearchResult()
+    }
     render() {
-        const { roomType, Childern } = this.state
+        const { roomType, Childern, adults } = this.state
         return (
-            <KeyboardAwareScrollView style={{ flex: 1, }}>
-
-                <View style={{ flex: 2 }}>
+            <KeyboardAwareScrollView style={{ flex: 1 }}>
+                <View style={{ flex: 1 }}>
                     <ImageBackground source={Images.header}
                         resizeMode={'cover'}
-                        style={{ flex: 1, width: '100%', height: verticalScale(130), marginBottom: 30 }}>
+                        style={{ flex: 1, width: '100%', height: verticalScale(130), marginBottom: 20 }}>
                         <TopHeader title={'Hotel'} />
 
                     </ImageBackground>
                 </View>
-
-                <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', marginTop: 40 }}>
+                <View style={{
+                    flex: 9,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    paddingHorizontal: scale(32),
+                    marginTop: verticalScale(15),
+                }}>
                     <View style={styles.rectangle76}>
 
                         <InputIcon
                             placeholder={'Country,City ,Hotel '}
                             returnKeyType={'done'}
-
+                            editable={false}
+                            value={this.props.cityname}
+                            onPress={() => Actions.CityList()}
                             icon={<Entypo name="location-pin" size={25} color={'#898a8f'} />} />
                         <InputIcon
                             placeholder={'Passenger Nationality'}
@@ -184,42 +210,52 @@ export default class HotelSearch extends Component {
                             returnKeyType={'done'}
                             icon={<FontAwesome name="bed" size={25} color={'#898a8f'} />} />
 
+
+
+                        {/* {this.renderChildren()} */}
+                    </View>
+                    <View style={styles.rectangle76}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                             <InputSelector
                                 placeHolder={'Room Type'}
-                                value={roomType}
-                                returnKeyType={'done'}
                                 options={ROOM_TYPE}
-                                onValueChange={value => this.setState({ roomType: value })}
-                                half icon={<Entypo name="users" size={20} color={'#898a8f'} />}
-                            />
+                                value={roomType}
+                                onValueChange={(text) => this.setState({ roomType: text })}
+                                half icon={<FontAwesome name="bed" size={20} color={'#898a8f'} />} />
                             <InputIcon
                                 placeholder={'Adults'}
-                                value={Childern}
+                                value={adults}
                                 keyboardType={'numeric'}
                                 returnKeyType={'done'}
-                                onChangeText={(text) => this.setState({ Childern: text })}
+                                onChangeText={(text) => this.setState({ adults: text })}
                                 half icon={<Entypo name="users" size={20} color={'#898a8f'} />} />
                         </View>
+                        <InputIcon
+                            placeholder={'Number of Children'}
+                            keyboardType={'numeric'}
+                            returnKeyType={'done'}
+                            value={Childern}
+                            onChangeText={(text) => this.setState({ Childern: text })}
+                            icon={<FontAwesome name="bed" size={25} color={'#898a8f'} />} />
 
                         {this.renderChildren()}
+
+                    </View>
+                    <View style={{ flex: 1, marginBottom: 10, alignItems: 'center', marginTop: 20 }}>
+                        <Touchable
+                            style={{ flex: 1 }}
+                            onPress={this.submit}>
+                            <ImageBackground
+                                source={Images.submit}
+                                resizeMode={'stretch'}
+                                style={{ width: scale(300), height: verticalScale(50), borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
+                            >
+                                <Text style={styles.search}>Search</Text>
+
+                            </ImageBackground>
+                        </Touchable>
                     </View>
 
-                </View>
-
-                <View style={{ flex: 1, marginBottom: 10, alignItems: 'center', marginTop: 30 }}>
-                    <Touchable
-                        style={{ flex: 1 }}
-                        onPress={() => Actions.HotelSearchResult()}>
-                        <ImageBackground
-                            source={Images.submit}
-                            resizeMode={'stretch'}
-                            style={{ width: scale(300), height: verticalScale(50), borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}
-                        >
-                            <Text style={styles.search}>Search</Text>
-
-                        </ImageBackground>
-                    </Touchable>
                 </View>
                 <DateTimePickerModal
                     isVisible={this.state.checkInModal}
@@ -236,7 +272,8 @@ export default class HotelSearch extends Component {
                     minimumDate={new Date()}
                 />
                 <View style={{ width: '100%', height: 50 }} />
-            </KeyboardAwareScrollView>)
+
+            </KeyboardAwareScrollView >)
     }
 }
 
@@ -256,9 +293,10 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     rectangle76: {
-        width: scale(300),
-        height: '100%',
+        flex: 1,
         paddingVertical: 10,
+        marginVertical: 10,
+
         shadowColor: 'rgba(0, 0, 0, 0.07)',
         shadowOffset: { width: 3, height: 0 },
         shadowRadius: 29,

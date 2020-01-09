@@ -28,56 +28,35 @@ export default class Account extends Component {
                     <Text style={styles.text}>Chat</Text>
                 </TouchableOpacity>
             </ImageBackground>
-            <ScrollView style={{ flex: 1, position: 'absolute', top: 130, }}>
-                <View style={{
+            <ScrollView style={{ width: '100%', position: 'absolute', top: 130 }}>
+                <View style={{ flex: 1, alignItems: 'center' }}>
+                    <View style={{
 
-                    width: 330, height: 150, backgroundColor: "white", borderRadius: 20, justifyContent: "center",
-                    marginLeft: verticalScale(20), marginTop: verticalScale(20),
-                }}>
+                        width: 330, height: 150, backgroundColor: "white", borderRadius: 20, justifyContent: "center",
+                        marginTop: verticalScale(20),
+                    }}>
 
-                    <Text style={{ fontSize: 16, fontWeight: "bold", marginLeft: verticalScale(15) }}>Flight support</Text>
-                    <View style={{ flexDirection: "row", marginTop: 10, marginTop: verticalScale(20) }}>
-                        <View style={{ flex: 4, justifyContent: "center", alignItems: "center" }}>
-                            <Text style={{ fontSize: 14, color: 'red' }}>CLOSED TODAY</Text>
-                        </View>
-                        <View style={{ flex: 3, justifyContent: "center", alignItems: "center" }}>
-                            <Text style={{ fontSize: 14 }}>09:30 AM</Text>
-                        </View>
-                        <View style={{ flex: 3, justifyContent: "center", alignItems: "center" }}>
-                            <View style={{
-                                width: 40, height: 40, borderWidth: .5, borderRadius: 20,
-                                justifyContent: "center", alignItems: "center"
-                            }}>
-                                <MaterialIcons name="chat-bubble-outline" color='grey' size={20} />
+                        <Text style={{ fontSize: 16, fontWeight: "bold", marginLeft: verticalScale(15) }}>Flight support</Text>
+                        <View style={{ flexDirection: "row", marginTop: 10, marginTop: verticalScale(20) }}>
+                            <View style={{ flex: 4, justifyContent: "center", alignItems: "center" }}>
+                                <Text style={{ fontSize: 14, color: 'red' }}>CLOSED TODAY</Text>
+                            </View>
+                            <View style={{ flex: 3, justifyContent: "center", alignItems: "center" }}>
+                                <Text style={{ fontSize: 14 }}>09:30 AM</Text>
+                            </View>
+                            <View style={{ flex: 3, justifyContent: "center", alignItems: "center" }}>
+                                <View style={{
+                                    width: 40, height: 40, borderWidth: .5, borderRadius: 20,
+                                    justifyContent: "center", alignItems: "center"
+                                }}>
+                                    <MaterialIcons name="chat-bubble-outline" color='grey' size={20} />
+                                </View>
                             </View>
                         </View>
                     </View>
                 </View>
             </ScrollView>
-            <View style={{
-                width: 330, height: 150, backgroundColor: "white", borderRadius: 20, justifyContent: "center",
-                marginLeft: verticalScale(20), marginTop: verticalScale(120)
-            }}>
 
-                <Text style={{ fontSize: 16, fontWeight: "bold", marginLeft: verticalScale(15) }}>Flight support</Text>
-                <View style={{ flexDirection: "row", marginTop: 10, marginTop: verticalScale(20) }}>
-                    <View style={{ flex: 4, justifyContent: "center", alignItems: "center" }}>
-                        <Text style={{ fontSize: 14, color: 'green' }}>OPEN TODAY</Text>
-                    </View>
-                    <View style={{ flex: 3, justifyContent: "center", alignItems: "center" }}>
-                        <Text style={{ fontSize: 14 }}>09:30 AM</Text>
-                    </View>
-                    <View style={{ flex: 3, justifyContent: "center", alignItems: "center" }}>
-                        <View style={{
-                            width: 40, height: 40, borderWidth: .5, borderRadius: 20,
-                            justifyContent: "center", alignItems: "center"
-                        }}>
-                            <MaterialIcons name="chat-bubble-outline" color='grey' size={20} />
-
-                        </View>
-                    </View>
-                </View>
-            </View>
         </View >
         )
     }
