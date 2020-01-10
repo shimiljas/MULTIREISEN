@@ -1,8 +1,7 @@
 /* eslint-disable prefer-template */
 /* eslint-disable */
 /* eslint-disable arrow-parens */
-import cache from 'memory-cache';
-import store from 'store';
+
 import { encode } from 'base-64';
 
 // //const BASE_URL = process.env.REACT_APP_API_ENDPOINT;
@@ -19,19 +18,19 @@ const OATH_VERSION = 'v1'
 
 const GENERIC_ERROR = 'Something went wrong. Please try again.';
 import AsyncStorage from '@react-native-community/async-storage';
-import convert from 'xml-js'
+
 
 let AccessToken = null
 export const setToken = async (t) => {
     console.log(t)
     AccessToken = t;
-    store.set('token', t);
+
     await AsyncStorage.setItem('token', t)
 };
 
 export const clearToken = () => {
     AccessToken = null;
-    store.remove('token');
+
 };
 
 export const getToken = async () => {
@@ -128,10 +127,7 @@ const checkStatusAndParseJSON = response => response.json()
 const bail = message => Promise.reject(GENERIC_ERROR || message);
 
 const getAndCache = (endpoint) => {
-    const cachedData = cache.get(endpoint);
-    if (cachedData) {
-        return Promise.resolve(cachedData);
-    }
+
     return fetch(`${BASE_URL}/${endpoint}`, {
         headers: {
             ...BuildHeaders(),
@@ -140,7 +136,7 @@ const getAndCache = (endpoint) => {
     })
         .catch(bail)
         .then(checkStatusAndParseJSON)
-        .then(res => cache.put(endpoint, res, DEFAULT_CACHE_TIME));
+
 };
 
 const post = (endpoint, data) => {
@@ -176,10 +172,7 @@ const put = (endpoint, data) => fetch(`${BASE_URL}/${endpoint}`, {
 })
     .catch(bail)
     .then(checkStatusAndParseJSON)
-    .then((res) => {
-        cache.clear();
-        return res;
-    });
+
 
 const del = (endpoint, data) => fetch(`${BASE_URL}/${endpoint}`, {
     method: 'DELETE',
@@ -190,9 +183,6 @@ const del = (endpoint, data) => fetch(`${BASE_URL}/${endpoint}`, {
     body: JSON.stringify(data),
 })
     .then(checkStatusAndParseJSON)
-    .then(() => {
-        cache.clear();
-    })
     .catch(bail);
 
 

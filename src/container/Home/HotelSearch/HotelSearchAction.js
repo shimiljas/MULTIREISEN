@@ -4,7 +4,7 @@ export const SERACH_SUCCESS = 'SERACH_SUCCESS';
 export const SERACH_FAILURE = 'SERACH_FAILURE';
 import { toast, } from '../../../components/Toast'
 import * as api from '../../../utils/ApiManager/api'
-import convert from 'xml-js'
+
 export const searchHotel = (data) => dispatch => {
 
     dispatch({ type: SERACH_REQUEST });
