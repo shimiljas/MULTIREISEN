@@ -22,8 +22,9 @@ export default class Booking extends Component {
             <View style={{ flex: 1, alignItems: "center" }}>
 
                 <ImageBackground source={Images.header}
-                    resizeMode={'stretch'}
-                    style={{ width: "100%", height: 200, }}>
+                    resizeMode={'cover'}
+                    style={{ flex: 1, width: '100%', height: verticalScale(170), }}>
+
                     <View style={{
                         width: "100%", height: 100, alignItems: "center",
                         marginTop: verticalScale(10), flexDirection: "row"

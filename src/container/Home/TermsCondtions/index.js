@@ -22,8 +22,9 @@ export default class TermsCondtions extends Component {
     render() {
         return (<View style={{ flex: 1, }}>
             <ImageBackground source={Images.header}
-                resizeMode={'stretch'}
-                style={{ width: "100%", height: verticalScale(200), }}>
+                resizeMode={'cover'}
+                style={{ flex: 1, width: '100%', height: verticalScale(170), marginBottom: 20 }}>
+
                 <View style={{ flex: 1, marginTop: verticalScale(30), }}>
 
                     <BackButton title={'Terms & Conditions'}

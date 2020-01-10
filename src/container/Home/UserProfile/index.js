@@ -23,8 +23,9 @@ export default class Account extends Component {
         return (
             <View style={{ flex: 1, alignItems: "center", }}>
                 <ImageBackground source={Images.header}
-                    resizeMode={'stretch'}
-                    style={{ width: "100%", height: 200, }}>
+                    resizeMode={'cover'}
+                    style={{ flex: 1, width: '100%', height: verticalScale(170), }}>
+
                     <View style={{ width: "100%", height: 10, marginTop: verticalScale(10) }}>
                         <BackButton black onPress={() => Actions.pop()} />
                     </View>

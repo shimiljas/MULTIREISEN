@@ -15,14 +15,16 @@ import { fonts } from '../../../config/fonts';
 import { normalize } from '../../../utils/Fontnormalize';
 import { colors } from '../../../config/colors';
 import BackButton from '../../../components/BackButton'
+import TopHeader from '../../../components/TopHeader'
 
 
 export default class Account extends Component {
     render() {
         return (<View style={{ flex: 1, }}>
             <ImageBackground source={Images.header}
-                resizeMode={'stretch'}
-                style={{ width: "100%", height: 200, }}>
+                resizeMode={'cover'}
+                style={{ flex: 1, width: '100%', height: verticalScale(130), marginBottom: 20 }}>
+
                 <TouchableOpacity
                     style={{ flex: 1, marginTop: verticalScale(30), }}>
                     <BackButton title={'Chat'}
@@ -30,7 +32,7 @@ export default class Account extends Component {
                 </TouchableOpacity>
 
             </ImageBackground>
-            <ScrollView style={{ width: '100%', position: 'absolute', top: 130 }}>
+            <ScrollView style={{ width: '100%', position: 'absolute', top: 90 }}>
                 <View style={{ flex: 1, alignItems: 'center' }}>
                     <View style={{
 
@@ -48,7 +50,7 @@ export default class Account extends Component {
                             </View>
                             <TouchableOpacity style={{ flex: 3, justifyContent: "center", alignItems: "center" }
                             }
-                            onPress={() => Actions.HotelSupport()} 
+                                onPress={() => Actions.HotelSupport()}
                             >
                                 <View style={{
                                     width: 40, height: 40, borderWidth: .5, borderRadius: 20,
