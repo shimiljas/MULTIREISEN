@@ -55,9 +55,10 @@ const ROOM_TYPE = [
 
 import InputSelector from '../../../components/InputSelector'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { toast } from '../../../components/Toast'
 
-
-
+import { Toast, } from 'native-base';
+import * as api from '../../../utils/ApiManager/api'
 export default class HotelSearch extends Component {
     constructor(props) {
         super(props);
@@ -71,17 +72,19 @@ export default class HotelSearch extends Component {
             checkIn: '',
             Childern: '',
             checkOut: '',
-            childrenAge: []
+            childrenAge: [],
+            index: 0,
+            textInput: [],
+            inputData: []
         }
 
 
     }
-    numbserInputChange = (i, text) => {
-        console.log(i, text)
-        const { childrenAge } = this.state
 
-        childrenAge.push({ i: text })
-        this.setState({ childrenAge })
+    numbserInputChange = (i, text) => {
+        if (i == 1) {
+            this.setState({})
+        }
     }
 
 
@@ -112,9 +115,9 @@ export default class HotelSearch extends Component {
 
     }
     renderChildren = () => {
-        const { Childern } = this.state
-        let quotient = ~~(Childern / 2)
-        let remainder = Childern % 2;
+        const { textInput } = this.state
+        let quotient = ~~(textInput.length / 2)
+        let remainder = textInput % 2;
         return (
             <View style={{ flex: 1, }}>
                 {this.even(quotient)}
@@ -151,11 +154,108 @@ export default class HotelSearch extends Component {
         this.hideDatePickerCheckOut();
     };
     submit = () => {
+        const { checkIn, checkOut, roomType, adults, NumberofRooms } = this.state
+        const { searchHotel } = this.props
+        searchHotel({
+            "cityId": "104361",
+            "checkIn": "2020-11-20",
+            "checkOut": "2020-11-30",
+            "rooms": [
+                {
+                    "roomType": "double",
+                    "children": [
+                        "8",
+                        "1"
+                    ]
+                }
+            ],
+            "category": "0",
+            "nationality": "IND",
+            "residence": "IND"
+
+        })
+        return;
+        if (!this.props.cityname) {
+            toast({ type: 'danger', text: 'please enter city name' })
+            return;
+        }
+        if (!this.props.code) {
+            toast({ type: 'danger', text: 'please enter nationality' })
+            return;
+        }
+        if (!NumberofRooms) {
+            toast({ type: 'danger', text: 'please enter number of rooms' })
+            return;
+        }
+        if (!checkIn) {
+            toast({ type: 'danger', text: 'please enter check In' })
+            return;
+        }
+        if (!checkOut) {
+            toast({ type: 'danger', text: 'please enter check Out' })
+            return;
+        }
+        if (!roomType) {
+            toast({ type: 'danger', text: 'please enter  room type' })
+            return;
+        }
+        if (!adults) {
+            toast({ type: 'danger', text: 'please enter  adults count' })
+            return;
+        }
+
+
         console.log(this.state)
-        // Actions.HotelSearchResult()
+        console.log(this.props.name, this.props.code, this.props.cityname, this.props.cityid)
+    }
+    addTextInput = (index) => {
+        let textInput = this.state.textInput;
+        textInput.push(
+            <InputIcon
+                placeholder={'Age'}
+                keyboardType={'numeric'}
+                returnKeyType={'done'}
+                onChangeText={(text) => this.addValues(text, index)}
+                icon={<Entypo name="user" size={20} color={'#898a8f'} />} />
+        );
+        this.setState({ textInput });
+    }
+
+    //function to remove TextInput dynamically
+    removeTextInput = () => {
+        let textInput = this.state.textInput;
+        let inputData = this.state.inputData;
+        textInput.pop();
+        inputData.pop();
+        this.setState({ textInput, inputData });
+    }
+
+    //function to add text from TextInputs into single array
+    addValues = (text, index) => {
+        let dataArray = this.state.inputData;
+        let checkBool = false;
+        if (dataArray.length !== 0) {
+            dataArray.forEach(element => {
+                if (element.index === index) {
+                    element.text = text;
+                    checkBool = true;
+                }
+            });
+        }
+        if (checkBool) {
+            this.setState({
+                inputData: dataArray
+            });
+        }
+        else {
+            dataArray.push({ 'text': text, 'index': index });
+            this.setState({
+                inputData: dataArray
+            });
+        }
     }
     render() {
-        const { roomType, Childern, adults } = this.state
+        const { roomType, Childern, adults, NumberofRooms } = this.state
         return (
             <KeyboardAwareScrollView style={{ flex: 1 }}>
                 <View style={{ flex: 1 }}>
@@ -208,6 +308,8 @@ export default class HotelSearch extends Component {
                             placeholder={'Number of Rooms'}
                             keyboardType={'numeric'}
                             returnKeyType={'done'}
+                            value={NumberofRooms}
+                            onChangeText={(text) => this.setState({ NumberofRooms: text })}
                             icon={<FontAwesome name="bed" size={25} color={'#898a8f'} />} />
 
 
@@ -227,6 +329,7 @@ export default class HotelSearch extends Component {
                                 value={adults}
                                 keyboardType={'numeric'}
                                 returnKeyType={'done'}
+
                                 onChangeText={(text) => this.setState({ adults: text })}
                                 half icon={<Entypo name="users" size={20} color={'#898a8f'} />} />
                         </View>
@@ -238,7 +341,22 @@ export default class HotelSearch extends Component {
                             onChangeText={(text) => this.setState({ Childern: text })}
                             icon={<FontAwesome name="bed" size={25} color={'#898a8f'} />} />
 
-                        {this.renderChildren()}
+                        {/* {this.renderChildren()} */}
+
+
+                        {this.state.textInput.map((value) => {
+                            return value
+                        })}
+                        <View style={{ width: scale(260), height: 60, justifyContent: 'center' }}>
+                            <Touchable
+                                onPress={() => this.addTextInput(this.state.textInput.length)}
+                                style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                                <AntDesign name="plus" size={18} color={colors.grey} />
+                                <Text style={{ color: colors.grey, marginLeft: 10 }}>Add child Age</Text>
+                            </Touchable>
+
+
+                        </View>
 
                     </View>
                     <View style={{ flex: 1, marginBottom: 10, alignItems: 'center', marginTop: 20 }}>
@@ -296,7 +414,6 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingVertical: 10,
         marginVertical: 10,
-
         shadowColor: 'rgba(0, 0, 0, 0.07)',
         shadowOffset: { width: 3, height: 0 },
         shadowRadius: 29,

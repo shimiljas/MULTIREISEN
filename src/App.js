@@ -25,16 +25,18 @@ class App extends Component {
     }
     content = () => {
         return (
-            <Provider store={store.store}>
-                <PersistGate loading={<ActivityIndicator />} persistor={store.persistor}>
-                    <View style={{ flex: 1, backgroundColor: "#6e78f7" }}>
-                        <StatusBar translucent backgroundColor={"#6e78f7"} />
-                        <Root>
+            <Root>
+                <Provider store={store.store}>
+                    <PersistGate loading={<ActivityIndicator />} persistor={store.persistor}>
+                        <View style={{ flex: 1, backgroundColor: "#6e78f7" }}>
+                            <StatusBar translucent backgroundColor={"#6e78f7"} />
+
                             <RootNavigation />
-                        </Root>
-                    </View>
-                </PersistGate>
-            </Provider>
+
+                        </View>
+                    </PersistGate>
+                </Provider>
+            </Root>
         )
     }
 

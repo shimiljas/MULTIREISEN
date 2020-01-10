@@ -63,6 +63,7 @@ class RootNavigation extends React.Component {
                 <Router>
                     <Stack key='root'>
 
+
                         <Scene
                             key='login'
                             component={LoginScreen}
@@ -121,8 +122,6 @@ class RootNavigation extends React.Component {
                             key="CityList"
                             title='CityList'
                             component={CityList}
-                            hideNavBar={true}
-
                             sceneStyle={{ backgroundColor: 'white' }}
                         />
                         <Scene
@@ -194,7 +193,6 @@ class RootNavigation extends React.Component {
                                         navigationBarStyle={{ backgroundColor: colors.primary }}
                                         component={FlightSearchResult}
                                     />
-
 
                                     <Scene
 

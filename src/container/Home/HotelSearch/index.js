@@ -3,7 +3,7 @@ import HotelSearch from './HotelSearch';
 
 import { connect } from 'react-redux';
 
-
+import { searchHotel } from './HotelSearchAction'
 const mapStateToPops = state => ({
   name: state.country.name,
   code: state.country.code,
@@ -13,5 +13,5 @@ const mapStateToPops = state => ({
 });
 
 
-export default connect(mapStateToPops, null)(HotelSearch);
+export default connect(mapStateToPops, { searchHotel })(HotelSearch);
 

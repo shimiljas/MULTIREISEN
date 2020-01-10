@@ -38,7 +38,8 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 UIManager.setLayoutAnimationEnabledExperimental &&
     UIManager.setLayoutAnimationEnabledExperimental(true);
-
+import * as api from '../../../utils/ApiManager/api'
+import { toast } from '../../../components/Toast'
 const TabSelector = ({ selected }) => {
     return (
         <View style={styles.selectorContainer}>
@@ -67,6 +68,9 @@ export default class LoginScreen extends Component {
         // this.login = this.login.bind(this);
         // this.signUp = this.signUp.bind(this);
     }
+    componentDidMount() {
+        console.log(api)
+    }
 
     selectCategory = (selectedCategory) => {
         LayoutAnimation.easeInEaseOut();
@@ -81,6 +85,17 @@ export default class LoginScreen extends Component {
         } else if (tab.i == 1) {
             this.setState({ tab: 'signup' })
         }
+    }
+    LoginClick = () => {
+        api.getAccessToken()
+            .then(res => {
+                api.setToken(res.accessToken)
+                Actions.drawerMenu()
+            })
+            .catch(err => {
+                toast({ type: 'danger', text: "Something went wrong" })
+            })
+        // Actions.drawerMenu()
     }
 
     render() {
@@ -131,7 +146,7 @@ export default class LoginScreen extends Component {
                                 <View style={{ width: '100%', marginTop: 50, height: 180, alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: -140 }}>
                                     <LargButton size="medium"
                                         title="Login"
-                                        onPress={() => Actions.drawerMenu()}
+                                        onPress={() => this.LoginClick()}
                                     />
                                 </View>
                             </View>
